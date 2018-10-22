@@ -7,6 +7,10 @@
     <title>Page Title</title>
 </head>
 <body>
-    
+    <form action="submit.php" method="post">
+        Username: <input type="text" name="username">
+        Mail: <input type="text" name="mail">
+        Password: <input type="password" name="password">
+    </form>
 </body>
 </html>
