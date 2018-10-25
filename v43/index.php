@@ -28,6 +28,7 @@
         <p>Username:</p> <input type="text" name="username"> <br>
         <p>Mail:</p> <input type="text" name="mail"> <br>
         <p>Password:</p> <input type="password" name="password"> <br>
+        <input type="submit">
     </form>
 </body>
 </html>
