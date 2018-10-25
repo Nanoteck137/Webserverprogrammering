@@ -1,7 +1,10 @@
 <?php
-    $dbc_uppgift = mysqli_connect("localhost", "root", "", "uppgift");
-
-    if(isset($_POST["username"]) && isset($_POST["mail"]) && isset($_POST["password"])) {
+    if(isset($_POST["username"]) && 
+        isset($_POST["mail"]) && 
+        isset($_POST["password"])) 
+    {
+        $dbc_uppgift = mysqli_connect("localhost", "root", "", "uppgift");
+    
         $username = $_POST["username"];
         $mail = $_POST["mail"];
         $password = $_POST["password"];
