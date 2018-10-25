@@ -6,7 +6,7 @@
     $password = $_POST["password"];
 
 
-    $query = "INSERT INTO users(username, mail, password) VALUES ('$username', '$mail', '123')";
+    $query = "INSERT INTO users(username, mail, password) VALUES ('$username', '$mail', '$password')";
     mysqli_query($dbc_uppgift, $query);
     mysqli_info($dbc_uppgift);
 ?>
