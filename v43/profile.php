@@ -13,6 +13,8 @@
 
         if($_SESSION["login_valid"] == true) {
             echo "<h1>Hello " . $_SESSION["name"] . "</h1>";
+        } else {
+            header("location: index.php");
         }
     ?>
 

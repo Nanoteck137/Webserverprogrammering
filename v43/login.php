@@ -18,5 +18,5 @@
         $_SESSION["login_valid"] = false;
     }
 
-    header("location: profile.php");
+    header("location: index.php");
 ?>
