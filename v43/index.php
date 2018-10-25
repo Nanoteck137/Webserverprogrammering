@@ -40,7 +40,7 @@
     <br>
     <form action="login.php" method="post">
         <p>Username:</p> <input type="text" name="username"> <br>
-        <p>Password:</p> <input type="text" name="password"> <br>
+        <p>Password:</p> <input type="password" name="password"> <br>
         <input type="submit" value="Login">
     </form>
 </body>
