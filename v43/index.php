@@ -24,13 +24,6 @@
     </style>
 </head>
 <body>
-    <?php
-        session_start();
-
-        if($_SESSION["login_valid"] == true) {
-            echo "<h2>Hello " . $_SESSION["name"] . "</h1>"; 
-        }
-    ?>
     <form action="submit.php" method="post">
         <p>Username:</p> <input type="text" name="username"> <br>
         <p>Mail:</p> <input type="mail" name="mail"> <br>
