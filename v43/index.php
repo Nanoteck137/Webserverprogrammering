@@ -28,7 +28,13 @@
         <p>Username:</p> <input type="text" name="username"> <br>
         <p>Mail:</p> <input type="mail" name="mail"> <br>
         <p>Password:</p> <input type="password" name="password"> <br>
-        <input type="submit">
+        <input type="submit" value="Register">
+    </form>
+    <br>
+    <form action="login.php" method="post">
+        <p>Username:</p> <input type="text" name="username"> <br>
+        <p>Password:</p> <input type="text" name="password"> <br>
+        <input type="submit" value="Login">
     </form>
 </body>
 </html>
