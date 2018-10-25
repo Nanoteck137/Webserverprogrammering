@@ -26,7 +26,7 @@
 <body>
     <form action="submit.php" method="post">
         <p>Username:</p> <input type="text" name="username"> <br>
-        <p>Mail:</p> <input type="text" name="mail"> <br>
+        <p>Mail:</p> <input type="mail" name="mail"> <br>
         <p>Password:</p> <input type="password" name="password"> <br>
         <input type="submit">
     </form>
