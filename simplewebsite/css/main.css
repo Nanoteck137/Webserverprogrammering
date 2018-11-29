@@ -46,12 +46,32 @@
 }
 
 #header-left {
+    width: 70%;
     display: flex;
-    justify-content: space-between;   
+    justify-content: space-evenly;
 }
 
 #header-right {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 
+#header-right .header-item {
+    height: 100%;
+    font-size: 1em;
+}
+
+#header-right .header-item > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#content {
+    margin: 10px 0px;
 }
 
 .footer-item {

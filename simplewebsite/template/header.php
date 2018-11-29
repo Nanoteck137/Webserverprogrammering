@@ -1,13 +1,21 @@
 <div id="header">
     <div id="header-left">
-        <a class="header-item" href="index.php">Home</a>
-        <a class="header-item" href="#">Wow</a>
-        <a class="header-item" href="#">Wow</a>
-        <a class="header-item" href="#">Wow</a>
+        <a class="header-item" href="index.php"><p>Home</p></a>    
+        <a class="header-item" href="index.php"><p>Wow</p></a>
     </div>
     
     <div id="header-right">
-        <a class="header-item" href="#">Profile</a>
-        <a class="header-item" href="#">Logout</a>
+        <?php
+        if(isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
+        ?>
+            <a class="header-item" href="profile.php"><p>Profile</p></a>
+            <a class="header-item" href="logout.php"><p>Logout</p></a>
+        <?php
+        } else {
+        ?>
+            <a class="header-item" href="login.php"><p>Login</p></a>
+        <?php
+        }
+        ?>
     </div>
 </div>

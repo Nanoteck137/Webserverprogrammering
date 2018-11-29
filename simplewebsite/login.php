@@ -37,12 +37,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Title</title>
-
-    <link rel="stylesheet" href="css/main.css">
+    <?php 
+    require("template/head.php");
+    ?>
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
