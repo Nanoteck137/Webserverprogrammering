@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require("include/auth.php");
     require("include/website_db.php");
 ?>
 
@@ -18,20 +19,13 @@
 
         <div id="content">
             <?php
-            if (isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
-                $user_id = $_SESSION["user_id"];
-
-                $query = "SELECT * FROM users WHERE id=$user_id";
-                $result = mysqli_query($dbc_website, $query);
-
-                if (mysqli_num_rows($result) === 1) {
-                    $row = mysqli_fetch_array($result);
+            if (is_logged_in()) {
+                $profile = get_user_data($dbc_website);
             ?>
-                    <h3>Username: <?php echo $row["user_name"]; ?></h3>
-                    <h3>Email: <?php echo $row["user_email"]; ?></h3>
-                    <h3>Password: <?php echo $row["user_password"]; ?></h3>
+                <h3>Username: <?php echo $profile->get_user_name(); ?></h3>
+                <h3>Email: <?php echo $profile->get_email(); ?></h3>
+                <h3>Type: <?php echo $profile->get_type(); ?></h3>
             <?php
-                }
             }
             ?>
         </div>

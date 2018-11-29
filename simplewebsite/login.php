@@ -8,30 +8,33 @@ if(isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
 }
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
-    //Handle login request
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    if(isset($_POST["loginSubmit"])) {
+        //Handle login request
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
-    $query = "SELECT * FROM users WHERE user_name='$username'";
-    $result = mysqli_query($dbc_website, $query);
+        $query = "SELECT * FROM users WHERE user_name='$username'";
+        $result = mysqli_query($dbc_website, $query);
 
-    if(mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_array($result);
-        //TODO: Hash password
-        if($row["user_password"] === $password) {
-            //NOTE: Login
-            $_SESSION["valid_login"] = true;
-            $_SESSION["user_id"] = $row["id"];
+        if(mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_array($result);
+            //TODO: Hash password
+            if($row["user_password"] === $password) {
+                //NOTE: Login
+                $_SESSION["valid_login"] = true;
+                $_SESSION["user_id"] = $row["id"];
 
-            header("location: index.php");
+                header("location: index.php");
+            } else {
+                //NOTE: Login Failed, Password check failed
+                $_SESSION["valid_login"] = false;
+                header("location: login.php");
+            }
         } else {
-            //NOTE: Login Failed
-            header("location: login.php");
+            //No user exists
         }
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +51,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         require("template/header.php");
         ?>
 
-        <form action="login.php" method="post" id="login">
-            <input type="text" placeholder="Username" name="username">
-            <input type="password" placeholder="Password" name="password">
-            <input type="submit" name="submit" value="Login">
-        </form>
+        <div id="content">
+            <form action="login.php" method="post" id="login">
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <input type="submit" name="loginSubmit" value="Login">
+                <p>Don't have an account, register one <a href="register.php">here</a></p>
+            </form>
+        </div>
 
         <?php
         require("template/footer.php");
