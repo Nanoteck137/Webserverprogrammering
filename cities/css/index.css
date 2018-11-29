@@ -1,0 +1,8 @@
+.table-item th, td {
+    border-bottom: 2px solid black;
+    padding: 10px;
+}
+
+.table-item:nth-child(even) {
+    background-color: #DDDDDD;
+}

@@ -27,7 +27,7 @@
     <?php
         session_start();
 
-        if($_SESSION["login_valid"] == true) {
+        if(isset($_SESSION["login_valid"]) && $_SESSION["login_valid"] == true) {
             header("location: profile.php");
         }
     ?>
