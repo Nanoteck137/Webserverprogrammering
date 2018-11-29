@@ -19,6 +19,9 @@
     justify-content: space-around;
 
     padding: 10px 0px;
+
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
 }
 
 .header-item {
@@ -42,6 +45,15 @@
     background-color: #aaaaaa;
 }
 
+#header-left {
+    display: flex;
+    justify-content: space-between;   
+}
+
+#header-right {
+
+}
+
 .footer-item {
     font-size: 1.1em;
     padding: 10px;
@@ -49,4 +61,9 @@
 
 .header-item:active {
     text-decoration: underline;
+}
+
+#footer {
+    border-top: 1px solid black;
+    margin-top: 10px;
 }
