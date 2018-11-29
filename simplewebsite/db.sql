@@ -1,0 +1,11 @@
+DROP DATABASE website;
+
+CREATE DATABASE website;
+USE website;
+
+CREATE TABLE users(
+    id INT(8) PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(15) NOT NULL UNIQUE,
+    user_password VARCHAR(15) NOT NULL,
+    email VARCHAR(32) NOT NULL UNIQUE
+);
