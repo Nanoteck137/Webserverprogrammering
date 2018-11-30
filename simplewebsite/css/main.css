@@ -74,6 +74,37 @@
     margin: 10px 0px;
 }
 
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form > * {
+    width: 300px;
+
+    border-radius: 4px;
+    border: 2px solid black;
+    padding: 10px;
+
+    text-align: center;
+
+    margin: 4px;
+}
+
+.form-input-error {
+    border: 2px solid red;
+}
+
+.form input[type=submit] {
+    color: black;
+    background-color: #FF00FF;
+    border: none;
+
+    border-radius: 4px;
+}
+
 .footer-item {
     font-size: 1.1em;
     padding: 10px;

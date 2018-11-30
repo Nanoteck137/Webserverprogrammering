@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        $query = "SELECT * FROM users WHERE user_name='$username'";
+        $query = "SELECT * FROM users WHERE user_name LIKE '%$username%'";
         $result = mysqli_query($dbc_website, $query);
 
         if(mysqli_num_rows($result) === 1) {
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         ?>
 
         <div id="content">
-            <form action="login.php" method="post" id="login">
+            <form class="form" action="login.php" method="post" id="login">
                 <input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password">
                 <input type="submit" name="loginSubmit" value="Login">
