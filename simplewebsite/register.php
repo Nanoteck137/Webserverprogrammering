@@ -81,8 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             ?>
             <form class="form" action="register.php" method="post">
-                <input type="text" placeholder="Username" name="username" autocomplete="off">
-                <input type="email" placeholder="Email" name="email">
+                <input class="<?php echo (isset($usernameExists) && $usernameExists) ? "form-input-error" : ""; ?>" type="text" placeholder="Username" name="username" autocomplete="off">
+                <input class="<?php echo (isset($emailExists) && $emailExists) ? "form-input-error" : ""; ?>" type="email" placeholder="Email" name="email">
                 <input type="password" placeholder="Password" name="password">
                 <input class="<?php echo (isset($password_match) && !$password_match) ?  "form-input-error" : "";?>" type="password" placeholder="Confirm Password" name="confirm_password">
                 <input type="submit" name="registerSubmit" value="Register">
