@@ -1,0 +1,14 @@
+Register.php:
+Register form needs to have error handling if the user input wrong details
+Filter the inputs: Email
+
+Login needs error handling
+
+Old code:
+
+register.php:
+    <input class="<?php echo (isset($usernameExists) && $usernameExists) ? "form-input-error" : ""; ?>" type="text" placeholder="Username" name="username" autocomplete="off">
+    <input class="<?php echo (isset($emailExists) && $emailExists) ? "form-input-error" : ""; ?>" type="email" placeholder="Email" name="email">
+    <input type="password" placeholder="Password" name="password">
+    <input class="<?php echo (isset($password_match) && !$password_match) ?  "form-input-error" : "";?>" type="password" placeholder="Confirm Password" name="confirm_password">
+    <input type="submit" name="registerSubmit" value="Register">

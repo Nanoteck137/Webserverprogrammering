@@ -58,21 +58,21 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input type="submit" name="loginSubmit" value="Login">
                 <p>Don't have an account, register one <a href="register.php">here</a></p>-->
 
-                <div class="group card">
-                    <input class="input" type="text" name="username" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Username</label>
+                <div class="form-input-group card">
+                    <input class="form-input" type="text" name="username" required>
+                    <span class="form-highlight"></span>
+                    <span class="form-bar"></span>
+                    <label class="form-label">Username</label>
                 </div>
 
-                <div class="group card">
-                    <input class="input" type="password" name="password" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Password</label>
+                <div class="form-input-group card">
+                    <input class="form-input" type="password" name="password" required>
+                    <span class="form-highlight"></span>
+                    <span class="form-bar"></span>
+                    <label class="form-label">Password</label>
                 </div>
 
-                <input class="input-button" type="submit" name="loginSubmit" value="Login">
+                <input class="form-input-button" type="submit" name="loginSubmit" value="Login">
             </form>
         </div>
 

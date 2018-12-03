@@ -13,13 +13,13 @@
     border-radius: 10px;
 }
    
-.group {
+.form-input-group {
     position: relative;
     margin-bottom: 35px;
     border-radius: 10px;
 }
 
-.input-button {
+.form-input-button {
     display: block;
     width: 200px;
     font-size: 1.4em;
@@ -35,7 +35,7 @@
     border-radius: 10px;
 }
 
-.input {
+.form-input {
     display: block;
     font-size: 18px;
     
@@ -49,11 +49,11 @@
     background-color: var(--primary-color);
 }
 
-.input:focus {
+.form-input:focus {
     outline: none;
 }
 
-label {
+.form-label {
     color: var(--primary-color-text);
     font-size: 18px;
     font-weight: normal;
@@ -66,19 +66,19 @@ label {
     transition: 0.2s ease all;
 }
 
-.input:focus ~ label, .input:valid ~ label {
+.form-input:focus ~ label, .form-input:valid ~ label {
     top: -20px; 
     font-size: 14px;
     color: var(--primary-color-text);
 }
 
-.bar {
+.form-bar {
     position: relative;
     display: block;
     width: 440px;
 }
 
-.bar:before, .bar:after   {
+.form-bar:before, .form-bar:after   {
     content: '';
     height: 2px; 
     width: 0;
@@ -87,18 +87,18 @@ label {
     background: var(--secondary-color); 
     transition: 0.2s ease all; 
 }
-.bar:before {
+.form-bar:before {
     left: 50%;
 }
-.bar:after {
+.form-bar:after {
     right: 50%; 
 }
 
-.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+.form-input:focus ~ .form-bar:before, .form-input:focus ~ .form-bar:after {
     width: 50%;
 }
 
-.highlight {
+.form-highlight {
     position: absolute;
     height: 60%; 
     width: 150px; 
@@ -108,7 +108,7 @@ label {
     opacity: 0.5;
 }
 
-.input:focus ~ .highlight {
+.form-input:focus ~ .form-highlight {
     animation: inputHighlighter 0.3s ease;
 }
 

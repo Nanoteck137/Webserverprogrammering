@@ -11,12 +11,17 @@
         private $type = NULL;
         private $settings = NULL;
 
-        public function __construct(string $id, string $name, string $email, string $type, string $settings) {
+        public function __construct(string $id, string $name, string $email, string $type, $settings) {
             $this->id = $id;
             $this->name = $name;
             $this->email = $email;
             $this->type = $type;
-            $this->settings = $settings;
+            if($settings === null) {
+                //TODO: Set this to a default value
+                $this->settings = "";
+            } else {
+                $this->settings = $settings;
+            }
         }
 
         public function get_id() {
@@ -61,7 +66,7 @@
             $email = $row["user_email"];
             $type = $row["user_type"];
             $settings = $row["user_settings"];
-
+            
             return new UserData($user_id, $username, $email, $type, $settings);
         } else {
             return NULL;

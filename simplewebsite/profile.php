@@ -22,9 +22,10 @@
             if (is_logged_in()) {
                 $profile = get_user_data($dbc_website);
             ?>
-                <h3>Username: <?php echo $profile->get_user_name(); ?></h3>
-                <h3>Email: <?php echo $profile->get_email(); ?></h3>
-                <h3>Type: <?php echo $profile->get_type(); ?></h3>
+                <h3>Username: <?=$profile->get_user_name();?></h3>
+                <h3>Email: <?=$profile->get_email();?></h3>
+                <h3>Type: <?=$profile->get_type();?></h3>
+                <h3>Settings: <?=$profile->get_settings();?></h3>
             <?php
             }
             ?>
