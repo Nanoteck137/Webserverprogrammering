@@ -30,7 +30,7 @@ require("include/website_db.php");
 
                 $d = new DateTime($row["post_date"]);
             ?>
-                <div id="view-post">
+                <div id="view-post" class="card">
                     <p id="view-post-name"><?php echo $row["post_name"]?></p>
                     <p id="view-post-user">By <?php echo $row["user_name"]?> - <?php echo $d->format("Y-m-d");?></p>
                     <p id="view-post-content"><?php echo $row["post_content"];?></p>
@@ -46,8 +46,8 @@ require("include/website_db.php");
                     while($row = mysqli_fetch_array($result)) {
                         $d = new DateTime($row["post_date"]);
                     ?>
-                        <a class="post" href="<?php echo $_SERVER["PHP_SELF"] . "?view=".$row["id"]; ?>">
-                            <img id="post-img" src="" alt="post-img">
+                        <a class="post card-hover" href="<?php echo $_SERVER["PHP_SELF"] . "?view=".$row["id"]; ?>">
+                            <img id="post-img" src="image/test.jpg" alt="post-img">
                             <p id="post-name"><?php echo $row["post_name"];?></p>
                             <p id="post-author">By <span id="post-author-name"><?php echo $row["user_name"] ?></span> - <?php echo $d->format("Y-m-d");?></p>
                         </a>

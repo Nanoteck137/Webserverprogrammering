@@ -1,4 +1,4 @@
-<div id="header">
+<div id="header" class="card">
     <div id="header-left">
         <a class="header-item" id="header-home" href="index.php"><p>Home</p></a>
         <!--<a class="header-item" href="index.php"><p>Home</p></a>-->

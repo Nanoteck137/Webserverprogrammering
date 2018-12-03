@@ -52,11 +52,27 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         ?>
 
         <div id="content">
-            <form class="form" action="login.php" method="post" id="login">
-                <input type="text" placeholder="Username" name="username">
+            <form class="form card" action="login.php" method="post">
+                <!--<input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password">
                 <input type="submit" name="loginSubmit" value="Login">
-                <p>Don't have an account, register one <a href="register.php">here</a></p>
+                <p>Don't have an account, register one <a href="register.php">here</a></p>-->
+
+                <div class="group card">
+                    <input class="input" type="text" name="username" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Username</label>
+                </div>
+
+                <div class="group card">
+                    <input class="input" type="password" name="password" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Password</label>
+                </div>
+
+                <input class="input-button" type="submit" name="loginSubmit" value="Login">
             </form>
         </div>
 

@@ -1,0 +1,124 @@
+.form {
+    background-color: var(--primary-color-light);
+    width: 510px;
+
+    margin: 0 auto;
+    margin-top: 60px;
+    padding-top: 40px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    border-radius: 10px;
+}
+   
+.group {
+    position: relative;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+
+.input-button {
+    display: block;
+    width: 200px;
+    font-size: 1.4em;
+
+    background-color: var(--primary-color);
+    border: none;
+
+    margin-bottom: 15px;
+    padding: 6px;
+
+    color: var(--primary-color-text);
+
+    border-radius: 10px;
+}
+
+.input {
+    display: block;
+    font-size: 18px;
+    
+    padding: 10px 10px 10px 5px;
+    width: 450px;
+
+    border: none;
+    border-bottom: 1px solid #757575;
+    border-radius: 10px;
+
+    background-color: var(--primary-color);
+}
+
+.input:focus {
+    outline: none;
+}
+
+label {
+    color: var(--primary-color-text);
+    font-size: 18px;
+    font-weight: normal;
+
+    pointer-events: none;
+
+    position:absolute;
+    left: 10px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    top: -20px; 
+    font-size: 14px;
+    color: var(--primary-color-text);
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 440px;
+}
+
+.bar:before, .bar:after   {
+    content: '';
+    height: 2px; 
+    width: 0;
+    bottom: 1px; 
+    position: absolute;
+    background: var(--secondary-color); 
+    transition: 0.2s ease all; 
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%; 
+}
+
+.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%; 
+    width: 150px; 
+    top: 25%; 
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+    from { 
+        background: var(--secondary-color-dark); 
+    }
+    
+    to { 
+        width: 0; 
+        background: transparent; 
+    }
+}
