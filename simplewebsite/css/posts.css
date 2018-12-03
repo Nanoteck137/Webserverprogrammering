@@ -1,3 +1,29 @@
+#view-post {
+    width: 960px;
+    margin: 0 auto;
+
+    background-color: #cdcdcd;
+    box-shadow: 0px 0px 20px 1px black;
+
+    margin-top: 20px;
+}
+
+#view-post-name{
+    font-size: 2em;
+    text-align: center;
+
+    padding-top: 10px;
+}
+
+#view-post-user {
+    text-align: center;
+}
+
+#view-post-content {
+    margin-top: 40px;
+    padding: 20px;
+}
+
 #posts {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
