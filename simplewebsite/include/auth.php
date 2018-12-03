@@ -9,12 +9,14 @@
         private $name = NULL;
         private $email = NULL;
         private $type = NULL;
+        private $settings = NULL;
 
-        public function __construct(string $id, string $name, string $email, string $type) {
+        public function __construct(string $id, string $name, string $email, string $type, string $settings) {
             $this->id = $id;
             $this->name = $name;
             $this->email = $email;
             $this->type = $type;
+            $this->settings = $settings;
         }
 
         public function get_id() {
@@ -31,6 +33,10 @@
 
         public function get_type() {
             return $this->type;
+        }
+
+        public function get_settings() {
+            return $this->settings;
         }
     }
 
@@ -54,8 +60,9 @@
             $username = $row["user_name"];
             $email = $row["user_email"];
             $type = $row["user_type"];
+            $settings = $row["user_settings"];
 
-            return new UserData($user_id, $username, $email, $type);
+            return new UserData($user_id, $username, $email, $type, $settings);
         } else {
             return NULL;
         }

@@ -1,7 +1,8 @@
 <div id="header">
     <div id="header-left">
-        <a class="header-item" href="index.php"><p>Home</p></a>    
-        <a class="header-item" href="index.php"><p>Wow</p></a>
+        <a class="header-item" id="header-home" href="index.php"><p>Home</p></a>
+        <!--<a class="header-item" href="index.php"><p>Home</p></a>-->
+        <a class="header-item" href="posts.php"><p>Posts</p></a>
     </div>
     
     <div id="header-right">
