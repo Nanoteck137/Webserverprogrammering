@@ -32,15 +32,17 @@ html {
 
     justify-content: space-around;
 
-    padding: 10px 0px;
+    padding: 6px 0px;
 
     margin-bottom: 10px;
+
 }
 
 .header-item {
     font-size: 1.4em;
     text-align: center;
-    color: white;
+    color: var(--primary-color-dark-text);
+    padding: 4px 5px;
 }
 
 .header-item:link {
@@ -53,7 +55,9 @@ html {
 
 .header-item:hover {
     text-decoration: underline;
-    background-color: #aaaaaa;
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+    border-radius: 10px;
 }
 
 #header-left {
