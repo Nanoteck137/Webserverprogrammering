@@ -1,0 +1,9 @@
+#info {
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-light-text);
+}
+
