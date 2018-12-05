@@ -4,7 +4,7 @@
     padding: 20px;
 
     background-color: var(--primary-color-light);
-    color: var(--primary-color-light-text);
+    color: var(--primary-color-light-on);
 
     display: flex;
 }

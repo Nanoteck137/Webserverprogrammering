@@ -11,17 +11,19 @@
     --primary-color-light: #ffffb0;
     --primary-color-dark: #ca9b52;
 
-    --primary-color-text: #000000;
-    --primary-color-light-text: #000000;
-    --primary-color-dark-text: #ffffff;
+    --primary-color-on: #000000;
+    --primary-color-light-on: #000000;
+    --primary-color-dark-on: #ffffff;
 
     --secondary-color: #ff6e40;
     --secondary-color-light: #ffa06d;
     --secondary-color-dark: #c53d13;
 
-    --secondary-color-text: #000000;
-    --secondary-color-light-text: #000000;
-    --secondary-color-dark-text: #ffffff;
+    --secondary-color-on: #000000;
+    --secondary-color-light-on: #000000;
+    --secondary-color-dark-on: #ffffff;
+
+    --card-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 html {
@@ -45,7 +47,7 @@ html {
 .header-item {
     font-size: 1.4em;
     text-align: center;
-    color: var(--primary-color-dark-text);
+    color: var(--primary-color-dark-on);
     padding: 4px 5px;
 }
 
@@ -60,7 +62,7 @@ html {
 .header-item:hover {
     text-decoration: underline;
     background-color: var(--primary-color);
-    color: var(--primary-color-text);
+    color: var(--primary-color-on);
     border-radius: 10px;
 }
 
@@ -105,7 +107,7 @@ html {
 
 #footer {
     background-color: var(--primary-color-light);
-    color: var(--primary-color-light-text);
+    color: var(--primary-color-light-on);
     width: 100%;
     
     position: fixed;
@@ -115,7 +117,7 @@ html {
 }
 
 .card {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .card-up {
@@ -129,6 +131,57 @@ html {
 
 .card-hover:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.btn {
+    position: relative;
+    border: none;
+    font-size: 20px;
+    padding: 6px 20px;
+    margin: 10px;
+
+    background-color: var(--secondary-color);
+    color: var(--secondary-color-on);
+
+    box-shadow: var(--card-box-shadow);
+
+    border-radius: 10px;
+}
+
+.btn:focus {
+    outline: none;
+    /*background-color: var(--secondary-color-light);
+    color: var(--secondary-color-light-on);*/
+}
+
+.btn:active {
+    background-color: var(--secondary-color-light);
+    color: var(--secondary-color-light-on);
+}
+
+.btn:before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: 0;
+    padding-top: 0;
+
+    border-radius: 100%;
+
+    background-color: rgba(236, 240, 241, .3);
+
+    transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+
+    transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
 /* Common form stuff */
@@ -165,7 +218,7 @@ html {
     margin-bottom: 15px;
     padding: 6px;
 
-    color: var(--primary-color-text);
+    color: var(--primary-color-on);
 
     border-radius: 10px;
 }
@@ -189,7 +242,7 @@ html {
 }
 
 .form-label {
-    color: var(--primary-color-text);
+    color: var(--primary-color-on);
     font-size: 18px;
     font-weight: normal;
 
@@ -204,7 +257,7 @@ html {
 .form-input:focus ~ label, .form-input:valid ~ label {
     top: -20px; 
     font-size: 14px;
-    color: var(--primary-color-text);
+    color: var(--primary-color-on);
 }
 
 .form-bar {
