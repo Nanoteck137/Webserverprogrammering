@@ -25,10 +25,14 @@
                 $profile = get_user_data($dbc_website);
             ?>
                 <div id="info" class="card">
-                    <h3>Username: <?=$profile->get_user_name();?></h3>
-                    <h3>Email: <?=$profile->get_email();?></h3>
-                    <h3>Type: <?=$profile->get_type();?></h3>
-                    <h3>Settings: <?=$profile->get_settings();?></h3>
+                    <img src="image/default_profile.jpg" alt="Profile Picture">
+                    <div id="info-right">
+                        <h3>Username: <?=$profile->get_user_name();?></h3>
+                        <h3>Email: <?=$profile->get_email();?></h3>
+                        <h3>Type: <?=$profile->get_type();?></h3>
+                        <h3>Settings: <?=$profile->get_settings();?></h3>
+                    </div>
+                    <button class="form-input-button">Logout</button>
                 </div>
             <?php
             }

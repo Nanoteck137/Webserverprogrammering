@@ -60,15 +60,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <div class="form-input-group card">
                     <input class="form-input" type="text" name="username" required>
-                    <span class="form-highlight"></span>
-                    <span class="form-bar"></span>
                     <label class="form-label">Username</label>
                 </div>
 
                 <div class="form-input-group card">
                     <input class="form-input" type="password" name="password" required>
-                    <span class="form-highlight"></span>
-                    <span class="form-bar"></span>
                     <label class="form-label">Password</label>
                 </div>
 

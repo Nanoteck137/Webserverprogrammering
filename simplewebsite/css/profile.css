@@ -5,5 +5,20 @@
 
     background-color: var(--primary-color-light);
     color: var(--primary-color-light-text);
+
+    display: flex;
 }
 
+#info-right {
+    margin-left: 15px;
+}
+
+#info-right > * {
+    padding: 7px 0px;
+}
+
+#info button {
+    width: 100px;
+    height: 50px;
+    align-self: flex-end;
+}

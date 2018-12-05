@@ -211,6 +211,7 @@ html {
     position: relative;
     display: block;
     width: 440px;
+    left: 5px;
 }
 
 .form-bar:before, .form-bar:after   {
@@ -233,29 +234,4 @@ html {
 
 .form-input:focus ~ .form-bar:before, .form-input:focus ~ .form-bar:after {
     width: 50%;
-}
-
-.form-highlight {
-    position: absolute;
-    height: 60%; 
-    width: 150px; 
-    top: 25%; 
-    left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-.form-input:focus ~ .form-highlight {
-    animation: inputHighlighter 0.3s ease;
-}
-
-@keyframes inputHighlighter {
-    from { 
-        background: var(--secondary-color-dark); 
-    }
-    
-    to { 
-        width: 0; 
-        background: transparent; 
-    }
 }
