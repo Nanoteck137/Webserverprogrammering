@@ -30,9 +30,8 @@
                         <h3>Username: <?=$profile->get_user_name();?></h3>
                         <h3>Email: <?=$profile->get_email();?></h3>
                         <h3>Type: <?=$profile->get_type();?></h3>
-                        <h3>Settings: <?=$profile->get_settings();?></h3>
                     </div>
-                    <button class="form-input-button">Logout</button>
+                    <button class="btn" id="logout">Logout</button>
                 </div>
             <?php
             }
@@ -42,6 +41,14 @@
         <?php
         require("template/footer.php")
         ?>
+
+        <script>
+        
+        document.getElementById("logout").addEventListener("click", () => {
+            window.location.href = "logout.php";
+        });
+
+        </script>
     </div>
 </body>
 </html>

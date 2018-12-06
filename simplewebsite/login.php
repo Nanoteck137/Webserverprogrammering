@@ -68,8 +68,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label class="form-label">Password</label>
                 </div>
 
-                <input class="btn" type="submit" name="loginSubmit" value="Login">
+                <button class="btn" type="submit" name="loginSubmit">Wow</button>
             </form>
+
         </div>
 
         <?php

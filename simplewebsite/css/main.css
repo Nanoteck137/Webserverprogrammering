@@ -138,7 +138,6 @@ html {
     border: none;
     font-size: 20px;
     padding: 6px 20px;
-    margin: 10px;
 
     background-color: var(--secondary-color);
     color: var(--secondary-color-on);
@@ -146,6 +145,11 @@ html {
     box-shadow: var(--card-box-shadow);
 
     border-radius: 10px;
+    overflow: hidden;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .btn:focus {

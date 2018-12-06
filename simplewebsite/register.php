@@ -68,48 +68,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div id="content">
             <?php
-            if(isset($usernameExists) && $usernameExists) {
-                echo "<p>Username exists</p>";
-            }
+        if(isset($usernameExists) && $usernameExists) {
+            echo "<p>Username exists</p>";
+        }
 
-            if(isset($emailExists) && $emailExists) {
-                echo "<p>Email in use</p>";
+        if(isset($emailExists) && $emailExists) {
+            echo "<p>Email in use</p>";
             }
 
             if(isset($password_match) && !$password_match) {
                 echo "<p>Password does not match</p>";
             }
             ?>
-            <form class="form" action="register.php" method="post">
+
+            <form class="form card" action="register.php" method="post">
                 <div class="form-input-group card">
-                    <input class="form-input" type="text" name="username" required>
-                    <span class="form-highlight"></span>
-                    <span class="form-bar"></span>
+                    <input class="form-input" type="text" name="username" autocomplete="off" required >
                     <label class="form-label">Username</label>
                 </div>
 
                 <div class="form-input-group card">
                     <input class="form-input" type="email" name="email" required>
-                    <span class="form-highlight"></span>
-                    <span class="form-bar"></span>
                     <label class="form-label">Email</label>
                 </div>
 
                 <div class="form-input-group card">
-                    <input class="form-input" type="password" name="password" required>
-                    <span class="form-highlight"></span>
-                    <span class="form-bar"></span>
+                    <input class="form-input" type="password" name="password" autocomplete="off" required>
                     <label class="form-label">Password</label>
                 </div>
 
                 <div class="form-input-group card">
-                    <input class="form-input" type="password" name="confirm_password" required>
-                    <span class="form-highlight"></span>
-                    <span class="form-bar"></span>
+                    <input class="form-input" type="password" name="confirm_password" autocomplete="off" required>
                     <label class="form-label">Confirm Password</label>
                 </div>
 
-                <input class="form-input-button" type="submit" name="registerSubmit" value="Register">
+                <button class="btn" type="submit" name="registerSubmit">Register</button>
             </form>
         </div>
 
