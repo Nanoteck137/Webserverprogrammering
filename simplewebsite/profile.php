@@ -31,6 +31,7 @@
                         <h3>Email: <?=$profile->get_email();?></h3>
                         <h3>Type: <?=$profile->get_type();?></h3>
                     </div>
+
                     <button class="btn" id="logout">Logout</button>
                 </div>
             <?php

@@ -4,6 +4,8 @@ Filter the inputs: Email
 
 Login needs error handling
 
+Go through the code an update the error handling, 404, 500 and others
+
 Old code:
 
 register.php:

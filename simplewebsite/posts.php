@@ -2,6 +2,7 @@
 session_start();
 
 require("include/website_db.php");
+require("include/common.php");
 
 ?>
 
@@ -28,12 +29,13 @@ require("include/website_db.php");
                 $result = mysqli_query($dbc_website, $query);
                 $row = mysqli_fetch_array($result);
 
-                $d = new DateTime($row["post_date"]);
+                $d = new DateTime();
             ?>
                 <div id="view-post" class="card">
-                    <p id="view-post-name"><?php echo $row["post_name"]?></p>
-                    <p id="view-post-user">By <?php echo $row["user_name"]?> - <?php echo $d->format("Y-m-d");?></p>
-                    <p id="view-post-content"><?php echo $row["post_content"];?></p>
+                    <p id="view-post-name"><?= $row["post_name"]?></p>
+                    <p id="view-post-user">By <?= $row["user_name"]?> - <?=get_time(strtotime($row["post_date"])); ?> ago</p>
+                    <hr>
+                    <p id="view-post-content"><?= $row["post_content"];?></p>
                 </div>
             <?php
             } else {
@@ -46,10 +48,10 @@ require("include/website_db.php");
                     while($row = mysqli_fetch_array($result)) {
                         $d = new DateTime($row["post_date"]);
                     ?>
-                        <a class="post card-hover" href="<?php echo $_SERVER["PHP_SELF"] . "?view=".$row["id"]; ?>">
-                            <img id="post-img" src="image/test.jpg" alt="post-img">
-                            <p id="post-name"><?php echo $row["post_name"];?></p>
-                            <p id="post-author">By <span id="post-author-name"><?php echo $row["user_name"] ?></span> - <?php echo $d->format("Y-m-d");?></p>
+                        <a class="post card-hover" href="<?= $_SERVER["PHP_SELF"] . "?view=".$row["id"]; ?>">
+                            <img id="post-img" src="image/test<?= rand(1, 2); ?>.jpg" alt="post-img">
+                            <p id="post-name"><?= $row["post_name"];?></p>
+                            <p id="post-author">By <span id="post-author-name"><?= $row["user_name"] ?></span> - <?= get_time(strtotime($row["post_date"]));?> ago</p>
                         </a>
                     <?php
                     }

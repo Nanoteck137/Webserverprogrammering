@@ -18,7 +18,7 @@ INSERT INTO users (user_name, user_password, user_email) VALUES ("Wow", "lol", "
 
 CREATE TABLE posts(
     id INT(8) PRIMARY KEY AUTO_INCREMENT,
-    post_name VARCHAR(32) NOT NULL,
+    post_name VARCHAR(200) NOT NULL,
     post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     post_user_id INT(8),
     post_content MEDIUMTEXT NOT NULL,

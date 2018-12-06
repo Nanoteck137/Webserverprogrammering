@@ -20,7 +20,7 @@ require("include/auth.php");
         ?>
 
         <div id="content">
-            <h1>Hello World</h1>
+            <h1>500 - Internal Server Error</h1>
         </div>
 
         <?php

@@ -29,6 +29,9 @@
 html {
     background-color: white;
     font-family: 'Roboto', sans-serif;
+
+    position:relative; 
+    min-height: 100%;
 }
 
 #header {
@@ -42,6 +45,8 @@ html {
 
     margin-bottom: 10px;
 
+    position: sticky;
+    top: 0;
 }
 
 .header-item {
@@ -93,7 +98,9 @@ html {
 
 #content {
     margin: 10px 0px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+
+    flex: 1 0 auto;
 }
 
 .footer-item {
@@ -110,10 +117,10 @@ html {
     color: var(--primary-color-light-on);
     width: 100%;
     
-    position: fixed;
+    position: absolute;
+    left: 0;
     bottom: 0;
-
-    margin-top: 10px;
+    overflow: hidden;
 }
 
 .card {
