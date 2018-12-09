@@ -12,30 +12,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $username = $_POST["username"];
         $email = $_POST["email"];
         $password = $_POST["password"];
-        $confirm_password = $_POST["confirm_password"];
+        $confirmPassword = $_POST["confirm_password"];
+        $wasAnError = false;
 
-        if($password !== $confirm_password) {
-            $password_match = false;
+        //Password confirm check
+        if($password !== $confirmPassword) {
+            $passwordMatchFailed = true;
+            $wasAnError = true;
         } else {
-            //Username check
-            $query = "SELECT * FROM users WHERE user_name LIKE '%$username%'";
-            $result = mysqli_query($dbc_website, $query);
-            if(mysqli_num_rows($result) !== 0) {
-                //Username already exists
-                $usernameExists = true;
-            }
-            //Email check
-            $query = "SELECT * FROM users WHERE user_email LIKE '%$email%'";
-            $result = mysqli_query($dbc_website, $query);
-            if (mysqli_num_rows($result) !== 0) {
-                //Email already registerd exists
-                $emailExists = true;
-            }
+            $passwordMatchFailed = false;
+        }
 
+        //Username check
+        $query = "SELECT * FROM users WHERE user_name LIKE '%$username%'";
+        $result = mysqli_query($dbc_website, $query);
+        if(mysqli_num_rows($result) !== 0) {
+            //Username already exists
+            $usernameExists = true;
+            $wasAnError = true;
+        } else {
+            $usernameExists = false;
+        }
+
+        //Email check
+        $query = "SELECT * FROM users WHERE user_email LIKE '%$email%'";
+        $result = mysqli_query($dbc_website, $query);
+        if (mysqli_num_rows($result) !== 0) {
+            //Email already registerd exists
+            $emailExists = true;
+            $wasAnError = true;
+        } else {
+            $emailExists = false;
+        }
+
+        //Register the user if the password matched, the username is free and if the email is not in use 
+        if(!$passwordMatchFailed && !$usernameExists && !$emailExists) {
             //Insert into database
             $query = "INSERT INTO users(user_name, user_email, user_password) VALUES ('$username', '$email', '$password')";
             if(!mysqli_query($dbc_website, $query)) {
-                //Some kind of error
+                header("location: 500.php");
             } else {
                 $query = "SELECT * FROM users WHERE user_name = '$username'";
                 $result = mysqli_query($dbc_website, $query);
@@ -59,6 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php 
     require("template/head.php");
     ?>
+
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
     <div id="container">
@@ -68,26 +85,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div id="content">
             <?php
-        if(isset($usernameExists) && $usernameExists) {
-            echo "<p>Username exists</p>";
-        }
 
-        if(isset($emailExists) && $emailExists) {
-            echo "<p>Email in use</p>";
-            }
+            ?>
 
-            if(isset($password_match) && !$password_match) {
-                echo "<p>Password does not match</p>";
+            <?php
+            if(isset($wasAnError) && $wasAnError) {
+            ?>
+                <div class="card" id="error-messages">
+                    <?php
+                    if (isset($usernameExists) && $usernameExists) {
+                        echo "<p>Username exists</p>";
+                    }
+
+                    if (isset($emailExists) && $emailExists) {
+                        echo "<p>Email in use</p>";
+                    }
+
+                    if (isset($passwordMatchFailed) && $passwordMatchFailed) {
+                        echo "<p>Password does not match</p>";
+                    }
+                    ?>
+                </div>
+            <?php
             }
             ?>
 
             <form class="form card" action="register.php" method="post">
-                <div class="form-input-group card">
-                    <input class="form-input" type="text" name="username" autocomplete="off" required >
+                <div class="form-input-group <?= (isset($usernameExists) && $usernameExists) ? "form-error" : "" ?> card">
+                    <input class="form-input" type="text" name="username" autocomplete="off" required>
                     <label class="form-label">Username</label>
                 </div>
 
-                <div class="form-input-group card">
+                <div class="form-input-group <?= (isset($emailExists) && $emailExists) ? "form-error" : "" ?> card">
                     <input class="form-input" type="email" name="email" required>
                     <label class="form-label">Email</label>
                 </div>
@@ -97,12 +126,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label class="form-label">Password</label>
                 </div>
 
-                <div class="form-input-group card">
+                <div class="form-input-group <?= (isset($passwordMatchFailed) && $passwordMatchFailed) ? "form-error" : "" ?> card">
                     <input class="form-input" type="password" name="confirm_password" autocomplete="off" required>
                     <label class="form-label">Confirm Password</label>
                 </div>
 
-                <button class="btn" type="submit" name="registerSubmit">Register</button>
+                <button class="btn" id="register-button" type="submit" name="registerSubmit">Register</button>
             </form>
         </div>
 

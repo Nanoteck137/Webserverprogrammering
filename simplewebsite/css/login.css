@@ -1,3 +1,11 @@
-#loginSubmit {
-    
+#login-button {
+    margin-bottom: 10px;
+}
+
+#login-register-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+
+    margin-bottom: 10px;
 }

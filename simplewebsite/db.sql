@@ -9,7 +9,7 @@ CREATE TABLE users(
     user_password VARCHAR(255) NOT NULL,
     user_email VARCHAR(32) NOT NULL UNIQUE,
     user_type ENUM("admin", "member") DEFAULT "member" NOT NULL,
-    user_settings TEXT
+    user_settings INT(2)
 );
 
 INSERT INTO users (user_name, user_password, user_email, user_settings, user_type) VALUES ("admin", "test", "admin@admin.com", '{ "header": { "backgroundColor": "#FF00FF" }}', "admin");

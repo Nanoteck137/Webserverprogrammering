@@ -6,11 +6,17 @@ Login needs error handling
 
 Go through the code an update the error handling, 404, 500 and others
 
-Old code:
+posts.php:
+    Maybe have a link to new_post.php here?!?!
+    Search and filter bar to search for posts
 
-register.php:
-    <input class="<?php echo (isset($usernameExists) && $usernameExists) ? "form-input-error" : ""; ?>" type="text" placeholder="Username" name="username" autocomplete="off">
-    <input class="<?php echo (isset($emailExists) && $emailExists) ? "form-input-error" : ""; ?>" type="email" placeholder="Email" name="email">
-    <input type="password" placeholder="Password" name="password">
-    <input class="<?php echo (isset($password_match) && !$password_match) ?  "form-input-error" : "";?>" type="password" placeholder="Confirm Password" name="confirm_password">
-    <input type="submit" name="registerSubmit" value="Register">
+index.php:
+    What to do there
+
+new_post.php:
+    Navigation to the page
+
+profile.php:
+    Update password
+    Set new Email
+    Do something special with the admin type maybe special posts on the front page(i.e index.php)
