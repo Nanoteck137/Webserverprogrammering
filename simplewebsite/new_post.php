@@ -8,6 +8,8 @@ if(!is_logged_in()) {
     header("location: index.php");
 }
 
+//TODO: Check the string sizes
+
 if(!isset($_POST["post_name"])) {
     $post_name_exists = false;
 } else {
@@ -22,7 +24,7 @@ if(!isset($_POST["post_content"])) {
 
 if($post_name_exists && $post_content_exists) {
     $post_name = mysqli_real_escape_string($dbc_website, $_POST["post_name"]);
-    $post_content = $_POST["post_content"];
+    $post_content = str_replace("'", "\"", $_POST["post_content"]);
     $user_id = get_user_id();
 
     $query = "INSERT INTO posts(post_name, post_content, post_user_id) VALUES ('$post_name', '$post_content', $user_id)";
