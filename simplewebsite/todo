@@ -7,14 +7,14 @@ Login needs error handling
 Go through the code an update the error handling, 404, 500 and others
 
 posts.php:
-    Maybe have a link to new_post.php here?!?!
-    Search and filter bar to search for posts
+    Maybe have a link to new_post.php here?!?! - Done
+    Search and filter bar to search for posts - Done
 
 index.php:
     Have special posts here
 
 new_post.php:
-    Navigation to the page
+    Navigation to the page - Done
 
 profile.php:
     Update password

@@ -53,7 +53,7 @@ if($post_name_exists && $post_content_exists) {
         <div class="card" id="content">
             <form id="post-form" action="" method="post">
                 <div id="post-name" class="form-input-group card">
-                    <input class="form-input" type="text" name="post_name" required>
+                    <input class="form-input" type="text" name="post_name" autocomplete="off" required>
                     <label class="form-label">Post name</label>
                 </div>
 
