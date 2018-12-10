@@ -8,7 +8,7 @@ if(isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
 }
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
-    if(isset($_POST["loginSubmit"])) {
+    if(isset($_POST["loginSubmit"]) && isset($_POST["username"]) && isset($_POST["password"])) {
         //Handle login request
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("location: login.php");
             }
         } else {
-            //No user exists
+            header("location: 500.php");
         }
     }
 }

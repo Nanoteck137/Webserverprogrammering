@@ -33,3 +33,12 @@
     height: 30px;
     width: 90px;
 }
+
+#change-password {
+    margin-top: 6px;
+}
+
+#change-password-button {
+    font-size: 15px;
+    height: 30px;   
+}

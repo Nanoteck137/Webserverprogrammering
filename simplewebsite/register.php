@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
                 <div class="form-input-group <?= (isset($emailExists) && $emailExists) ? "form-error" : "" ?> card">
-                    <input class="form-input" type="email" name="email" required>
+                    <input class="form-input" type="text" name="email" required>
                     <label class="form-label">Email</label>
                 </div>
 

@@ -43,6 +43,7 @@
 #post-content textarea {
     font-family: 'Roboto', sans-serif;
     background-color: white;
+    color: black;
 
     width: 100%;
     height: 100%;

@@ -11,7 +11,7 @@
     margin-bottom: 10px;
 
     background-color: var(--primary-color);
-    color: var(--primary-color-onz);
+    color: var(--primary-color-on);
 }
 
 #post-search-result p {
@@ -70,7 +70,7 @@
 
     position: absolute;
     top: 50%;   
-    left: 15px;
+    left: 5px;
 
     transform: translateY(-50%);
 }
@@ -83,7 +83,7 @@
     margin: 10px 10px 0px 0px;
 
     font-size: 15px;
-    padding-left: 35px;
+    padding-left: 30px;
     padding-right: 10px;
 
     border-radius: 10px;
@@ -133,26 +133,31 @@
 }
 
 #view-post-content {
-    margin-top: 40px;
+    margin-top: 0px;
     padding: 20px;
+    text-align: center;
 }
 
 #posts {
-    width: 80%;
-    background-color: var(--primary-color-dark);
+    width: 960px;
+    background-color: white;
+    color: black;
 
     border-radius: 10px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 350px 350px;
+    grid-gap: 80px;
     margin: 0 auto;
 
     margin-top: 10px;
+
+    justify-content: center;
 }
 .post {
     width: 350px;
-    background-color: white;
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-light-on);
 
     justify-self: center;
     margin: 10px 0px;
@@ -166,12 +171,10 @@
 }
 
 .post:visited {
-    color: black;
     text-decoration: none;
 }
 
 .post:hover {
-    color: black;
     text-decoration: none;
 }
 
@@ -180,12 +183,10 @@
 }
 
 .post #post-name:active {
-    color: black;
     text-decoration: none;
 }
 
 .post:active {
-    color: black;
     text-decoration: none;
 }
 
@@ -193,7 +194,6 @@
     width: 100%;
     height: auto;;
     display: inline-block;
-    background-color: white;
 
     border-radius: 10px;
     margin-left: auto;
@@ -216,8 +216,10 @@
     font-size: 0.9em;
     padding: 10px;
     padding-top: 5px; 
+
 }
 
 #post-author-name {
     color: var(--secondary-color-dark);
+    text-shadow: 0px 0px 10px darkgray;
 }

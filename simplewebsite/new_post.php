@@ -5,7 +5,7 @@ require("include/website_db.php");
 require("include/auth.php");
 
 if(!is_logged_in()) {
-    header("location: index.php");
+    header("location: login.php");
 }
 
 //TODO: Check the string sizes
