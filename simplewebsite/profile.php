@@ -63,17 +63,17 @@
                     <div id="change-password">
                         <form action="change_password.php" method="post">
                             <div class="form-input-group card">
-                                <input class="form-input" type="text" name="old_password" required>
+                                <input class="form-input" type="text" name="old_password" autocomplete="off" required>
                                 <label class="form-label">Old Password</label>
                             </div>
 
                             <div class="form-input-group card">
-                                <input class="form-input" type="text" name="new_password" required>
+                                <input class="form-input" type="text" name="new_password" autocomplete="off" required>
                                 <label class="form-label">New Password</label>
                             </div>
 
                             <div class="form-input-group card">
-                                <input class="form-input" type="text" name="confirm_password" required>
+                                <input class="form-input" type="text" name="confirm_password" autocomplete="off" required>
                                 <label class="form-label">Confirm Password</label>
                             </div>
 

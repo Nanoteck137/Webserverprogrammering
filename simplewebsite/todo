@@ -17,6 +17,9 @@ new_post.php:
     Navigation to the page - Done
 
 profile.php:
-    Update password
+    Update password - Done
     Set new Email
     Do something special with the admin type maybe special posts on the front page(i.e index.php)
+
+auth.php:
+    Make a login function so login.php and register.php can use the same method to login

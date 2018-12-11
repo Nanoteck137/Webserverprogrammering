@@ -1,0 +1,27 @@
+{
+    "primary": {
+        "color": {
+            "normal": "#263238",
+            "light": "#4f5b62",
+            "dark": "#000a12"
+        },
+        "on": {
+            "normal": "#ffffff",
+            "light": "#ffffff",
+            "dark": "#ffffff"
+        }
+    },
+
+    "secondary": {
+        "color": {
+            "normal": "#0d47a1",
+            "light": "#5472d3",
+            "dark": "#002171"
+        },
+        "on": {
+            "normal": "#ffffff",
+            "light": "#000000",
+            "dark": "#ffffff"
+        }
+    }
+}

@@ -26,7 +26,8 @@
 #logout {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    /*right: 20px;*/
+    left: 30%;
 
     font-size: 15px;
 
@@ -34,11 +35,32 @@
     width: 90px;
 }
 
+#change-password input {
+    width: 300px;
+}
+
+#change-password .form-input-group {
+    margin-bottom: 25px;
+}
+
 #change-password {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+
     margin-top: 6px;
+    justify-self: flex-end;
 }
 
 #change-password-button {
     font-size: 15px;
-    height: 30px;   
+    height: 30px; 
+    width: 170px;
+
+    margin-bottom: 20px;
+    
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
