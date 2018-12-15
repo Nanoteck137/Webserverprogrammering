@@ -9,19 +9,14 @@
         private $name = NULL;
         private $email = NULL;
         private $type = NULL;
-        private $settings = NULL;
+        private $theme = NULL;
 
-        public function __construct(string $id, string $name, string $email, string $type, $settings) {
+        public function __construct(string $id, string $name, string $email, string $type, int $themeID) {
             $this->id = $id;
             $this->name = $name;
             $this->email = $email;
             $this->type = $type;
-            if($settings === null) {
-                //TODO: Set this to a default value
-                $this->settings = "";
-            } else {
-                $this->settings = $settings;
-            }
+            $this->theme = $themeID;
         }
 
         public function get_id() {
@@ -40,8 +35,8 @@
             return $this->type;
         }
 
-        public function get_settings() {
-            return $this->settings;
+        public function get_theme_id() {
+            return $this->theme;
         }
     }
 
@@ -58,6 +53,10 @@
 
         $query = "SELECT * FROM users WHERE id=$user_id";
         $result = mysqli_query($dbc, $query);
+        if(!$result) {
+            //header("location: 500.php");
+            exit();
+        }
 
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_array($result);
@@ -65,9 +64,9 @@
             $username = $row["user_name"];
             $email = $row["user_email"];
             $type = $row["user_type"];
-            $settings = $row["user_settings"];
+            $themeID = $row["user_theme"];
             
-            return new UserData($user_id, $username, $email, $type, $settings);
+            return new UserData($user_id, $username, $email, $type, $themeID);
         } else {
             return NULL;
         }

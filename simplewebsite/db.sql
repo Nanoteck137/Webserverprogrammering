@@ -12,7 +12,7 @@ CREATE TABLE users(
     user_theme INT(2) NOT NULL DEFAULT 1
 );
 
-INSERT INTO users (user_name, user_password, user_email, user_type) VALUES ("admin", "test", "admin@admin.com", "admin");
+INSERT INTO users (user_name, user_password, user_email, user_type, user_theme) VALUES ("admin", "test", "admin@admin.com", "admin", 2);
 INSERT INTO users (user_name, user_password, user_email) VALUES ("Nanoteck137", "wow", "nanoteck137@user.com");
 INSERT INTO users (user_name, user_password, user_email) VALUES ("Wow", "lol", "wow@lol.com");
 
@@ -36,3 +36,4 @@ CREATE TABLE themes(
 );
 
 INSERT INTO themes(theme_name, theme_content) VALUES ("dark", '{"primary":{"color":{"normal":"#263238","light":"#4f5b62","dark":"#000a12"},"on":{"normal":"#ffffff","light":"#ffffff","dark":"#ffffff"}},"secondary":{"color":{"normal":"#0d47a1","light":"#5472d3","dark":"#002171"},"on":{"normal":"#ffffff","light":"#000000","dark":"#ffffff"}}}');
+INSERT INTO themes(theme_name, theme_content) VALUES ("orange", '{"primary":{"color":{"normal":"#ffcc80","light":"#ffffb0","dark":"#ca9b52"},"on":{"normal":"#000000","light":"#000000","dark":"#ffffff"}},"secondary":{"color":{"normal":"#ff6e40","light":"#ffa06d","dark":"#c53d13"},"on":{"normal":"#000000","light":"#000000","dark":"#ffffff"}}}');

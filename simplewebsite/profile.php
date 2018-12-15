@@ -1,7 +1,6 @@
 <?php
     session_start();
-    require("include/auth.php");
-    require("include/website_db.php");
+    require("include/common.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,30 +25,10 @@
             ?>
                 <div id="errors">
                     <?php
-                        if(isset($_SESSION["old_password_not_set"]) && $_SESSION["old_password_not_set"]) {
-                            echo "<p>old_password_not_set</p>";
-                            unset($_SESSION["old_password_not_set"]);
-                        }
-
-                        if(isset($_SESSION["new_password_not_set"]) && $_SESSION["new_password_not_set"]) {
-                            echo "<p>new_password_not_set</p>";
-                            unset($_SESSION["new_password_not_set"]);
-                        }
-
-                        if(isset($_SESSION["confirm_password_not_set"]) && $_SESSION["confirm_password_not_set"]) {
-                            echo "<p>confirm_password_not_set</p>";
-                            unset($_SESSION["confirm_password_not_set"]);
-                        }
-
-                        if(isset($_SESSION["old_password_not_match"]) && $_SESSION["old_password_not_match"]) {
-                            echo "<p>old_password_not_match</p>";
-                            unset($_SESSION["old_password_not_match"]);
-                        }
-
-                        if(isset($_SESSION["error_confirm_password"]) && $_SESSION["error_confirm_password"]) {
-                            echo "<p>error_confirm_password</p>";
-                            unset($_SESSION["error_confirm_password"]);
-                        }
+                    if(isset($_SESSION["error"])) {
+                        //TODO: Handle error
+                        var_dump($_SESSION["error"]);
+                    }
                     ?>
                 </div>
                 <div id="info" class="card">
@@ -63,17 +42,17 @@
                     <div id="change-password">
                         <form action="change_password.php" method="post">
                             <div class="form-input-group card">
-                                <input class="form-input" type="text" name="old_password" autocomplete="off" required>
+                                <input class="form-input" type="password" name="old_password" autocomplete="off" required>
                                 <label class="form-label">Old Password</label>
                             </div>
 
                             <div class="form-input-group card">
-                                <input class="form-input" type="text" name="new_password" autocomplete="off" required>
+                                <input class="form-input" type="password" name="new_password" autocomplete="off" required>
                                 <label class="form-label">New Password</label>
                             </div>
 
                             <div class="form-input-group card">
-                                <input class="form-input" type="text" name="confirm_password" autocomplete="off" required>
+                                <input class="form-input" type="password" name="confirm_password" value="" autocomplete="off" required>
                                 <label class="form-label">Confirm Password</label>
                             </div>
 

@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require("include/website_db.php");
-require("include/auth.php");
+require("include/common.php");
 
 ?>
 

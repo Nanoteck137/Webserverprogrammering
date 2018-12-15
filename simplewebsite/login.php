@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require("include/website_db.php");
+require("include/common.php");
 
 if(isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
     header("location: index.php");
