@@ -16,7 +16,7 @@ require("include/auth.php");
 <body>
     <div id="container">
         <?php
-        require("template/header.php");
+        require("template/menu_header.php");
         ?>
 
         <div id="content">

@@ -15,7 +15,7 @@
 <body>
     <div id="container">
         <?php
-        require("template/header.php");
+        require("template/menu_header.php");
         ?>
 
         <div id="content">
@@ -25,9 +25,10 @@
             ?>
                 <div id="errors">
                     <?php
-                    if(isset($_SESSION["error"])) {
+                    if(isset($_SESSION["chpwd_error"])) {
                         //TODO: Handle error
-                        var_dump($_SESSION["error"]);
+                        var_dump($_SESSION["chpwd_error"]);
+                        unset($_SESSION["chpwd_error"]);
                     }
                     ?>
                 </div>

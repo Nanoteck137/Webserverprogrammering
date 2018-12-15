@@ -51,7 +51,7 @@ if($post_name_exists && $post_content_exists) {
 <body>
     <div id="container">
         <?php
-        require("template/header.php");
+        require("template/menu_header.php");
         ?>
 
         <div class="card" id="content">

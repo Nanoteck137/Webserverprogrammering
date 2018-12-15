@@ -7,23 +7,6 @@
 }
 
 :root {
-    --primary-color: #263238;
-    --primary-color-light: #4f5b62;
-    --primary-color-dark: #000a12;
-
-    --primary-color-on: #ffffff;
-    --primary-color-light-on: #ffffff;
-    --primary-color-dark-on: #ffffff;
-
-    --secondary-color: #0d47a1;
-    --secondary-color-light: #5472d3;
-    --secondary-color-dark: #002171;
-
-    --secondary-color-on: #ffffff;
-    --secondary-color-light-on: #000000;
-    --secondary-color-dark-on: #ffffff;
-
-
     --card-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -52,6 +35,7 @@ html {
 }
 
 .header-item {
+    text-decoration: none;
     font-size: 1.4em;
     text-align: center;
     color: var(--primary-color-dark-on);
@@ -67,10 +51,22 @@ html {
 }
 
 .header-item:hover {
-    text-decoration: underline;
+    text-decoration: none;
     background-color: var(--primary-color);
     color: var(--primary-color-on);
     border-radius: 10px;
+}
+
+.header-item:active  {
+    text-decoration: none;
+}
+
+.header-item .material-icons {
+    margin-right: 4px;
+}
+
+.material-icons:hover {
+    text-decoration: none;
 }
 
 #header-left {

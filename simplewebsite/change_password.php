@@ -11,19 +11,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if(!isset($_POST["old_password"]) && empty($_POST["old_password"])) {
-        $_SESSION["error"] = new MyError(ErrorType::CHPWD_OLD_PASSWORD_NOT_SET);
+        $_SESSION["chpwd_error"] = new MyError(ErrorType::CHPWD_OLD_PASSWORD_NOT_SET);
         header("location: profile.php");
         exit();
     }
 
     if(!isset($_POST["new_password"])) {
-        $_SESSION["error"] = new MyError(ErrorType::CHPWD_NEW_PASSWORD_NOT_SET);
+        $_SESSION["chpwd_error"] = new MyError(ErrorType::CHPWD_NEW_PASSWORD_NOT_SET);
         header("location: profile.php");
         exit();
     }
 
     if(!isset($_POST["confirm_password"])) {
-        $_SESSION["error"] = new MyError(ErrorType::CHPWD_CONFIRM_PASSWORD_NOT_SET);
+        $_SESSION["chpwd_error"] = new MyError(ErrorType::CHPWD_CONFIRM_PASSWORD_NOT_SET);
         header("location: profile.php");
         exit();
     }
@@ -39,20 +39,20 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     if(mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_array($result);
         if($row["user_password"] !== $oldPassword) {
-            $_SESSION["error"] = new MyError(ErrorType::CHPWD_PASSWORD_NOT_MATCH);
+            $_SESSION["chpwd_error"] = new MyError(ErrorType::CHPWD_PASSWORD_NOT_MATCH);
             header("location: profile.php");
             exit();
         }
 
         if($newPassword !== $confirmPassword) {
-            $_SESSION["error"] = new MyError(ErrorType::CHPWD_NEW_PASSWORD_NOT_MATCH);
+            $_SESSION["chpwd_error"] = new MyError(ErrorType::CHPWD_NEW_PASSWORD_NOT_MATCH);
             header("location: profile.php");
             exit();
         }
 
         $query = "UPDATE users SET user_password='$newPassword' WHERE id=$userID";
         if(!mysqli_query($dbc_website, $query)) {
-            $_SESSION["error"] = new MyError(ErrorType::MYSQL_QUERY_FAILED);
+            $_SESSION["chpwd_error"] = new MyError(ErrorType::MYSQL_QUERY_FAILED);
             header("location: 500.php");
             exit();
         }
