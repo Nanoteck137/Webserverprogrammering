@@ -5,6 +5,7 @@ require("include/common.php");
 
 if (isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
     header("location: index.php");
+    exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -51,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $query = "INSERT INTO users(user_name, user_email, user_password) VALUES ('$username', '$email', '$password')";
             if(!mysqli_query($dbc_website, $query)) {
                 header("location: 500.php");
+                exit();
             } else {
                 $query = "SELECT * FROM users WHERE user_name = '$username'";
                 $result = mysqli_query($dbc_website, $query);
@@ -60,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $_SESSION["user_id"] = $row["id"];
 
                     header("location: profile.php");
+                    exit();
                 }
             }
         }

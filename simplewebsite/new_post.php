@@ -5,6 +5,7 @@ require("include/common.php");
 
 if(!is_logged_in()) {
     header("location: login.php");
+    exit();
 }
 
 //TODO: Check the string sizes
@@ -29,8 +30,10 @@ if($post_name_exists && $post_content_exists) {
     $query = "INSERT INTO posts(post_name, post_content, post_user_id) VALUES ('$post_name', '$post_content', $user_id)";
     if(!mysqli_query($dbc_website, $query)) {
         header("location: 500.php");
+        exit();
     } else {
         header("location: posts.php");
+        exit();
     }
 }
 

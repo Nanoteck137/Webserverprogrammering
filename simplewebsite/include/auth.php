@@ -9,14 +9,14 @@
         private $name = NULL;
         private $email = NULL;
         private $type = NULL;
-        private $theme = NULL;
+        private $themeID = NULL;
 
         public function __construct(string $id, string $name, string $email, string $type, int $themeID) {
             $this->id = $id;
             $this->name = $name;
             $this->email = $email;
             $this->type = $type;
-            $this->theme = $themeID;
+            $this->themeID = $themeID;
         }
 
         public function get_id() {
@@ -36,8 +36,28 @@
         }
 
         public function get_theme_id() {
-            return $this->theme;
+            return $this->themeID;
         }
+    }
+
+    function login($dbc, $userID) {
+        $query = "SELECT user_theme FROM users WHERE id=$userID";
+        $result = mysqli_query($dbc, $query);
+        if(!$result && mysqli_num_rows($result) !== 1) {
+            header("location: 500.php");
+            exit();
+        }
+
+        $row = mysqli_fetch_array($result);
+
+        $_SESSION["valid_login"] = true;
+        $_SESSION["user_id"] = $userID;
+        $_SESSION["theme"] = $row["user_theme"];
+    }
+
+    function logout() {
+        session_unset();
+        session_destroy();
     }
 
     function is_logged_in() {
@@ -48,13 +68,11 @@
         return $_SESSION["user_id"];
     }
 
-    function get_user_data($dbc) {
-        $user_id = get_user_id();
-
-        $query = "SELECT * FROM users WHERE id=$user_id";
+    function get_user_data($dbc, $user) {
+        $query = "SELECT * FROM users WHERE id=$user";
         $result = mysqli_query($dbc, $query);
         if(!$result) {
-            //header("location: 500.php");
+            header("location: 500.php");
             exit();
         }
 
@@ -66,7 +84,7 @@
             $type = $row["user_type"];
             $themeID = $row["user_theme"];
             
-            return new UserData($user_id, $username, $email, $type, $themeID);
+            return new UserData($user, $username, $email, $type, $themeID);
         } else {
             return NULL;
         }

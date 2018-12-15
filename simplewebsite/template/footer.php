@@ -4,7 +4,7 @@
 
 <?php
 if(is_logged_in()) {
-    $user = get_user_data($dbc_website);
+    $user = get_user_data($dbc_website, get_user_id());
     $themeID = $user->get_theme_id();
 } else {
     //Default theme

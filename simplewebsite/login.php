@@ -5,6 +5,7 @@ require("include/common.php");
 
 if(isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
     header("location: index.php");
+    exit();
 }
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -21,17 +22,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             //TODO: Hash password
             if($row["user_password"] === $password) {
                 //NOTE: Login
-                $_SESSION["valid_login"] = true;
-                $_SESSION["user_id"] = $row["id"];
+                login($dbc_website, $row["id"]);
 
                 header("location: index.php");
+                exit();
             } else {
                 //NOTE: Login Failed, Password check failed
                 $_SESSION["valid_login"] = false;
                 header("location: login.php");
+                exit();
             }
         } else {
             header("location: 500.php");
+            exit();
         }
     }
 }

@@ -1,7 +1,10 @@
 <?php
     session_start();
 
-    session_unset();
+    require("include/auth.php");
+
+    logout();
 
     header("location: index.php");
+    exit();
 ?>

@@ -21,7 +21,7 @@
         <div id="content">
             <?php
             if (is_logged_in()) {
-                $profile = get_user_data($dbc_website);
+                $profile = get_user_data($dbc_website, get_user_id());
             ?>
                 <div id="errors">
                     <?php
