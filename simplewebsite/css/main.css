@@ -210,6 +210,14 @@ html {
 
     border-radius: 10px;
 }
+
+.form-error input {
+    border: 1px solid red;
+}
+
+.form-error label {
+    color: red;
+}
    
 .form-input-group {
     position: relative;

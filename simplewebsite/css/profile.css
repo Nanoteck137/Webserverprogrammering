@@ -64,3 +64,15 @@
     transform: translateX(-50%);
 }
 
+#save-theme-button {
+    font-size: 15px;
+    height: 30px; 
+    width: 100px;
+}
+
+#change-theme {
+    position: absolute;
+    bottom: 20px;
+    /*right: 20px;*/
+    left: 30%;
+}

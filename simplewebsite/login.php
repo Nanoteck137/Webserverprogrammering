@@ -1,9 +1,9 @@
 <?php
-session_start();
-
 require("include/common.php");
 
-if(isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true) {
+session_start();
+
+if(is_logged_in()) {
     header("location: index.php");
     exit();
 }
@@ -29,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             } else {
                 //NOTE: Login Failed, Password check failed
                 $_SESSION["valid_login"] = false;
+                $_SESSION["login_error"] = new MyError(ErrorType::LOGIN_WRONG_PASSWORD);
                 header("location: login.php");
                 exit();
             }
@@ -54,19 +55,31 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         require("template/menu_header.php");
         ?>
 
+        <?php
+            if(isset($_SESSION["login_error"])) {
+                switch($_SESSION["login_error"]->get_type()) {
+                    case ErrorType::LOGIN_WRONG_PASSWORD: 
+                        $wrongPassword = true;
+                        break;
+
+                    default: {
+                        header("location: 500.php");
+                        exit();
+                    }
+                }
+
+                unset($_SESSION["login_error"]);
+            }
+        ?>
+
         <div id="content">
             <form class="form card" action="login.php" method="post">
-                <!--<input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
-                <input type="submit" name="loginSubmit" value="Login">
-                <p>Don't have an account, register one <a href="register.php">here</a></p>-->
-
                 <div class="form-input-group card">
                     <input class="form-input" type="text" name="username" required>
                     <label class="form-label">Username</label>
                 </div>
 
-                <div class="form-input-group card">
+                <div class="<?=$wrongPassword ? "form-error" : "" ?> form-input-group card">
                     <input class="form-input" type="password" name="password" required>
                     <label class="form-label">Password</label>
                 </div>

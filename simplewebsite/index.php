@@ -1,30 +1,13 @@
 <?php
-session_start();
+    session_start();
 
-require("include/common.php");
+    require("include/common.php");
 
+    if(is_logged_in()) {
+        header("location: posts.php");
+        exit();
+    }
+
+    header("location: login.php");
+    exit();
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <?php 
-    require("template/head.php");
-    ?>
-</head>
-<body>
-    <div id="container">
-        <?php
-        require("template/menu_header.php");
-        ?>
-
-        <div id="content">
-            <h1>Hello World</h1>
-        </div>
-
-        <?php
-        require("template/footer.php")
-        ?>
-    </div>
-</body>
-</html>

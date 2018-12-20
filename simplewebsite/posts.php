@@ -3,6 +3,11 @@ session_start();
 
 require("include/common.php");
 
+if(!is_logged_in()) {
+    header("location: login.php");
+    exit(); 
+}
+
 ?>
 
 <!DOCTYPE html>

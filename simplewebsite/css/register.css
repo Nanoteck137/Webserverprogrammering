@@ -2,14 +2,6 @@
     margin-bottom: 25px;
 }
 
-.form-error input {
-    border: 1px solid red;
-}
-
-.form-error label {
-    color: red;
-}
-
 #error-messages {
     background-color: var(--primary-color-light);
     color: var(--primary-color-on);
