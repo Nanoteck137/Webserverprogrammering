@@ -1,0 +1,206 @@
+:root {
+    --primary-background-color: #ffa726;
+    --primary-background-color-light: #ffd95b;
+    --primary-background-color-dark: #c77800;
+
+    --primary-background-color-on: #000000;
+    --primary-background-color-light-on: #000000;
+    --primary-background-color-dark-on: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: var(--primary-background-color-dark);
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.hamburger-menu {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 0px 0px 5px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 45px;
+    height: 6px;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.bar2 {
+    margin: 6px 0;
+}
+
+.bar3 {
+    margin-top: 6px;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#menu-list {
+    position: absolute;
+    height: 0;
+    
+    z-index: 100;
+    background: var(--primary-background-color-light);
+
+    padding: 0;
+    width: 100%;
+    
+    transition: height 0.8s;
+
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+
+.down {
+    height: 150px !important;
+}
+
+.menu-item {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 10px 0px;
+    text-decoration: none;
+}
+
+.menu-item a {
+    width: 50%;
+}
+
+.menu-item a:link {
+    text-decoration: none;
+}
+
+.menu-item a:visited {
+    text-decoration: none;
+}
+
+.menu-item a:hover {
+    text-decoration: none;
+}
+
+.menu-item a:active {
+    text-decoration: none;
+}
+
+#profile-icon {
+    float: right;
+}
+
+#profile-icon:hover {
+    cursor: pointer;
+}
+
+#settings-icon {
+    float: right;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+#settings-icon:hover {
+    cursor: pointer;
+}
+
+main {
+    padding-bottom: 20px;
+}
+
+.forum-post {
+    display: flex;
+    height: 100px;
+}
+
+#forum-post-rate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-background-color-light);
+    color: var(--primary-background-color-on-light);
+    width: 10%;
+    height: 100%;
+}
+
+
+.rate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rate img {
+    width: 60%;
+}
+
+.rate p {
+    display: inline-block;
+}
+
+#forum-main {
+    width: 90%;
+    background-color: var(--primary-background-color);
+    height: 100%;
+}
+
+#forum-title p {
+    display: block;
+    font-size: 1.4em;
+    height: auto;
+}
+
+#forum-author p {
+    color: gray;
+    float: left;
+    padding-right: 6px;
+    margin: auto 0;
+}
+
+#forum-author {
+    font-size: 0.8em;
+}
+
+#forum-author a {
+    float: left;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    background: var(--primary-background-color-dark);
+    color: var(--primary-background-color-on-dark);
+    
+    height: 20px;
+    padding: 8px;
+}
+
+footer p {
+    font-size: 1.2em;
+}

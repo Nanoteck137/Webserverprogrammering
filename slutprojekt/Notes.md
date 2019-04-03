@@ -1,9 +1,84 @@
 # Forum
 
+## TODO List
+
+### Checklist
+
+#### Client Side
+
+- [ ] Mobile View
+    - [ ] Structure
+        - [ ] Header
+        - [ ] Footer
+        
+- [ ] Tablet View
+    - [ ] Structure
+        - [ ] Header
+        - [ ] Footer
+
+- [ ] Desktop View
+    - [ ] Structure
+        - [ ] Header
+        - [ ] Footer
+
+- [ ] Pages
+    - [ ] Home
+        - [ ] View popular forum posts
+    - [ ] Login and Register
+        - [ ] Form for Login
+        - [ ] Form for Register
+    - [ ] Forum (Posts)
+        - [ ] Create new post
+        - [ ] View all posts
+        - [ ] View a single post
+    - [ ] View Post
+        - [ ] View post content
+        - [ ] View all post comments and child comments
+        - [ ] Create new comments
+        - [ ] Click on profile name to get a users info
+    - [ ] View Profile
+        - [ ] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
+    - [ ] Settings
+        - [ ] Change the theme (Light and Dark)
+        - [ ] If the user if logged they can change the password
+    - [ ] About us
+        - [ ] Just info
+
+#### Server Side
+- [ ] Login System
+- [ ] View Forum Posts
+- [ ] Create Forum Post
+- [ ] Pages
+    - [ ] Home
+        - [ ] View popular forum posts
+    - [ ] Login and Register
+        - [ ] Hook up to the database
+        - [ ] Form for Login
+        - [ ] Form for Register
+    - [ ] Forum (Posts)
+        - [ ] Hook up to the database
+        - [ ] Create new post
+        - [ ] View all posts
+        - [ ] View a single post
+    - [ ] View Post
+        - [ ] Hook up to the database
+        - [ ] View post content
+        - [ ] View all post comments and child comments
+        - [ ] Create new comments
+        - [ ] Click on profile name to get a users info
+    - [ ] View Profile
+        - [ ] Hook up to the database
+        - [ ] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
+    - [ ] Settings
+        - [ ] Hook up to the database
+        - [ ] Change the theme (Light and Dark)
+        - [ ] If the user if logged they can change the password
+    - [ ] About us (No Server side??)
+
 ## Tables
 
 Database Design:
-![alt text](Database.png "Database Design")
+![alt text](Design/pngs/Database.png "Database Design")
 
 p = Primary Key<br>
 f = Foreign Key<br>

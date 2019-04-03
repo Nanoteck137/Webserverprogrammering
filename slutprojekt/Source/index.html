@@ -5,153 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Stack Underflow</title>
 
-    <style>
-        :root {
-            --primary-background-color: #ffa726;
-            --primary-background-color-light: #ffd95b;
-            --primary-background-color-dark: #c77800;
-        }
-
-        #menu-list {
-            display: none;
-            background: var(--primary-background-color-light);
-            padding: 0;
-            width: 100%;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            background: var(--primary-background-color-dark);
-            padding: 10px;
-        }
-
-        .hamburger-menu {
-            display: inline-block;
-            cursor: pointer;
-            padding: 5px 0px 0px 5px;
-        }
-
-        .bar1,
-        .bar2,
-        .bar3 {
-            width: 45px;
-            height: 6px;
-            background-color: #333;
-            transition: 0.4s;
-        }
-
-        .bar2 {
-            margin: 6px 0;
-        }
-
-        .bar3 {
-            margin-top: 6px;
-        }
-
-        .change .bar1 {
-            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-            transform: rotate(-45deg) translate(-9px, 6px);
-        }
-
-        .change .bar2 {
-            opacity: 0;
-        }
-
-        .change .bar3 {
-            -webkit-transform: rotate(45deg) translate(-8px, -8px);
-            transform: rotate(45deg) translate(-8px, -8px);
-        }
-
-        .menu-item {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            font-size: 1.5em;
-            margin: 10px 0px;
-            text-decoration: none;
-        }
-
-        .menu-item a {
-            width: 50%;
-        }
-
-        .menu-item a:link {
-            text-decoration: none;
-        }
-
-        .menu-item a:visited {
-            text-decoration: none;
-        }
-
-        .menu-item a:hover {
-            text-decoration: none;
-        }
-
-        .menu-item a:active {
-            text-decoration: none;
-        }
-
-        #profile-icon {
-            float: right;
-        }
-
-        #profile-icon:hover {
-            cursor: pointer;
-        }
-
-        #settings-icon {
-            float: right;
-            margin-left: 20px;
-            margin-right: 10px;
-        }
-
-        #settings-icon:hover {
-            cursor: pointer;
-        }
-
-        main {
-            padding-bottom: 20px;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-
-            background: var(--primary-background-color-dark);
-            height: 20px;
-            padding: 8px;
-
-        }
-
-        footer p {
-            font-size: 1.2em;
-        }
-
-        #container {
-            min-height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <div id="container">
         <header>
             <nav>
-                <div class="hamburger-menu" onclick="toggleMenu(this)">
+                <div class="hamburger-menu">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>
 
-                <img id="settings-icon" src="img/settings.svg" alt="settings icon" width="40px"></a>
-                <img id="profile-icon" src="img/avatar.svg" alt="profile icon" width="40px">
+                <img src="img/logo-text.svg" alt="Logo" width="200px">
+
+                <!--<a href="#"><img id="settings-icon" src="img/settings.svg" alt="settings icon" width="40px"></a>-->
+                <a href="#"><img id="profile-icon" src="img/avatar.svg" alt="profile icon" width="40px"></a>
             </nav>
 
             <ul id="menu-list">
@@ -162,7 +35,27 @@
         </header>
 
         <main>
-
+            <div class="forum-post">
+                <div id="forum-post-rate">
+                    <div class="rate">
+                        <p>40</p>
+                        <img src="img/up-arrow.svg" alt="Up Arrow">
+                    </div>
+                    <div class="rate">
+                        <p>40</p>
+                        <img src="img/down-arrow.svg" alt="Down Arrow">
+                    </div>
+                </div>
+                <div id="forum-main">
+                    <div id="forum-title">
+                        <p>Wooooooooooooooooooooh</p>
+                    </div>
+                    <div id="forum-author">
+                        <p>1 hour ago</p>
+                        <a href="#">Nanoteck137</a>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -170,16 +63,8 @@
         </footer>
     </div>
 
-    <script>
-        function toggleMenu(x) {
-            x.classList.toggle("change");
-            let menuList = document.getElementById("menu-list");
-            if (menuList.style.display === "block")
-                menuList.style.display = "none";
-            else
-                menuList.style.display = "block";
-        }
-    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
