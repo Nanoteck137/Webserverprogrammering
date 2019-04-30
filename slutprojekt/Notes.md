@@ -2,23 +2,31 @@
 
 ## TODO List
 
+- [ ] Refactor all the code
+    - [ ] CSS
+    - [ ] HTML
+    - [ ] PHP
+
 ### Checklist
 
 #### Client Side
 
 - [ ] Mobile View
-    - [ ] Structure
-        - [ ] Header
-        - [ ] Footer
+    - [x] Structure
+        - [x] Header
+        - [x] Main
+        - [x] Footer
         
 - [ ] Tablet View
     - [ ] Structure
         - [ ] Header
+        - [ ] Main
         - [ ] Footer
 
 - [ ] Desktop View
     - [ ] Structure
         - [ ] Header
+        - [ ] Main
         - [ ] Footer
 
 - [ ] Pages

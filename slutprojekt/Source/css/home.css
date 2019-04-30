@@ -1,0 +1,9 @@
+main {
+    height: 1000px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    background-color: var(--primary-background-color-dark);
+    border-radius: 20px;
+}
