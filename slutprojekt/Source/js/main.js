@@ -7,10 +7,9 @@ $("#create-new-post").click(() => {
     window.location = $("#create-new-post").attr("data-href");
 });
 
-$("#sorting-head").click(() => {
-    $("#sorting-options").toggleClass("show-sorting-options");
-    $("#sorting-img-down").toggleClass("hide");
-    $("#sorting-img-up").toggleClass("hide");
+$(".forum-sort-selected").click(() => {
+    console.log("Hello WOrld");
+    $(".forum-sort-options").toggleClass("profile-posts-sort-options-down");
 });
 
 let themes = {

@@ -10,23 +10,25 @@
         <?php include "template/header.php" ?>
 
         <main>
-            <div id="sorting">
-                <div id="sorting-head">
-                    <div>
-                        <img id="sorting-img-down" src="img/down-arrow.svg" alt="Sort">
-                        <img id="sorting-img-up" src="img/up-arrow.svg" alt="Sort" class="hide">
+            <form id="posts-sort" class="forum-search-bar" action="forum.php" method="get">
+                <p class="forum-sort-title">Sort</p>
+                <p class="forum-sort-selected">New</p>
+                <div class="forum-sort-options">
+                    <label class="forum-sort-option-item">
+                        <input type="radio" name="sort" value="newest">
+                        <p>Newest</p>
+                    </label>
 
-                    </div>
-                    <p id="sorting-current">Sorting: New Post</p>
+                    <label class="forum-sort-option-item">
+                        <input type="radio" name="sort" value="oldest">
+                        <p>Oldest</p>
+                    </label>
                 </div>
 
-                <ul id="sorting-options">
-                    <li>Wooh1</li>
-                    <li>Wooh2</li>
-                    <li>Wooh3</li>
-                    <li>Wooh3</li>
-                </ul>
-            </div>
+                <input id="forum-search" type="text" name="search" value="Search">
+
+                <input type="submit" value="Submit">
+            </form>
 
             <div id="create-new-post" data-href="#">
                 <img src="img/add.svg" alt="Add">
