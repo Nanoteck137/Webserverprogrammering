@@ -7,6 +7,8 @@
     - [ ] HTML
     - [ ] PHP
 
+- [ ] Tablet view
+
 ### Checklist
 
 #### Client Side
@@ -26,8 +28,8 @@
 - [ ] Desktop View
     - [ ] Structure
         - [ ] Header
-        - [ ] Main
-        - [ ] Footer
+        - [x] Main
+        - [x] Footer
 
 - [ ] Pages
     - [ ] Home

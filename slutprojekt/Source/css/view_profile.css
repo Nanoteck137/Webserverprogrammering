@@ -1,0 +1,115 @@
+main {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#profile-info {
+    background-color: var(--primary-background-color);
+    padding: 10px;
+
+    margin-bottom: 10px;
+}
+
+#profile-info p {
+    width: 100%;
+    text-align: center;
+}
+
+#profile-info-name {
+    font-size: 1.2em;
+}
+
+#profile-pic {
+    position: relative;
+    left: calc(50% - 250px / 2);
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+}
+
+#profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.forum-sort {
+    position: relative;
+    background-color: var(--primary-background-color);
+    margin-bottom: 5px;
+
+    padding: 10px;
+}
+
+.forum-sort > p {
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.forum-sort-title {
+    margin-left: 20px;
+    color: gray;
+}
+
+.forum-sort-selected {
+    margin-left: 10px;
+    padding: 0px 5px;
+    color: rgb(12, 70, 171);
+}
+
+.forum-sort-selected:hover {
+    cursor: pointer;
+}
+
+.forum-sort-options {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-background-color);
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 24px;
+    z-index: 1;
+
+    left: 30px;
+
+    list-style: none;
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+.forum-sort-options li {
+    padding: 4px 0px;
+    color: var(--secondary-background-color-on)
+}
+
+.profile-posts-sort-options-down {
+    display: block !important;
+}
+
+#profile-posts {
+    background-color: var(--primary-background-color);
+}
+
+@media all and (min-width: 960px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #profile-info {
+        margin-right: 5px;
+        border-radius: 10px;
+    }
+
+    .forum-sort {
+        border-radius: 10px;
+    }
+
+    #profile-posts {
+        border-radius: 10px;
+        padding: 10px;
+    }
+}

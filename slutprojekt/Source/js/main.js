@@ -14,10 +14,26 @@ $("#sorting-head").click(() => {
 });
 
 let themes = {
-    default: {
+    /*default: {
         primaryBackgroundColor: "#ffa726",
         primaryBackgroundColorLight: "#ffd95b",
         primaryBackgroundColorDark: "#c77800",
+        primaryBackgroundColorOn: "#000000",
+        primaryBackgroundColorLightOn: "#000000",
+        primaryBackgroundColorDarkOn: "#000000",
+
+        secondaryBackgroundColor: "#ff7043",
+        secondaryBackgroundColorLight: "#ffa270",
+        secondaryBackgroundColorDark: "#0e0b0a",
+        secondaryBackgroundColorOn: "#000000",
+        secondaryBackgroundColorLightOn: "#000000",
+        secondaryBackgroundColorDarkOn: "#ffffff",
+    },*/
+
+    default: {
+        primaryBackgroundColor: "#fafafa",
+        primaryBackgroundColorLight: "#ffffff",
+        primaryBackgroundColorDark: "#c7c7c7",
         primaryBackgroundColorOn: "#000000",
         primaryBackgroundColorLightOn: "#000000",
         primaryBackgroundColorDarkOn: "#000000",

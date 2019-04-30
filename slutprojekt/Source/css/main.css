@@ -1,5 +1,5 @@
 :root {
-    --primary-background-color: #ffa726;
+    /*--primary-background-color: #ffa726;
     --primary-background-color-light: #ffd95b;
     --primary-background-color-dark: #c77800;
 
@@ -13,7 +13,7 @@
 
     --secondary-background-color-on: #000000;
     --secondary-background-color-light-on: #000000;
-    --secondary-background-color-dark-on: #ffffff;
+    --secondary-background-color-dark-on: #ffffff;*/
 }
 
 * {
@@ -25,21 +25,28 @@
     display: none;
 }
 
+#container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 html,body {
     width: 100%;
     height: 100%;
 
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background-color: var(--primary-background-color-light);
+    background-color: var(--primary-background-color-dark);
 }
 
 header {
     width: 100%;
     z-index: 100;
 
-    background: var(--primary-background-color-dark);
+    background: var(--primary-background-color);
 }
 
 #header-logo-small {
@@ -97,6 +104,10 @@ nav {
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
+}
+
+main {
+    flex: 1;
 }
 
 /* Menu */
@@ -212,6 +223,7 @@ nav {
 }
 
 #all-forum-posts {
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -250,20 +262,20 @@ nav {
 }
 
 footer {
+    align-self: flex-end;
     width: 100%;
     height: 20px;
 
     padding-top: 8px;
     padding-bottom: 8px;
 
-    background: var(--primary-background-color-dark);
-    color: var(--primary-background-color-dark-on);
+    background: var(--primary-background-color);
 }
 
 #footer-main p {
     padding-left: 8px;
     font-size: 1.2em;
-    color: var(--primary-background-color-dark-on);
+    color: var(--primary-background-color-on);
 }
 
 #mobile-menu-list {
@@ -368,9 +380,41 @@ footer {
     }
 }
 
-@media all and (max-width: 768px) {  }
+@media all and (min-width: 768px) and (max-width: 960px) { 
+    #desktop-menu {
+        display: none;
+    }
+    
+    #desktop-menu-list {
+        display: none;
+    }
 
-@media all and (max-width: 480px) {
+    .menu-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        flex: 1 1 auto;
+    
+        text-decoration: none;
+    }
+    
+    .menu-item a {
+        display: inline-block;;
+      
+        width: 100%;
+    
+        text-align: center;
+        font-size: 1.5em;
+    }
+    
+    .menu-item:nth-child(even) {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
     #desktop-menu {
         display: none;
     }
