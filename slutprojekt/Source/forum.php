@@ -10,24 +10,28 @@
         <?php include "template/header.php" ?>
 
         <main>
-            <form id="posts-sort" class="forum-search-bar" action="forum.php" method="get">
-                <p class="forum-sort-title">Sort</p>
-                <p class="forum-sort-selected">New</p>
-                <div class="forum-sort-options">
-                    <label class="forum-sort-option-item">
-                        <input type="radio" name="sort" value="newest">
-                        <p>Newest</p>
-                    </label>
+            <form class="forum-search-bar" action="forum.php" method="get">
+                <div id="forum-sort">
+                    <p class="forum-sort-title">Sort:</p>
+                    <p class="forum-sort-selected">New ▼</p>
 
-                    <label class="forum-sort-option-item">
-                        <input type="radio" name="sort" value="oldest">
-                        <p>Oldest</p>
-                    </label>
+                    <div class="forum-sort-options">
+                        <label class="forum-sort-option-item">
+                            <input type="radio" name="sort" value="newest">
+                            <p>Newest</p>
+                        </label>
+
+                        <label class="forum-sort-option-item">
+                            <input type="radio" name="sort" value="oldest">
+                            <p>Oldest</p>
+                        </label>
+                    </div>
                 </div>
 
-                <input id="forum-search" type="text" name="search" value="Search">
-
-                <input type="submit" value="Submit">
+                <input id="forum-search" type="text" name="search" placeholder="Search...">
+                <div id="forum-search-icon">
+                    <i class="fas fa-search fa-2x"></i>
+                </div>
             </form>
 
             <div id="create-new-post" data-href="#">

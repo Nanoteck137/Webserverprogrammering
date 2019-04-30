@@ -8,9 +8,26 @@ $("#create-new-post").click(() => {
 });
 
 $(".forum-sort-selected").click(() => {
-    console.log("Hello WOrld");
     $(".forum-sort-options").toggleClass("profile-posts-sort-options-down");
 });
+
+$("#forum-search-icon").click(() => {
+    console.log("Wooh");
+    $("#forum-search").toggleClass("forum-search-show");
+    $("#forum-sort").toggleClass("hide");
+    $("#forum-search").focus();
+
+});
+
+/*window.onclick = function(event) {
+    
+    if (!event.target.matches("#forum-search")) {
+        let element = document.getElementById("forum-search");
+        if (element.classList.contains("forum-search-show")) {
+            element.classList.remove("forum-search-show");
+        }
+    }
+}*/
 
 let themes = {
     /*default: {

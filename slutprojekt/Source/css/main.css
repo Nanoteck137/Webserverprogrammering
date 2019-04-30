@@ -132,6 +132,10 @@ main {
 }
 
 .forum-search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     position: relative;
     background-color: var(--primary-background-color);
     margin-bottom: 5px;
@@ -141,18 +145,16 @@ main {
     margin-top: 5px;
 }
 
-.forum-search-bar > p {
+#forum-sort > p {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 .forum-sort-title {
-    margin-left: 20px;
     color: gray;
 }
 
 .forum-sort-selected {
-    margin-left: 10px;
     padding: 0px 5px;
     color: rgb(12, 70, 171);
 }
@@ -170,7 +172,7 @@ main {
     padding: 12px 24px;
     z-index: 1;
 
-    left: 30px;
+    left: 10px;
 
     list-style: none;
     text-align: center;
@@ -193,10 +195,45 @@ main {
 }
 
 #forum-search {
-    padding: 5px;    
+    display: none;
+    width: 0;
+    overflow: hidden;
+
+    padding: 8px;
     border: none;
     background-color: var(--secondary-background-color-light);
     border-radius: 5px;
+    font-size: 1.1em;
+}
+
+@keyframes test {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+.forum-search-show {
+    display: inline-block !important;
+    animation: test 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.forum-search-show ~ #forum-search-icon {
+    display: none;
+}
+
+#forum-sort ~ .forum-search-show {
+    display: none;
+}
+
+#forum-search-icon:hover {
+    cursor: pointer;
 }
 
 .profile-posts-sort-options-down {
