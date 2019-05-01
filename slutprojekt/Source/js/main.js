@@ -12,11 +12,15 @@ $(".forum-sort-selected").click(() => {
 });
 
 $("#forum-search-icon").click(() => {
-    console.log("Wooh");
-    $("#forum-search").toggleClass("forum-search-show");
-    $("#forum-sort").toggleClass("hide");
+    $("#forum-search").addClass("forum-search-show");
+    $("#forum-sort").addClass("hide");
     $("#forum-search").focus();
 
+});
+
+$("#forum-search-exit").click(() => {
+    $("#forum-search").removeClass("forum-search-show");
+    $("#forum-sort").removeClass("hide");
 });
 
 /*window.onclick = function(event) {

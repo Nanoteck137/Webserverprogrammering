@@ -29,12 +29,15 @@
                 </div>
 
                 <input id="forum-search" type="text" name="search" placeholder="Search...">
+                <div id="forum-search-exit"><i class="fas fa-times"></i></div>
+
+
                 <div id="forum-search-icon">
                     <i class="fas fa-search fa-2x"></i>
                 </div>
             </form>
 
-            <div id="create-new-post" data-href="#">
+            <div id="create-new-post" data-href="new_post.php">
                 <img src="img/add.svg" alt="Add">
                 <p>New post</p>
             </div>

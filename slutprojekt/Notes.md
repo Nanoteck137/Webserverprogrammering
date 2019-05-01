@@ -7,6 +7,10 @@
     - [ ] HTML
     - [ ] PHP
 
+- [ ] Refactor the theme settings
+    - [ ] CSS Variables
+    - [ ] Fix background-color color on some elemnets (themes)
+
 - [ ] Tablet view
 
 ### Checklist

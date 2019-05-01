@@ -19,6 +19,8 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 .hide {
@@ -32,10 +34,8 @@
 }
 
 html,body {
-    width: 100%;
     height: 100%;
-
-    font-family: 'Roboto', sans-serif;
+    min-height: 100%;
 }
 
 body {
@@ -107,6 +107,8 @@ nav {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
@@ -138,11 +140,10 @@ main {
 
     position: relative;
     background-color: var(--primary-background-color);
-    margin-bottom: 5px;
 
     padding: 10px;
 
-    margin-top: 5px;
+    border-bottom: 2px solid black;
 }
 
 #forum-sort > p {
@@ -206,6 +207,23 @@ main {
     font-size: 1.1em;
 }
 
+#forum-search-exit {
+    display: none;
+
+    align-self: center;
+    margin-left: 5px;
+
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: red;
+}
+
+#forum-search-exit .fa-times {
+    width: 35px;
+    height: 35px;
+}
+
 @keyframes test {
     from {
         margin-left: 100%;
@@ -228,8 +246,8 @@ main {
     display: none;
 }
 
-#forum-sort ~ .forum-search-show {
-    display: none;
+.forum-search-show ~ #forum-search-exit {
+    display: inline-block;
 }
 
 #forum-search-icon:hover {
@@ -246,10 +264,9 @@ main {
 
     width: 100%;
     height: 60px;
-    background-color: var(--secondary-background-color);
+    background-color: var(--primary-background-color);
 
     border-bottom: black 2px solid;
-    border-top: black 2px solid;
 }
 
 #create-new-post:hover {
@@ -283,7 +300,6 @@ main {
 }
 
 #all-forum-posts {
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -339,6 +355,7 @@ footer {
 }
 
 #mobile-menu-list {
+    position: absolute;
     height: 0;
 
     display: flex;
@@ -389,10 +406,7 @@ footer {
     font-size: 1.5em;
 }
 
-.menu-item:nth-child(even) {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
+
   
 @media all and (min-width: 960px) {
     main {
@@ -465,6 +479,20 @@ footer {
 
     .forum-search-bar {
         border-radius: 10px;
+        margin: 5px 0px;
+        border: none;
+    }
+
+    #create-new-post {
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 5px;
+    }
+
+    #all-forum-posts {
+        background: var(--primary-background-color);
+        border-radius: 10px;
+        padding: 10px;
     }
 }
 
@@ -502,12 +530,17 @@ footer {
     }
 }*/
 
-@media all and (min-width: 480px) {
+@media all and (min-width: 480px) and (max-width: 960px) {
     #desktop-menu {
         display: none;
     }
     
     #desktop-menu-list {
         display: none;
+    }
+
+    .menu-item:nth-child(even) {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
     }
 }

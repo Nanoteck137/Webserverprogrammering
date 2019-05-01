@@ -4,5 +4,6 @@
     </div>
 </footer>
 
-<script src="js/jquery.js"></script>
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/showdown.min.js"></script>
 <script src="js/main.js"></script>
