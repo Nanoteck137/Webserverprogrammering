@@ -104,4 +104,4 @@ function changeTheme(theme) {
 
 }
 
-changeTheme(themes.default);
+changeTheme(themes.dark);

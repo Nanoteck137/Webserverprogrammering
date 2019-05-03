@@ -12,8 +12,11 @@
         <?php include "template/header.php" ?>
 
         <main>
+            <!-- TODO(patrik): Change action to login.php -->
             <form action="view_profile.php" method="get">
+                <div id="login-space"></div>
                 <p>Login</p>
+
 
                 <input type="text" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">

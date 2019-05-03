@@ -23,6 +23,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+p, h1, h2, h3, h4, h5, h6, i, svg {
+    color: var(--primary-background-color-on);
+}
+
 .hide {
     display: none;
 }
@@ -116,12 +120,13 @@ main {
 
 /* Menu */
 
-#profile-icon {
+#profile-icon svg {
     margin-right: 10px;
     margin-top: 10px;
+    float: right;
 }
 
-#profile-icon:hover {
+#profile-icon svg:hover {
     cursor: pointer;
 }
 
@@ -348,6 +353,8 @@ footer {
     padding-bottom: 8px;
 
     background: var(--primary-background-color);
+
+    border-top: 1px solid black;
 }
 
 #footer-main p {
@@ -443,12 +450,8 @@ footer {
         display: inline;
     }
 
-    #profile-icon-container {
-        width: 220px;
-    }
-
     #profile-icon {
-        float: right;
+        width: 220px;
     }
 
     #mobile-menu-list {
@@ -496,6 +499,10 @@ footer {
         background: var(--primary-background-color);
         border-radius: 10px;
         padding: 10px;
+    }
+
+    footer {
+        border: none;
     }
 }
 

@@ -17,8 +17,8 @@
                 <li class="menu-item"><a href="about.php">About Us</a></li>
             </ul>
 
-            <div id="profile-icon-container">
-                <a href="login.php"><img id="profile-icon" src="img/avatar.svg" alt="profile icon" width="40"></a>
+            <div id="profile-icon">
+                <a href="login.php"><i class="fas fa-user fa-3x"></i></a>
             </div>
         </nav>
 
