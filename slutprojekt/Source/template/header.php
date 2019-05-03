@@ -18,8 +18,7 @@
             </ul>
 
             <div id="profile-icon-container">
-                <a href="view_profile.php"><img id="profile-icon" src="img/avatar.svg" alt="profile icon"
-                        width="40"></a>
+                <a href="login.php"><img id="profile-icon" src="img/avatar.svg" alt="profile icon" width="40"></a>
             </div>
         </nav>
 

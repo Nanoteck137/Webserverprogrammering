@@ -110,6 +110,8 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    background-color: var(--primary-background-color);
 }
 
 /* Menu */
@@ -411,7 +413,8 @@ footer {
 @media all and (min-width: 960px) {
     main {
         width: 960px;
-        margin: 0 auto;
+        margin: 10px auto;
+        border-radius: 10px;
     }
 
     header {
@@ -479,7 +482,7 @@ footer {
 
     .forum-search-bar {
         border-radius: 10px;
-        margin: 5px 0px;
+        margin-bottom: 5px;
         border: none;
     }
 
