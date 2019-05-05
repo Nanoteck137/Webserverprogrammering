@@ -38,22 +38,6 @@ $("#profile-icon-button").click(() => {
 }*/
 
 let themes = {
-    /*default: {
-        primaryBackgroundColor: "#ffa726",
-        primaryBackgroundColorLight: "#ffd95b",
-        primaryBackgroundColorDark: "#c77800",
-        primaryBackgroundColorOn: "#000000",
-        primaryBackgroundColorLightOn: "#000000",
-        primaryBackgroundColorDarkOn: "#000000",
-
-        secondaryBackgroundColor: "#ff7043",
-        secondaryBackgroundColorLight: "#ffa270",
-        secondaryBackgroundColorDark: "#0e0b0a",
-        secondaryBackgroundColorOn: "#000000",
-        secondaryBackgroundColorLightOn: "#000000",
-        secondaryBackgroundColorDarkOn: "#ffffff",
-    },*/
-
     light: {
         primaryBackgroundColor: "#fafafa",
         primaryBackgroundColorLight: "#ffffff",
@@ -70,6 +54,7 @@ let themes = {
         secondaryBackgroundColorDarkOn: "#ffffff",
 
         bigLogoContainerColor: "#fafafa",
+        lightPlaceholderColor: "#5e5d5d",
     },
 
     dark: {
@@ -88,6 +73,7 @@ let themes = {
         secondaryBackgroundColorDarkOn: "#ffffff",
 
         bigLogoContainerColor: "#ededed",
+        lightPlaceholderColor: "#0a0a0a",
     }
 };
 
@@ -111,6 +97,7 @@ function changeTheme(theme) {
     root.style.setProperty("--secondary-background-color-dark-on", theme.secondaryBackgroundColorDarkOn);
 
     root.style.setProperty("--big-logo-container-color", theme.bigLogoContainerColor);
+    root.style.setProperty("--light-placeholder-color", theme.lightPlaceholderColor);
 }
 
-changeTheme(themes.light);
+changeTheme(themes.dark);
