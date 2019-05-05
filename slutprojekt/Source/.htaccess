@@ -1,0 +1,4 @@
+# Hide files not concerning the user
+RedirectMatch 404 \.(htaccess|htpasswd|ini|log|sh|inc|bak|bkp|sql)$
+#RedirectMatch 404 template/
+#RedirectMatch 404 private/

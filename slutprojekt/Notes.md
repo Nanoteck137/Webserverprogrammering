@@ -178,23 +178,9 @@ c = Current Date
 
 ### 
 ```sql
-DROP DATABASE forum;
-CREATE DATABASE forum;
-USE forum;
 
-CREATE TABLE user(
-    ID int(8) PRIMARY KEY AUTO_INCREMENT,
-    name varchar(32) NOT NULL,
-    username varchar(64) NOT NULL,
-    email varchar(64) NOT NULL,
-    birthdate datetime NOT NULL,
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP,
-    user_type ENUM('member', 'moderator', 'admin') NOT NULL DEFAULT 'member',
-    signature varchar(32),
-    profile_picture varchar(128) NOT NULL DEFAULT 'default_pic.png'
-);
 
-CREATE TABLE forum_post (
+CREATE TABLE forum_posts (
     ID int(8) PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(64) NOT NULL,
     content mediumtext NOT NULL,
