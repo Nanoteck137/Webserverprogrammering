@@ -20,6 +20,7 @@ secondary-background-color-light-on
 secondary-background-color-dark-on
 
 big-logo-container-color
+light-placeholder-color
 
 ## TODO List
 
@@ -92,6 +93,9 @@ big-logo-container-color
 - [ ] Login System
 - [ ] View Forum Posts
 - [ ] Create Forum Post
+
+- [ ] Special features for admin and mod users
+
 - [ ] Pages
     - [ ] Home
         - [ ] View popular forum posts

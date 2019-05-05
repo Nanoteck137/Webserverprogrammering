@@ -5,6 +5,7 @@
     <?php include "template/head.php" ?>
 
     <link rel="stylesheet" href="css/pages/forum.css">
+    <link rel="stylesheet" href="css/common/forum.css">
 </head>
 
 <body>
