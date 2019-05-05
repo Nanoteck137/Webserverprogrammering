@@ -1,0 +1,32 @@
+.forum-post {
+    background-color: var(--primary-background-color-light);
+    border-bottom: 2px solid gray;
+}
+
+.forum-title p {
+    padding: 10px;
+}
+
+.forum-author {
+    padding: 10px;
+}
+
+.forum-author p {
+    display: inline-block;
+}
+
+.forum-title:link {
+    text-decoration: none;
+}
+
+.forum-title:visited {
+    text-decoration: none;
+}
+
+.forum-title:hover {
+    text-decoration: none;
+}
+
+.forum-title:active {
+    text-decoration: none;
+}

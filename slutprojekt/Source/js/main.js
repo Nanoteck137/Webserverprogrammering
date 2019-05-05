@@ -27,7 +27,6 @@ $("#profile-icon-button").click(() => {
     $("#profile-menu").toggleClass("hide");
 });
 
-
 window.onclick = function(event) {
     if (event.target == document.querySelector("#modal")) {
         document.querySelector("#modal").classList.remove("modal-open");
@@ -39,8 +38,6 @@ window.onclick = function(event) {
         }
     }
 }
-
-
 
 let themes = {
     light: {
@@ -105,4 +102,4 @@ function changeTheme(theme) {
     root.style.setProperty("--light-placeholder-color", theme.lightPlaceholderColor);
 }
 
-changeTheme(themes.light);
+changeTheme(themes.dark);

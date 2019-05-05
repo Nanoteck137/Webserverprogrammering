@@ -3,7 +3,7 @@
 
 <head>
     <?php include "template/head.php" ?>
-    <link rel="stylesheet" href="css/new_post.css">
+    <link rel="stylesheet" href="css/pages/new_post.css">
 </head>
 
 <body>

@@ -4,7 +4,7 @@
 <head>
     <?php include "template/head.php" ?>
 
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/pages/login.css">
 </head>
 
 <body>
@@ -17,15 +17,14 @@
                 <div id="login-space"></div>
                 <p id="login-title">Login</p>
 
-
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
+                <input class="form-input" type="text" name="username" placeholder="Username">
+                <input class="form-input" type="password" name="password" placeholder="Password">
 
                 <p id="login-register-account">Register a account <a href="register.php">here</a></p>
 
                 <div id="login-space"></div>
 
-                <input type="submit" value="Login">
+                <input class="form-input" type="submit" value="Login">
             </form>
         </main>
 

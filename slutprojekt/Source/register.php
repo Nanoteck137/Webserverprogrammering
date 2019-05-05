@@ -4,7 +4,8 @@
 <head>
     <?php include "template/head.php" ?>
 
-    <link rel="stylesheet" href="css/login.css">
+    <!-- TODO(patrik): Why login.css -->
+    <link rel="stylesheet" href="css/pages/login.css">
 </head>
 
 <body>

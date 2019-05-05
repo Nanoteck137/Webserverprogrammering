@@ -1,0 +1,22 @@
+form {
+    flex: 1;
+    padding: 20px;
+}
+
+#login-title {
+    text-align: center;
+    font-size: 2em;
+}
+
+#login-register-account {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.form-input {
+    font-size: 2em;
+}
+
+#login-space {
+    flex: 1;
+}

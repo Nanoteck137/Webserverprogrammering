@@ -4,7 +4,7 @@
 <head>
     <?php include "template/head.php" ?>
 
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/pages/home.css">
 </head>
 
 <body>

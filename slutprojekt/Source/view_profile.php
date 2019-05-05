@@ -3,7 +3,8 @@
 
 <head>
     <?php include "template/head.php" ?>
-    <link rel="stylesheet" href="css/view_profile.css">
+    <link rel="stylesheet" href="css/pages/view_profile.css">
+    <link rel="stylesheet" href="css/common/forum.css">
 </head>
 
 <body>
@@ -31,21 +32,21 @@
                 <div id="profile-posts">
 
                     <?php
-                for($i = 0; $i < 10; $i++) {
-                ?>
-                    <div class="forum-post">
-                        <div class="forum-author">
-                            <a href="#">Nanoteck137</a>
-                            <p>1 hour ago</p>
-                        </div>
+                    for ($i = 0; $i < 10; $i++) {
+                        ?>
+                        <div class="forum-post">
+                            <div class="forum-author">
+                                <a href="#">Nanoteck137</a>
+                                <p>1 hour ago</p>
+                            </div>
 
-                        <a class="forum-title" href="#">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, officia
-                                blanditiis
-                                autem ea sunt sint consequatur quaerat impedit necessitatibus neque cupiditate culpa
-                                adipisci facilis expedita magnam eos cum velit fugiat.</p>
-                        </a>
-                    </div>
+                            <a class="forum-title" href="#">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, officia
+                                    blanditiis
+                                    autem ea sunt sint consequatur quaerat impedit necessitatibus neque cupiditate culpa
+                                    adipisci facilis expedita magnam eos cum velit fugiat.</p>
+                            </a>
+                        </div>
                     <?php
                 }
                 ?>

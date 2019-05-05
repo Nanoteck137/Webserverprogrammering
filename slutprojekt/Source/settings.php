@@ -4,7 +4,7 @@
 <head>
     <?php include "template/head.php" ?>
 
-    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/pages/settings.css">
 </head>
 
 <body>
@@ -69,7 +69,7 @@
                                 <input type="radio" name="theme" value="light">
                                 <p>Light Theme</p>
                             </label>
-                            
+
                             <label class="settings-theme-item">
                                 <input type="radio" name="theme" value="dark">
                                 <p>Dark Theme</p>
