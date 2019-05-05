@@ -50,7 +50,7 @@ let themes = {
         secondaryBackgroundColorDarkOn: "#ffffff",
     },*/
 
-    default: {
+    light: {
         primaryBackgroundColor: "#fafafa",
         primaryBackgroundColorLight: "#ffffff",
         primaryBackgroundColorDark: "#c7c7c7",
@@ -64,6 +64,8 @@ let themes = {
         secondaryBackgroundColorOn: "#000000",
         secondaryBackgroundColorLightOn: "#000000",
         secondaryBackgroundColorDarkOn: "#ffffff",
+
+        bigLogoContainerColor: "#fafafa",
     },
 
     dark: {
@@ -80,6 +82,8 @@ let themes = {
         secondaryBackgroundColorOn: "#000000",
         secondaryBackgroundColorLightOn: "#000000",
         secondaryBackgroundColorDarkOn: "#ffffff",
+
+        bigLogoContainerColor: "#ededed",
     }
 };
 
@@ -102,6 +106,7 @@ function changeTheme(theme) {
     root.style.setProperty("--secondary-background-color-light-on", theme.secondaryBackgroundColorLightOn);
     root.style.setProperty("--secondary-background-color-dark-on", theme.secondaryBackgroundColorDarkOn);
 
+    root.style.setProperty("--big-logo-container-color", theme.bigLogoContainerColor);
 }
 
-changeTheme(themes.dark);
+changeTheme(themes.light);

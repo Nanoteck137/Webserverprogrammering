@@ -8,8 +8,9 @@
             </div>
 
             <a id="header-logo-small" href="index.php"><img class="logo" src="img/logo.svg" alt="Logo" width="70"></a>
-            <a id="header-logo-big" href="index.php"><img class="logo" src="img/logo-text.svg" alt="Logo"
-                    width="220"></a>
+            <div id="header-logo-big-container">
+                <a href="index.php"><img class="logo" src="img/logo-text.svg" alt="Logo" width="220"></a>
+            </div>
 
             <ul id="desktop-menu-list">
                 <li class="menu-item"><a href="index.php">Home</a></li>

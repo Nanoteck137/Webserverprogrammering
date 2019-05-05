@@ -1,5 +1,26 @@
 # Forum
 
+## NOTES
+
+### CSS Background Variables
+primary-background-color
+primary-background-color-light
+primary-background-color-dark
+
+primary-background-color-on
+primary-background-color-light-on
+primary-background-color-dark-on
+
+secondary-background-color
+secondary-background-color-light
+secondary-background-color-dark
+
+secondary-background-color-on
+secondary-background-color-light-on
+secondary-background-color-drk-on
+
+big-logo-container-color
+
 ## TODO List
 
 - [ ] Refactor all the code
@@ -8,10 +29,17 @@
     - [ ] PHP
 
 - [ ] Refactor the theme settings
-    - [ ] CSS Variables
+    - [ ] CSS Variables names
     - [ ] Fix background-color color on some elemnets (themes)
 
+- [ ] forum-search-bar margin on the sides
+- [ ] Search bar in desktop view
+- [ ] Uniform text input style
+- [ ] New post container needs a border
+
 - [ ] Tablet view
+
+- [ ] Fix the logo
 
 ### Checklist
 
@@ -20,19 +48,16 @@
 - [ ] Mobile View
     - [x] Structure
         - [x] Header
-        - [x] Main
         - [x] Footer
         
 - [ ] Tablet View
     - [ ] Structure
         - [ ] Header
-        - [ ] Main
         - [ ] Footer
 
 - [ ] Desktop View
     - [ ] Structure
         - [ ] Header
-        - [x] Main
         - [x] Footer
 
 - [ ] Pages
@@ -157,7 +182,7 @@ CREATE TABLE user(
     created_date datetime NOT NULL default CURRENT_TIMESTAMP,
     user_type ENUM('member', 'moderator', 'admin') NOT NULL DEFAULT 'member',
     signature varchar(32),
-    profile_picture varchar(64) NOT NULL DEFAULT 'default_pic.png'
+    profile_picture varchar(128) NOT NULL DEFAULT 'default_pic.png'
 );
 
 CREATE TABLE forum_post (

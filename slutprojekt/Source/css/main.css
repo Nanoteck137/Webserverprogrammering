@@ -57,15 +57,19 @@ header {
     display: inline;
 }
 
-#header-logo-big {
+#header-logo-big-container {
     display: none;
+
+    background-color: var(--big-logo-container-color);
+    padding-left: 10px;
+    padding-top:  5px;
+    border-radius: 5px;
 }
 
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 
     padding: 10px;
 
@@ -428,6 +432,10 @@ footer {
         width: 100%;
     }
 
+    nav {
+        padding: 10px 0px;
+    }
+
     #header-main {
         width: 960px;
         margin: 0 auto;
@@ -446,7 +454,7 @@ footer {
         display: none;
     }
 
-    #header-logo-big {
+    #header-logo-big-container {
         display: inline;
     }
 
