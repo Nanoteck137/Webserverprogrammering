@@ -54,18 +54,7 @@ header {
 }
 
 #header-logo-small {
-    display: inline;
-}
-
-#header-logo-big-container {
-    display: none;
-
-    background-color: var(--big-logo-container-color);
-    padding-left: 10px;
-    padding-top:  5px;
-    border-radius: 5px;
-
-    width: 33%;
+    display: inline-block;
 }
 
 nav {
@@ -74,6 +63,7 @@ nav {
     justify-content: space-between;
 
     padding: 10px;
+    margin: 0px 10px;
 
     /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
 }
@@ -83,7 +73,6 @@ nav {
     cursor: pointer;
     padding: 5px 0px 0px 5px;
     margin-left: 10px;
-    width: 33%;
 }
 
 .bar1,
@@ -129,7 +118,6 @@ main {
 
 #profile-icon {
     position: relative;
-    width: 33%;
 }
 
 #profile-icon-button svg {
@@ -464,6 +452,8 @@ footer {
 
     background-color: var(--primary-background-color-dark);
     border-radius: 10px;
+
+    margin: 0px 100px;
 }
 
 #desktop-menu-list a {
@@ -559,20 +549,8 @@ footer {
         display: none;
     }
 
-    #header-logo-small {
-        display: none;
-    }
-
-    #header-logo-big-container {
-        display: inline;
-    }
-
-    /*#profile-icon {
-        width: 220px;
-    }*/
-
     #profile-menu {
-        left: 0px;
+        left: -180px;
     }
 
     #mobile-menu-list {
