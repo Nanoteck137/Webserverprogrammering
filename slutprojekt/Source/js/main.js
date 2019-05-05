@@ -28,14 +28,19 @@ $("#profile-icon-button").click(() => {
 });
 
 
-/*window.onclick = function(event) {
-    if (!event.target.matches("#forum-search")) {
-        let element = document.getElementById("forum-search");
-        if (element.classList.contains("forum-search-show")) {
-            element.classList.remove("forum-search-show");
+window.onclick = function(event) {
+    if (event.target == document.querySelector("#modal")) {
+        document.querySelector("#modal").classList.remove("modal-open");
+    }
+
+    if (!event.target.matches("path") && !event.target.matches("svg")) {
+        if (!event.target.matches("#profile-menu")) {
+            document.querySelector("#profile-menu").classList.add("hide");
         }
     }
-}*/
+}
+
+
 
 let themes = {
     light: {
@@ -100,4 +105,4 @@ function changeTheme(theme) {
     root.style.setProperty("--light-placeholder-color", theme.lightPlaceholderColor);
 }
 
-changeTheme(themes.dark);
+changeTheme(themes.light);

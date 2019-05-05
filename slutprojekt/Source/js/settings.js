@@ -24,9 +24,3 @@ function openModal(element) {
 
     modalWindow.appendChild(contentContainer);
 }
-
-window.onclick = (event) => {
-    if (event.target == document.querySelector("#modal")) {
-        modal.classList.remove("modal-open");
-    }
-}
