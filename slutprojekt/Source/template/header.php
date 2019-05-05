@@ -12,11 +12,11 @@
                 <a href="index.php"><img class="logo" src="img/logo-text.svg" alt="Logo" width="220"></a>
             </div>
 
-            <ul id="desktop-menu-list">
-                <li class="menu-item"><a href="index.php">Home</a></li>
-                <li class="menu-item"><a href="forum.php">Forum</a></li>
-                <li class="menu-item"><a href="about.php">About Us</a></li>
-            </ul>
+            <div id="desktop-menu-list">
+                <a href="index.php">Home</a>
+                <a href="forum.php">Forum</a>
+                <a href="about.php">About Us</a>
+            </div>
 
             <div id="profile-icon">
                 <div id="profile-icon-button"><i class="fas fa-user fa-3x"></i></div>

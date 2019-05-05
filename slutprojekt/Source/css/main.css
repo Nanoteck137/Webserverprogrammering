@@ -64,6 +64,8 @@ header {
     padding-left: 10px;
     padding-top:  5px;
     border-radius: 5px;
+
+    width: 33%;
 }
 
 nav {
@@ -81,6 +83,7 @@ nav {
     cursor: pointer;
     padding: 5px 0px 0px 5px;
     margin-left: 10px;
+    width: 33%;
 }
 
 .bar1,
@@ -126,6 +129,7 @@ main {
 
 #profile-icon {
     position: relative;
+    width: 33%;
 }
 
 #profile-icon-button svg {
@@ -453,9 +457,51 @@ footer {
 }
 
 #desktop-menu-list {
-    display: none;
+    flex: 1;
+    display: flex;
 
-    justify-content: space-between;
+    justify-content: space-around;
+
+    background-color: var(--primary-background-color-dark);
+    border-radius: 10px;
+}
+
+#desktop-menu-list a {
+    flex: 1;
+    padding: 10px 10px;
+    text-align: center;
+
+    font-size: 1.2em;
+    color: var(--primary-background-color-dark-on);
+}
+
+#desktop-menu-list a:link {
+    text-decoration: none;
+    color: var(--primary-background-color-dark-on);
+}
+
+#desktop-menu-list a:visited {
+    text-decoration: none;
+    color: var(--primary-background-color-dark-on);
+}
+
+#desktop-menu-list a:hover {
+    text-decoration: none;
+    background-color: lightgray;
+}
+
+#desktop-menu-list a:hover:first-child {
+    border-radius: 10px 0px 0px 10px;
+
+}
+
+#desktop-menu-list a:hover:last-child {
+    border-radius: 0px 10px 10px 0px;
+}
+
+#desktop-menu-list a:active {
+    text-decoration: none;
+    color: var(--primary-background-color-dark-on);
 }
 
 .down {
@@ -483,8 +529,7 @@ footer {
     font-size: 1.5em;
 }
 
-
-  
+/* Desktop View */
 @media all and (min-width: 960px) {
     main {
         width: 960px;
@@ -522,9 +567,9 @@ footer {
         display: inline;
     }
 
-    #profile-icon {
+    /*#profile-icon {
         width: 220px;
-    }
+    }*/
 
     #profile-menu {
         left: 0px;
@@ -532,10 +577,6 @@ footer {
 
     #mobile-menu-list {
         display: none;
-    }
-
-    #desktop-menu-list {
-        display: flex;
     }
 
     .menu-item {
@@ -616,7 +657,8 @@ footer {
     }
 }*/
 
-@media all and (min-width: 480px) and (max-width: 960px) {
+/* Mobile View */
+@media all and (max-width: 960px) {
     #desktop-menu {
         display: none;
     }
