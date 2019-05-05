@@ -24,12 +24,12 @@
                         <p>Profile</p>
                     </a>
 
-                    <a href="login.php">
+                    <a href="settings.php">
                         <i class="fas fa-cog fa-1x"></i>
                         <p>Settings</p>
                     </a>
 
-                    <a href="#">
+                    <a href="logout.php">
                         <i class="fas fa-sign-in-alt fa-1x"></i>
                         <p>Log out</p>
                     </a>

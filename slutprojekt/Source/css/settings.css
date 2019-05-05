@@ -1,0 +1,50 @@
+#settings-title {
+    font-size: 1.6em;
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+#settings-change-password {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.settings-item-open {
+    display: none;
+}
+
+#modal {
+    display: none;
+
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+
+    background-color: rgba(0,0,0,0.4);
+}
+
+#modal-content {
+    background-color: white;
+}
+
+.modal-open {
+    display: block !important;
+}
+
+@media all and (min-width: 960px) {
+    #modal-content {
+        width: 960px;
+        margin: 16% auto;
+    }
+}

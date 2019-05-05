@@ -29,7 +29,6 @@ $("#profile-icon-button").click(() => {
 
 
 /*window.onclick = function(event) {
-    
     if (!event.target.matches("#forum-search")) {
         let element = document.getElementById("forum-search");
         if (element.classList.contains("forum-search-show")) {

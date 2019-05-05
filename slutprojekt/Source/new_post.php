@@ -12,17 +12,17 @@
 
         <main>
             <form action="new_post.php" method="get">
-                <input id="title" name="title" type="text" placeholder="Title">
-                <textarea id="content" name="content" cols="30" rows="10"></textarea>
-                <button class="new-post-button">Preview</button>
-                <input class="new-post-button" type="submit" value="Create post">
+                <input class="form-input" id="title" name="title" type="text" placeholder="Title">
+                <textarea class="form-input" id="content" name="content" cols="30" rows="10"></textarea>
+                <button class="form-input">Preview</button>
+                <input class="form-input" type="submit" value="Create post">
             </form>
         </main>
 
         <?php include "template/footer.php" ?>
 
         <script>
-        /*let converter = new showdown.Converter();
+            /*let converter = new showdown.Converter();
 
         document.getElementById("test").addEventListener("input", (event) => {
             let html = converter.makeHtml(event.target.value);

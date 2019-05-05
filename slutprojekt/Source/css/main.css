@@ -31,6 +31,41 @@ p, h1, h2, h3, h4, h5, h6, i, svg {
     display: none !important;
 }
 
+/* #region Form Stuff */
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    padding: 10px;
+}
+
+.form-input {
+    font-size: 1em;
+    border-radius: 5px;
+
+    padding: 5px;
+
+    margin-bottom: 5px;
+}
+
+.form-input:last-child {
+    margin-bottom: 0px;
+}
+
+button {
+    font-size: 1em;
+    border-radius: 5px;
+
+    padding: 5px;
+
+    margin-bottom: 5px;
+}
+
+/* #endregion */
+
 #container {
     display: flex;
     min-height: 100vh;
