@@ -34,7 +34,7 @@
             <div id="settings-items">
                 <div class="settings-item">
                     <p>Change password</p>
-                    <button>Change</button>
+                    <button class="settings-item-button">Change</button>
 
                     <div class="settings-item-open">
                         <form action="settings.php" action="get">
@@ -48,11 +48,17 @@
 
                 <div class="settings-item">
                     <p>Change email</p>
-                    <button>Change</button>
+                    <button class="settings-item-button">Change</button>
+
+                    <div class="settings-item-open">
+                        <form action="settings.php" method="get">
+                            <input class="form-input" type="text" name="old_email" placeholder="Old Email">
+                            <input class="form-input" type="text" name="new_email" placeholder="New Email">
+                            <input class="form-input" type="submit" value="Change Email">
+                        </form>
+                    </div>
                 </div>
             </div>
-
-            <button id="test">Test</button>
 
             <div id="modal">
                 <div id="modal-content">

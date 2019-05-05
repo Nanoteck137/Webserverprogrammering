@@ -1,7 +1,12 @@
-document.getElementById("test").addEventListener("click", () => {
-    let settingsItems = document.querySelector("#settings-items");
-    openModal(settingsItems.children[0].querySelector(".settings-item-open"));
-});
+let items = document.querySelector("#settings-items").children;
+
+for(let i = 0; i < items.length; i++) {
+    let item = items[i];
+
+    item.querySelector(".settings-item-button").addEventListener("click", () => {
+        openModal(item.querySelector(".settings-item-open"));
+    });
+}
 
 function openModal(element) {
     let modalWindow = document.querySelector("#modal");
