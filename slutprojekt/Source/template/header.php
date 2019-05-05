@@ -22,8 +22,20 @@
                 <div id="profile-icon-button"><i class="fas fa-user fa-3x"></i></div>
 
                 <div id="profile-menu" class="hide">
-                    <a href="view_profile.php"><i class="fas fa-user fa-2x"></i><p>Profile</p></a>
-                    <a href="login.php"><i class="fas fa-sign-in-alt fa-2x"></i><p>Log in</p></a>
+                    <a href="view_profile.php">
+                        <i class="fas fa-user fa-1x"></i>
+                        <p>Profile</p>
+                    </a>
+
+                    <a href="login.php">
+                        <i class="fas fa-cog fa-1x"></i>
+                        <p>Settings</p>
+                    </a>
+
+                    <a href="#">
+                        <i class="fas fa-sign-in-alt fa-1x"></i>
+                        <p>Log out</p>
+                    </a>
                 </div>
             </div>
 

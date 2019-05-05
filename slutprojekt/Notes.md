@@ -32,10 +32,13 @@ big-logo-container-color
     - [ ] CSS Variables names
     - [ ] Fix background-color color on some elemnets (themes)
 
-- [ ] forum-search-bar margin on the sides
-- [ ] Search bar in desktop view
+- [ ] forum.php: forum-search-bar margin on the sides
+- [ ] forum.php: Search bar in desktop view
 - [ ] Uniform text input style
+- [ ] Uniform button style
 - [ ] New post container needs a border
+
+- [ ] view_profile.php: Sorting button not working
 
 - [ ] Tablet view
 
