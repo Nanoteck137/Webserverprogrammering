@@ -58,6 +58,27 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="settings-item">
+                    <p>Change theme</p>
+                    <button class="settings-item-button">Change</button>
+
+                    <div class="settings-item-open">
+                        <form action="settings.php" method="get">
+                            <label class="settings-theme-item">
+                                <input type="radio" name="theme" value="light">
+                                <p>Light Theme</p>
+                            </label>
+                            
+                            <label class="settings-theme-item">
+                                <input type="radio" name="theme" value="dark">
+                                <p>Dark Theme</p>
+                            </label>
+
+                            <input class="form-input" type="submit" value="Change Theme">
+                        </form>
+                    </div>
+                </div>
             </div>
 
             <div id="modal">

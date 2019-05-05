@@ -21,6 +21,18 @@
     display: none;
 }
 
+.settings-theme-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 10px 0px;
+}
+
+.settings-theme-item input {
+    margin-right: 5px;
+}
+
 #modal {
     display: none;
 
@@ -37,7 +49,7 @@
 }
 
 #modal-content {
-    background-color: white;
+    background-color: var(--primary-background-color);
 
     
     margin: 10px;
@@ -52,7 +64,7 @@
 
 @media all and (min-width: 960px) {
     #modal-content {
-        width: 960px;
+        width: 480px;
         margin: 16% auto;
     }
 }
