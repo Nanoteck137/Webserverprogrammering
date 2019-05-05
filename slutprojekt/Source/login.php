@@ -1,15 +1,7 @@
 <?php
-    require_once("./private/user.php");
-    if(isset($_POST["username"]) && isset($_POST["password"])) {
-        $user = get_user_from_username($_POST["username"]);
+require_once("./private/database.php");
+require_once("./private/user.php");
 
-        //TODO(patrik): Hash the passwords
-        if($user->password === $_POST["password"]) {
-            signin($user);
-        } else {
-            //TODO(patrik): Show the user a error
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +14,28 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
+        try {
+            $user = get_user_from_username($database_main, $_POST["username"]);
+        } catch(UserNotFoundException $e) {
+            echo $e->getMessage();
+        }
 
+        //TODO(patrik): Hash the passwords
+        if ($user->password === $_POST["password"]) {
+            signin($user);
+        } else {
+            //TODO(patrik): Show the user a error
+        }
+    }
+    ?>
 
     <div id="container">
         <?php include "template/header.php" ?>
 
         <main>
-            <!-- TODO(patrik): Change action to login.php -->
-            <form action="view_profile.php" method="post">
+            <form action="login.php" method="post">
                 <div id="login-space"></div>
                 <p id="login-title">Login</p>
 
