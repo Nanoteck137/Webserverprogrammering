@@ -19,8 +19,14 @@
             </ul>
 
             <div id="profile-icon">
-                <a href="login.php"><i class="fas fa-user fa-3x"></i></a>
+                <div id="profile-icon-button"><i class="fas fa-user fa-3x"></i></div>
+
+                <div id="profile-menu" class="hide">
+                    <a href="view_profile.php"><i class="fas fa-user fa-2x"></i><p>Profile</p></a>
+                    <a href="login.php"><i class="fas fa-sign-in-alt fa-2x"></i><p>Log in</p></a>
+                </div>
             </div>
+
         </nav>
 
         <ul id="mobile-menu-list">

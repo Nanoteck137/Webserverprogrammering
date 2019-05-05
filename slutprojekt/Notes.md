@@ -17,7 +17,7 @@ secondary-background-color-dark
 
 secondary-background-color-on
 secondary-background-color-light-on
-secondary-background-color-drk-on
+secondary-background-color-dark-on
 
 big-logo-container-color
 
@@ -63,20 +63,20 @@ big-logo-container-color
 - [ ] Pages
     - [ ] Home
         - [ ] View popular forum posts
-    - [ ] Login and Register
-        - [ ] Form for Login
-        - [ ] Form for Register
+    - [x] Login and Register
+        - [x] Form for Login
+        - [x] Form for Register
     - [ ] Forum (Posts)
-        - [ ] Create new post
-        - [ ] View all posts
+        - [x] Create new post
+        - [x] View all posts
         - [ ] View a single post
     - [ ] View Post
         - [ ] View post content
         - [ ] View all post comments and child comments
         - [ ] Create new comments
         - [ ] Click on profile name to get a users info
-    - [ ] View Profile
-        - [ ] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
+    - [x] View Profile
+        - [x] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
     - [ ] Settings
         - [ ] Change the theme (Light and Dark)
         - [ ] If the user if logged they can change the password

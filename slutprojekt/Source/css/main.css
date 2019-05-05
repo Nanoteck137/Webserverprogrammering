@@ -28,7 +28,7 @@ p, h1, h2, h3, h4, h5, h6, i, svg {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 #container {
@@ -124,7 +124,11 @@ main {
 
 /* Menu */
 
-#profile-icon svg {
+#profile-icon {
+    position: relative;
+}
+
+#profile-icon-button svg {
     margin-right: 10px;
     margin-top: 10px;
     float: right;
@@ -132,6 +136,63 @@ main {
 
 #profile-icon svg:hover {
     cursor: pointer;
+}
+
+#profile-menu {
+    display: block;
+
+    position: absolute;
+    background-color: white;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+    left: -100px;
+    bottom: -90px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    z-index: 1000;
+}
+
+#profile-menu a {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-size: 1.3em;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#profile-menu svg {
+}
+
+#profile-menu a:link {
+    text-decoration: none;
+}
+
+#profile-menu a:visited {
+    text-decoration: none;
+}
+
+#profile-menu a:hover  {
+    text-decoration: none;
+    background-color: lightgray;
+    
+}
+
+#profile-menu a:hover:first-child {
+    border-radius: 10px 10px 0px 0px;
+}
+
+#profile-menu a:hover:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
+
+#profile-menu a:active {
+    text-decoration: none;
 }
 
 #settings-icon {

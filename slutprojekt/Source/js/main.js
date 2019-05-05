@@ -23,6 +23,11 @@ $("#forum-search-exit").click(() => {
     $("#forum-sort").removeClass("hide");
 });
 
+$("#profile-icon-button").click(() => {
+    $("#profile-menu").toggleClass("hide");
+});
+
+
 /*window.onclick = function(event) {
     
     if (!event.target.matches("#forum-search")) {

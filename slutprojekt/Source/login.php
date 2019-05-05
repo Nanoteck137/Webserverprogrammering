@@ -15,7 +15,7 @@
             <!-- TODO(patrik): Change action to login.php -->
             <form action="view_profile.php" method="get">
                 <div id="login-space"></div>
-                <p>Login</p>
+                <p id="login-title">Login</p>
 
 
                 <input type="text" name="username" placeholder="Username">
