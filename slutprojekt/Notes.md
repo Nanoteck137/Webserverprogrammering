@@ -40,6 +40,8 @@ big-logo-container-color
 
 - [ ] view_profile.php: Sorting button not working
 
+- [ ] Fix popups (Click on the side to close it)
+
 - [ ] Tablet view
 
 - [ ] Fix the logo
