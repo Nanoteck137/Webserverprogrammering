@@ -16,16 +16,7 @@
 
 <body>
     <?php
-<<<<<<< Updated upstream
     $signin_error = false;
-=======
-    if (isset($_POST["username"]) && isset($_POST["password"])) {
-        try {
-            $user = get_user_from_username($database_main, $_POST["username"]);
-        } catch (UserNotFoundException $e) {
-            echo $e->getMessage();
-        }
->>>>>>> Stashed changes
 
     if(is_user_signedin()) 
     {
