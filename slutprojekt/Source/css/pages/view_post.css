@@ -1,0 +1,76 @@
+#view-post-author, .view-post-comment-author {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+#view-post-author a {
+    /* TODO(patrik): Change this to a variable */
+    color: lightgray;
+    margin-right: 10px;
+}
+
+#view-post-title{
+    font-size: 1.4em;
+    padding: 10px;
+
+    border-top: 1px solid black;
+}
+
+#view-post-content {
+    font-size: 1.2em;
+
+    padding: 10px;
+
+    border-top: 1px solid black;
+}
+
+#view-post-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    /* TODO(patrik): Change this is a variable */
+    background-color: var(--primary-background-color-light);
+
+    font-size: 1.2em;
+    padding: 0px 5px;
+}
+
+#view-post-info p {
+    color: var(--primary-background-color-light-on);
+}
+
+#view-post-info svg {
+    color: var(--primary-background-color-light-on);
+}
+
+.view-post-info-text {
+    display: none;
+}
+
+.view-post-comment {
+    border-bottom: 1px solid black;
+}
+
+.view-post-comment-author {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.view-post-comment-author a {
+    /* TODO(patrik): Change this to a variable */
+    color: lightgray;
+    margin-right: 10px;
+}
+
+.view-post-commment-content {
+    padding: 10px;
+}
+
+@media all and (min-width: 960px) {
+    .view-post-info-text {
+        display: inline;
+    }
+}
