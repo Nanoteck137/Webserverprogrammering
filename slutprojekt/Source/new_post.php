@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require_once("./private/database.php");
+    require_once("./private/user.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +28,7 @@
         <?php include "template/footer.php" ?>
 
         <script>
-            /*let converter = new showdown.Converter();
+        /*let converter = new showdown.Converter();
 
         document.getElementById("test").addEventListener("input", (event) => {
             let html = converter.makeHtml(event.target.value);

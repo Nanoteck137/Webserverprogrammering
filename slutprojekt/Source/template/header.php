@@ -19,6 +19,12 @@
                 <div id="profile-icon-button"><i class="fas fa-user fa-3x"></i></div>
 
                 <div id="profile-menu" class="hide">
+                    <?php
+                    if(is_user_signedin()) 
+                    {
+                        $user = current_user($database_main);
+                    ?>
+                    <p><?php echo $user->username; ?></p>
                     <a href="view_profile.php">
                         <i class="fas fa-user fa-1x"></i>
                         <p>Profile</p>
@@ -33,6 +39,18 @@
                         <i class="fas fa-sign-in-alt fa-1x"></i>
                         <p>Log out</p>
                     </a>
+                    <?php
+                    }
+                    else
+                    { 
+                    ?>
+                    <a href="login.php">
+                        <i class="fas fa-sign-in-alt fa-1x"></i>
+                        <p>Log in</p>
+                    </a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
 

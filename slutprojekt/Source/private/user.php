@@ -51,15 +51,62 @@ class User
     }
 }
 
-/*function get_current_user_id(): int 
+function create_user_from_table($row): User 
 {
-    return 0;
+    if($row["signature"] === NULL) 
+    {
+        $signature = "";
+    } 
+    else 
+    {
+        $signature = $row["signature"];
+    }
+
+    $result = new User($row["ID"], 
+                        $row["name"],
+                        $row["username"],
+                        $row["email"], 
+                        $row["password"], 
+                        $row["birthdate"], 
+                        $row["created_date"], 
+                        $row["user_type"],
+                        $signature, 
+                        $row["profile_picture"]);
+
+    return $result;
 }
 
-function get_user(int $id): User
+function get_current_user_id(): int 
 {
-    return null;
-}*/
+    return $_SESSION["user_id"];
+}
+
+function get_user(mysqli $database, int $id): User
+{
+    //TODO(patrik): Use prepared statements
+    $query = "SELECT * FROM users WHERE ID=$id";
+
+    $result = $database->query($query);
+
+    if($result->num_rows <= 0) 
+    {
+        throw new UserNotFoundException($username);
+    } 
+    else if($result->num_rows === 1) 
+    {
+        $row = $result->fetch_array();
+        return create_user_from_table($row);
+    } 
+    else 
+    {
+        //TODO(patrik): Send the user to an error page (500 Server Error)
+    }
+}
+
+function current_user(mysqli $database) 
+{
+    return get_user($database, get_current_user_id());
+}
 
 function get_user_from_username(mysqli $database, string $username): User
 {
@@ -75,38 +122,13 @@ function get_user_from_username(mysqli $database, string $username): User
     else if($result->num_rows === 1) 
     {
         $row = $result->fetch_array();
-
-        if($row["signature"] === NULL) 
-        {
-            $signature = "";
-        } 
-        else 
-        {
-            $signature = $row["signature"];
-        }
-
-        $result = new User($row["ID"], 
-                            $row["name"],
-                            $row["username"],
-                            $row["email"], 
-                            $row["password"], 
-                            $row["birthdate"], 
-                            $row["created_date"], 
-                            $row["user_type"],
-                            $signature, 
-                            $row["profile_picture"]);
-        return $result;
+        return create_user_from_table($row);
     } 
     else 
     {
         //TODO(patrik): Send the user to an error page (500 Server Error)
     }
 }
-
-/*function current_user() 
-{
-    return get_user(get_current_user_id());
-}*/
 
 function signin(User $user) 
 {
@@ -118,6 +140,11 @@ function signout()
 {
     session_unset();
     session_destroy();
+}
+
+function is_user_signedin() 
+{
+    return isset($_SESSION["valid_login"]) && $_SESSION["valid_login"];
 }
 
 ?>

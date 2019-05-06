@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require_once("./private/database.php");
+    require_once("./private/user.php");
+?>
+
 <!DOCTYPE html>
 <html>
 

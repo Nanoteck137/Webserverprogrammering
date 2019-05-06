@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require_once("private/database.php");
+    require_once("private/user.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -34,19 +40,19 @@
                     <?php
                     for ($i = 0; $i < 10; $i++) {
                         ?>
-                        <div class="forum-post">
-                            <div class="forum-author">
-                                <a href="#">Nanoteck137</a>
-                                <p>1 hour ago</p>
-                            </div>
-
-                            <a class="forum-title" href="#">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, officia
-                                    blanditiis
-                                    autem ea sunt sint consequatur quaerat impedit necessitatibus neque cupiditate culpa
-                                    adipisci facilis expedita magnam eos cum velit fugiat.</p>
-                            </a>
+                    <div class="forum-post">
+                        <div class="forum-author">
+                            <a href="#">Nanoteck137</a>
+                            <p>1 hour ago</p>
                         </div>
+
+                        <a class="forum-title" href="#">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, officia
+                                blanditiis
+                                autem ea sunt sint consequatur quaerat impedit necessitatibus neque cupiditate culpa
+                                adipisci facilis expedita magnam eos cum velit fugiat.</p>
+                        </a>
+                    </div>
                     <?php
                 }
                 ?>

@@ -20,3 +20,7 @@ form {
 #login-space {
     flex: 1;
 }
+
+.error-text {
+    margin-bottom: 4px;
+}

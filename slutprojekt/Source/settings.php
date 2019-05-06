@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require_once("private/database.php");
+    require_once("private/user.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,7 +46,8 @@
                         <form action="settings.php" action="get">
                             <input class="form-input" type="password" name="old_password" placeholder="Old Password">
                             <input class="form-input" type="password" name="new_password" placeholder="New Password">
-                            <input class="form-input" type="password" name="confirm_new_password" placeholder="Confirm New Password">
+                            <input class="form-input" type="password" name="confirm_new_password"
+                                placeholder="Confirm New Password">
                             <input class="form-input" type="submit" value="Change password">
                         </form>
                     </div>

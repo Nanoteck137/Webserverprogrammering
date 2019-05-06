@@ -47,6 +47,10 @@ light-placeholder-color
 
 - [ ] Fix the logo
 
+- [ ] Profile menu when theres one item
+
+- [ ] common/forum.css: Change the error color to a variable
+
 ### Checklist
 
 #### Client Side
@@ -69,7 +73,7 @@ light-placeholder-color
 - [ ] Pages
     - [ ] Home
         - [ ] View popular forum posts
-    - [x] Login and Register
+    -  [x] Login and Register
         - [x] Form for Login
         - [x] Form for Register
     - [ ] Forum (Posts)
@@ -180,16 +184,7 @@ c = Current Date
 ```sql
 
 
-CREATE TABLE forum_posts (
-    ID int(8) PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(64) NOT NULL,
-    content mediumtext NOT NULL,
-    author int(8),
-    FOREIGN KEY(author) REFERENCES user(ID),
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP,
-    upvotes INT(4),
-    downvotes INT(4)
-);
+
 
 CREATE TABLE forum_comments (
     ID int(8) PRIMARY KEY AUTO_INCREMENT,
