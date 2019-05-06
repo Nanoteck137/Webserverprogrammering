@@ -1,6 +1,7 @@
 <?php
 
-class UserNotFoundException extends Exception {
+class UserNotFoundException extends Exception 
+{
     public function __construct(string $username)
     {
         parent::__construct("Could not find user $username");
@@ -62,17 +63,19 @@ function create_user_from_table($row): User
         $signature = $row["signature"];
     }
 
-    $result = new User($row["ID"], 
-                        $row["name"],
-                        $row["username"],
-                        $row["email"], 
-                        $row["password"], 
-                        $row["birthdate"], 
-                        $row["created_date"], 
-                        $row["user_type"],
-                        $signature, 
-                        $row["profile_picture"]);
-
+    $result = new User(
+        $row["ID"],
+        $row["name"],
+        $row["username"],
+        $row["email"],
+        $row["password"],
+        $row["birthdate"],
+        $row["created_date"],
+        $row["user_type"],
+        $signature,
+        $row["profile_picture"]
+    );
+    
     return $result;
 }
 
