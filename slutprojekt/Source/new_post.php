@@ -13,6 +13,13 @@
 </head>
 
 <body>
+    <?php 
+        if(!is_user_signedin()) 
+        {
+            header("location: login.php");
+            exit();
+        }
+    ?>
     <div id="container">
         <?php include "template/header.php" ?>
 

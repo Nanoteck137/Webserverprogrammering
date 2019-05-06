@@ -47,7 +47,7 @@
                 </div>
             </form>
 
-            <div id="create-new-post" data-href="new_post.php">
+            <div id="create-new-post" data-href="<?php echo is_user_signedin() ? "new_post.php" : "login.php"; ?>">
                 <img src="img/add.svg" alt="Add">
                 <p>New post</p>
             </div>
@@ -64,7 +64,7 @@
                         <p>1 hour ago</p>
                     </div>
 
-                    <a class="forum-title" href="#">
+                    <a class="forum-title" href="view_post.php?p=<?php echo $post->id;?>">
                         <p><?php echo $post->title; ?></p>
                     </a>
                 </div>

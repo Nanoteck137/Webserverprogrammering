@@ -1,16 +1,19 @@
 <?php
 
     class ForumPost {
+        public $id;
         public $title;
         public $content;
         public $author;
         public $created_date;
 
-        public function __construct(string $title, 
+        public function __construct(int $id,
+                                    string $title, 
                                     string $content, 
                                     User $author, 
                                     string $created_date) 
         {
+            $this->id = $id;
             $this->title = $title;
             $this->content = $content;
             $this->author = $author;
@@ -27,7 +30,7 @@
 
         while($row = $db_result->fetch_array()) {
             $user = create_user_from_table($row);
-            $post = new ForumPost($row["title"], $row["content"], $user, $row["created_date"]);
+            $post = new ForumPost($row["ID"], $row["title"], $row["content"], $user, $row["created_date"]);
             array_push($result, $post);
         }
 

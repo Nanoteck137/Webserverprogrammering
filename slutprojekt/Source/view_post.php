@@ -15,7 +15,9 @@
     <div id="container">
         <?php include "template/header.php" ?>
         <main>
-            <p>Wooh</p>
+            <p>Hello World</p>
+
+            <p>Woooh this is a post and woooh</p>
         </main>
         <?php include "template/footer.php" ?>
     </div>
