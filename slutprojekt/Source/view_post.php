@@ -2,6 +2,7 @@
     session_start();
     require_once("private/database.php");
     require_once("private/user.php");
+    require_once("private/forum.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,25 +14,44 @@
 </head>
 
 <body>
+    <?php
+        if(!isset($_GET["p"])) 
+        {
+            header("location: index.php");
+            exit();
+        }
+
+        try 
+        {
+            $post = get_post_by_id($database_main, $_GET["p"]);
+        } 
+        catch(Exception $e) 
+        {
+            header("location: index.php");
+            exit();
+        }
+    ?>
     <div id="container">
         <?php include "template/header.php" ?>
         <main>
             <div id="view-post-author">
-                <a href="view_profile.php">Nanoteck137</a>
+                <a href="view_profile.php"><?php echo $post->author->username; ?></a>
                 <p>2 hour ago</p>
             </div>
-            <p id="view-post-title">Hello World</p>
 
-            <p id="view-post-content">Woooh this is a post and woooh</p>
+            <p id="view-post-title"><?php echo $post->title; ?></p>
+
+            <p id="view-post-content"><?php echo $post->content; ?></p>
+
             <div id="view-post-info">
-                <p><i class="fas fa-chevron-up"></i> 4 <span class="view-post-info-text">upvotes</span></p>
+                <a><i class="fas fa-chevron-up"></i> 4 <span class="view-post-info-text">upvotes</span></a>
                 <p><i class="fas fa-comments"></i> 22 <span class="view-post-info-text">Comments</span></p>
                 <p><i class="fas fa-chevron-down"></i> 2 <span class="view-post-info-text">downvotes</span></p>
             </div>
 
             <div id="view-post-comments">
 
-                <?php
+            <?php
             for($i = 0; $i < 22; $i++) 
             {
             ?>
@@ -41,9 +61,9 @@
                         <p>1 hour ago</p>
                     </div>
 
-                    <p class="view-post-commment-content">This sucks kill yourself</p>
+                    <p class="view-post-commment-content">Test comment</p>
                 </div>
-                <?php
+            <?php
             }
             ?>
 

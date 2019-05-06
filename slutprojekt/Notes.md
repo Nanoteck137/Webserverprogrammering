@@ -79,23 +79,23 @@ light-placeholder-color
     - [ ] Forum (Posts)
         - [x] Create new post
         - [x] View all posts
-        - [ ] View a single post
+        - [x] View a single post
     - [ ] View Post
-        - [ ] View post content
-        - [ ] View all post comments and child comments
+        - [x] View post content
+        - [x] View all post comments and child comments
         - [ ] Create new comments
-        - [ ] Click on profile name to get a users info
+        - [x] Click on profile name to get a users info
     - [x] View Profile
         - [x] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
     - [ ] Settings
         - [ ] Change the theme (Light and Dark)
-        - [ ] If the user if logged they can change the password
+        - [x] If the user if logged they can change the password
     - [ ] About us
         - [ ] Just info
 
 #### Server Side
 - [ ] Login System
-- [ ] View Forum Posts
+- [x] View Forum Posts
 - [ ] Create Forum Post
 
 - [ ] Special features for admin and mod users
@@ -105,16 +105,16 @@ light-placeholder-color
         - [ ] View popular forum posts
     - [ ] Login and Register
         - [ ] Hook up to the database
-        - [ ] Form for Login
+        - [x] Form for Login
         - [ ] Form for Register
     - [ ] Forum (Posts)
-        - [ ] Hook up to the database
+        - [x] Hook up to the database
         - [ ] Create new post
-        - [ ] View all posts
-        - [ ] View a single post
+        - [x] View all posts
+        - [x] View a single post
     - [ ] View Post
         - [ ] Hook up to the database
-        - [ ] View post content
+        - [x] View post content
         - [ ] View all post comments and child comments
         - [ ] Create new comments
         - [ ] Click on profile name to get a users info
