@@ -21,6 +21,14 @@
             exit();
         }
 
+        if(isset($_POST["create_comment_content"])) 
+        {
+            $last_post_id = $_GET["p"];
+            error_log("Last Post: $last_post_id\n", 3, "../my_log.txt");
+            header("location: view_post.php?p=$last_post_id");
+            exit();
+        }
+
         try 
         {
             $post = get_post_by_id($database_main, $_GET["p"]);
@@ -51,7 +59,7 @@
 
             <div id="view-post-comments">
 
-            <?php
+                <?php
             for($i = 0; $i < 22; $i++) 
             {
             ?>
@@ -63,10 +71,18 @@
 
                     <p class="view-post-commment-content">Test comment</p>
                 </div>
-            <?php
+                <?php
             }
             ?>
 
+            </div>
+
+            <div id="view-post-create-comment">
+                <form action="view_post.php?p=<?php echo $post->id; ?>" method="post">
+                    <textarea class="form-input" name="create_comment_content" cols="30" rows="5"
+                        placeholder="Create Comment"></textarea>
+                    <input class="form-input" type="submit" value="Post Comment">
+                </form>
             </div>
         </main>
         <?php include "template/footer.php" ?>

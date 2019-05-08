@@ -50,6 +50,7 @@ light-placeholder-color
 - [ ] Profile menu when theres one item
 
 - [ ] common/forum.css: Change the error color to a variable
+- [ ] forum.php: Change the create new post icon to an font awesome icon 
 
 ### Checklist
 
