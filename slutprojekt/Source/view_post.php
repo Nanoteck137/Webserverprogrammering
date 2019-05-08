@@ -3,6 +3,8 @@
     require_once("private/database.php");
     require_once("private/user.php");
     require_once("private/forum.php");
+
+    require_once("private/common.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +25,8 @@
 
         if(isset($_POST["create_comment_content"])) 
         {
+            my_log("Got here");
             $last_post_id = $_GET["p"];
-            error_log("Last Post: $last_post_id\n", 3, "../my_log.txt");
             header("location: view_post.php?p=$last_post_id");
             exit();
         }
