@@ -25,8 +25,9 @@
 
         if(isset($_POST["create_comment_content"])) 
         {
-            my_log("Got here");
             $last_post_id = $_GET["p"];
+            $content = $_POST["create_comment_content"];
+            my_log("Created comment: $content");
             header("location: view_post.php?p=$last_post_id");
             exit();
         }
