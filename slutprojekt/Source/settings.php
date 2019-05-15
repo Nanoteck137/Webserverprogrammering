@@ -28,7 +28,7 @@ if(is_change_password())
 
         $query = "SELECT * FROM users WHERE ID=$user_id AND password='$old_password'";
         $result = $database_main->query($query);
-        if($result->num_rows === 1) 
+        if($result->num_rows === 1)
         {
             $query = "UPDATE users SET password='$new_password' WHERE ID=$user_id";
             //TODO(patrik): Check for errors

@@ -211,7 +211,24 @@ More
 
 ### Functionality (PHP)
 ```php
-$wow = "Woow"
-echo $wow;
+// Auth API
+
+$database = new Database();
+// Regular Query -> DatabaseResult
+$result = $database->Query("SELECT * FROM some_table");
+// Prepared Statements Query -> DatabaseStatement
+$stmt = $database->PrepareQuery("SELECT * FROM some_table");
+
+$stmt->BindParamters();
+$stmt->Execute();
+
+$auth = new Auth($database);
+
+// Create User -> AuthUser
+$user = $auth->CreateUser(...);
+$auth->GetUserById(1);
+
+$auth->Login($user);
+
 ```
 ---
