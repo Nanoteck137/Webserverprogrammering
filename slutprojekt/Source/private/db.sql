@@ -40,7 +40,7 @@ CREATE TABLE forum_comments (
 
 INSERT INTO users (name, username, email, password, birthdate, user_type) VALUES
     ("Patrik Millvik", "Nanoteck137", "patrik.millvik@gmail.com", "testpass", "2001-01-02", "admin"),
-    ("Wooh", "Test", "test@gmail.com", "wooh", "2004-04-04", "normal");
+    ("Wooh", "Test", "test@gmail.com", "wooh", "2004-04-04", "member");
 
 INSERT INTO forum_posts(title, content, author) VALUES 
     ("Hello World", "This is a test", 1),

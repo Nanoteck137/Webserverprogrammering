@@ -93,7 +93,7 @@ function get_user(mysqli $database, int $id): User
 
     if($result->num_rows <= 0) 
     {
-        throw new UserNotFoundException($username);
+        throw new UserNotFoundException("");
     } 
     else if($result->num_rows === 1) 
     {
@@ -114,7 +114,7 @@ function current_user(mysqli $database)
 function get_user_from_username(mysqli $database, string $username): User
 {
     //TODO(patrik): Use prepared statements
-    $query = "SELECT * FROM users WHERE username LIKE '%$username%'";
+    $query = "SELECT * FROM users WHERE username = '$username'";
 
     $result = $database->query($query);
 

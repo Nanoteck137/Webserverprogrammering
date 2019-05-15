@@ -2,6 +2,9 @@
 
 function my_log(string $message) 
 {
+    if(!function_exists("socket_create"))
+        return;
+
     $socket = socket_create(AF_INET, SOCK_STREAM, 0);
     if(!$socket) 
         return;

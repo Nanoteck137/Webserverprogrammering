@@ -124,7 +124,7 @@
 
         $forum_id = $post->id;
         
-        $query = "SELECT *, forum_comments.ID as comment_id, forum_comments.created_date as comment_created_date FROM forum_comments JOIN users ON forum_comments.author=users.ID WHERE forum_id=$forum_id;";
+        $query = "SELECT *, forum_comments.ID as comment_id, forum_comments.created_date as comment_created_date FROM forum_comments JOIN users ON forum_comments.author=users.ID WHERE forum_id=$forum_id";
         $db_result = $database->query($query);
 
         while($row = $db_result->fetch_array()) 
