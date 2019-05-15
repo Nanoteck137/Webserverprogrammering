@@ -231,5 +231,12 @@ $auth->GetUserByUsername("Testuser");
 
 $auth->Login($user);
 
+$forum = new Forum();
+
+$posts = $forum->GetAllPosts();
+$post = $forum->GetPostById(1);
+$forum->GetCommentOnPost($post);
+$forum->GetPostsByUser($user);
+
 ```
 ---
