@@ -1,6 +1,7 @@
 <?php
 
 class AuthUserNotFoundException extends Exception {}
+class AuthUserNotLoggedInException extends Exception {}
 
 class AuthUser
 {
@@ -153,10 +154,24 @@ class Auth
         return null;
     }
 
+    public function GetLoggedInUserId(): int
+    {
+        return $_SESSION["user_id"];
+    }
+
     // Gets the current logged in user
     public function GetLoggedInUser(): ?AuthUser 
     {
+        if($this->IsUserLoggedIn()) 
+        {
+            return $this->GetUserById($this->GetLoggedInUserId());
+        } 
+        else 
+        {
+            throw new AuthUserNotLoggedInException("The user is not logged in");
+        }
 
+        return null;
     }
 
     // Log a user in
@@ -171,6 +186,11 @@ class Auth
     {
         session_unset();
         session_destroy();
+    }
+
+    public function IsUserLoggedIn()
+    {
+        return isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true;
     }
 }
 

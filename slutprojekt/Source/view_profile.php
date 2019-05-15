@@ -1,9 +1,6 @@
 <?php
-    session_start();
     require_once("private/common.php");
-    require_once("private/database.php");
-    require_once("private/user.php");
-    require_once("private/forum.php");
+    common_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +14,16 @@
 
 <body>
     <?php
-        redirect_not_user_signedin("login.php");
+        //redirect_not_user_signedin("login.php");
 
-        $user = current_user($database_main);
+        /*$user = current_user($database_main);
         $posts = get_posts_by_user($database_main, $user);
-        $comments = get_comments_from_user_id($database_main, $user);
+        $comments = get_comments_from_user_id($database_main, $user);*/
+
+        $posts = array();
+        $comments = array();
+
+        $user = $auth->GetLoggedInUser();
     ?>
 
     <div id="container">

@@ -20,9 +20,9 @@
 
                 <div id="profile-menu" class="hide">
                     <?php
-                    if(is_user_signedin()) 
+                    if($auth->IsUserLoggedIn()) 
                     {
-                        $user = current_user($database_main);
+                        $user = $auth->GetLoggedInUser();
                     ?>
                     <p><?php echo $user->username; ?></p>
                     <a href="view_profile.php">

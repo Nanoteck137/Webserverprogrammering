@@ -1,5 +1,22 @@
 <?php
 
+require_once("private/api/database.php");
+require_once("private/api/auth.php");
+
+$database = null;
+$auth = null;
+
+function common_start() 
+{
+    session_start();
+    
+    global $database;
+    global $auth;
+
+    $database = new Database();
+    $auth = new Auth($database);
+}
+
 function my_log(string $message) 
 {
     if(!function_exists("socket_create"))
