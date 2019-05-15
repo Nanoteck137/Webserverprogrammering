@@ -6,6 +6,6 @@ $database = new Database();
 
 $result = $database->Query("SELECT * FROM users");
 
-echo var_dump($result->fetch_array());
+echo var_dump($result->GetRow(0));
 
 ?>

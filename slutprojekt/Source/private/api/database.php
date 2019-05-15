@@ -1,13 +1,21 @@
 <?php
 
+class DatabaseQueryExeception extends Exception {}
+
 class DatabaseResult
 {
-    private $data;
+    private $rows;
     private $numRows;
 
-    public function __construct(mixed $data, int $numRows)
+    public function __construct(array $rows, int $numRows)
     {
-        
+        $this->rows = $rows;
+        $this->numRows = $numRows;
+    }
+
+    public function GetRow(int $index) 
+    {
+        return $this->rows[$index];
     }
 }
 
@@ -20,7 +28,11 @@ class Database
     }
 
     public function Query(string $query) {
-        return $this->connection->query($query);
+        $result = $this->connection->query($query);
+        if(!$result)
+            throw new DatabaseQueryExeception("Malformed query '$query'");
+
+        return new DatabaseResult($result->fetch_all(), $result->num_rows);
     }
 }
 
