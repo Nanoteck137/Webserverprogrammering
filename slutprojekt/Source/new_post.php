@@ -14,11 +14,7 @@
 
 <body>
     <?php 
-        if(!is_user_signedin()) 
-        {
-            header("location: login.php");
-            exit();
-        }
+        redirect_not_user_signedin("login.php");
     ?>
     <div id="container">
         <?php include "template/header.php" ?>

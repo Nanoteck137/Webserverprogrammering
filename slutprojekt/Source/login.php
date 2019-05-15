@@ -33,6 +33,7 @@
             if ($user->password === $_POST["password"]) 
             {
                 signin($user);
+                
                 header("location: index.php");
                 exit();
             } 

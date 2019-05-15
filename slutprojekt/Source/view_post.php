@@ -27,14 +27,24 @@
         {
             $last_post_id = $_GET["p"];
             $content = $_POST["create_comment_content"];
-            my_log("Created comment: $content");
+            
+            $user_id = get_current_user_id();
+            
+            $query = "INSERT INTO forum_comments(forum_id, author, content) VALUES ($last_post_id, $user_id, '$content')";
+            $database_main->query($query);
+            
             header("location: view_post.php?p=$last_post_id");
             exit();
         }
 
         try 
         {
-            $post = get_post_by_id($database_main, $_GET["p"]);
+            $post = get_posts_by_id($database_main, $_GET["p"]);
+            $comments = get_comments_from_post($database_main, $post);
+            ob_start();
+            var_dump($comments);
+            $result = ob_get_clean();
+            my_log($result);
         } 
         catch(Exception $e) 
         {
@@ -47,7 +57,7 @@
         <main>
             <div id="view-post-author">
                 <a href="view_profile.php"><?php echo $post->author->username; ?></a>
-                <p>2 hour ago</p>
+                <p><?php echo format_time_data($post->created_date); ?> ago</p>
             </div>
 
             <p id="view-post-title"><?php echo $post->title; ?></p>
@@ -56,23 +66,27 @@
 
             <div id="view-post-info">
                 <a><i class="fas fa-chevron-up"></i> 4 <span class="view-post-info-text">upvotes</span></a>
-                <p><i class="fas fa-comments"></i> 22 <span class="view-post-info-text">Comments</span></p>
+                <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span
+                        class="view-post-info-text">Comments</span></p>
                 <p><i class="fas fa-chevron-down"></i> 2 <span class="view-post-info-text">downvotes</span></p>
             </div>
 
             <div id="view-post-comments">
 
                 <?php
-            for($i = 0; $i < 22; $i++) 
+            for($i = 0; $i < count($comments); $i++) 
             {
+                $comment = $comments[$i];
+                my_log($comments[$i]->created_date);
             ?>
                 <div class="view-post-comment">
                     <div class="view-post-comment-author">
-                        <a href="view_profile.php">Nanoteck137</a>
-                        <p>1 hour ago</p>
+                        <a
+                            href="view_profile.php?p=<?php echo $comment->author->id?>"><?php echo $comment->author->username?></a>
+                        <p><?php echo format_time_data($comment->created_date); ?> ago</p>
                     </div>
 
-                    <p class="view-post-commment-content">Test comment</p>
+                    <p class="view-post-commment-content"><?php echo $comment->content; ?></p>
                 </div>
                 <?php
             }
@@ -80,6 +94,10 @@
 
             </div>
 
+            <?php
+            if(is_user_signedin()) 
+            {
+            ?>
             <div id="view-post-create-comment">
                 <form action="view_post.php?p=<?php echo $post->id; ?>" method="post">
                     <textarea class="form-input" name="create_comment_content" cols="30" rows="5"
@@ -87,6 +105,9 @@
                     <input class="form-input" type="submit" value="Post Comment">
                 </form>
             </div>
+            <?php
+            }
+            ?>
         </main>
         <?php include "template/footer.php" ?>
     </div>

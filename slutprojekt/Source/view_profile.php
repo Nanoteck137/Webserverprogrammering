@@ -1,7 +1,9 @@
 <?php
     session_start();
+    require_once("private/common.php");
     require_once("private/database.php");
     require_once("private/user.php");
+    require_once("private/forum.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +16,24 @@
 </head>
 
 <body>
+    <?php
+        redirect_not_user_signedin("login.php");
+
+        $user = current_user($database_main);
+        $posts = get_posts_by_user($database_main, $user);
+        $comments = get_comments_from_user_id($database_main, $user);
+    ?>
+
     <div id="container">
         <?php include "template/header.php" ?>
 
         <main>
             <div id="profile-info">
                 <img id="profile-pic" src="img/profile_pic.jpg" alt="Profile Pic" width="250">
-                <p id="profile-info-name">Nanoteck137</p>
-                <p id="profile-info-posts">100 posts</p>
-                <p id="profile-info-comments">1000 comments</p>
+                <p id="profile-info-name"><?php echo $user->username?></p>
+                <p id="profile-info-posts"><?php echo count($posts); ?> post(s)</p>
+                <!-- TODO(patrik): Count the comments s-->
+                <p id="profile-info-comments"><?php echo count($comments); ?> comment(s)</p>
             </div>
 
             <div id="profile">
@@ -38,24 +49,23 @@
                 <div id="profile-posts">
 
                     <?php
-                    for ($i = 0; $i < 10; $i++) {
-                        ?>
+                    for ($i = 0; $i < count($posts); $i++) 
+                    {
+                        $post = $posts[$i];
+                    ?>
                     <div class="forum-post">
                         <div class="forum-author">
-                            <a href="#">Nanoteck137</a>
-                            <p>1 hour ago</p>
+                            <p><?php echo $user->username; ?></p>
+                            <p><?php echo format_time_data($post->created_date); ?> ago</p>
                         </div>
 
-                        <a class="forum-title" href="#">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, officia
-                                blanditiis
-                                autem ea sunt sint consequatur quaerat impedit necessitatibus neque cupiditate culpa
-                                adipisci facilis expedita magnam eos cum velit fugiat.</p>
+                        <a class="forum-title" href="view_post.php?p=<?php echo $post->id; ?>">
+                            <p><?php echo $post->title; ?></p>
                         </a>
                     </div>
                     <?php
-                }
-                ?>
+                    }
+                    ?>
                 </div>
             </div>
         </main>

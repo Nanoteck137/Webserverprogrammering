@@ -6,5 +6,7 @@
 
 <?php 
     signout();
+    
     header("location: index.php");
+    exit();
 ?>

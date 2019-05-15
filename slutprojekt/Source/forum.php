@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once("./private/common.php");
     require_once("./private/database.php");
     require_once("./private/user.php");
     require_once("./private/forum.php");
@@ -61,7 +62,7 @@
                 <div class="forum-post">
                     <div class="forum-author">
                         <a href="#"><?php echo $post->author->username ?></a>
-                        <p>1 hour ago</p>
+                        <p><?php echo format_time_data($post->created_date); ?> ago</p>
                     </div>
 
                     <a class="forum-title" href="view_post.php?p=<?php echo $post->id;?>">

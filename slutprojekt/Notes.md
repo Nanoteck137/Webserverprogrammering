@@ -177,30 +177,11 @@ c = Current Date
 | CreatedDate | Datetime(c) |               |
 | Upvotes     | Int         |               |
 | Downvotes   | Int         |               |
-| Parent      | Int(f)      | Forum Comment |
 
 ### SQL Code
 
 ### 
 ```sql
-
-
-
-
-CREATE TABLE forum_comments (
-    ID int(8) PRIMARY KEY AUTO_INCREMENT,
-    forum_id int(8),
-    FOREIGN KEY(forum_id) REFERENCES forum_post(ID),
-    content mediumtext NOT NULL,
-    author int(8),
-    FOREIGN KEY(author) REFERENCES user(ID),
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP,
-    upvotes int(4),
-    downvotes int(4),
-    parent int(8)
-);
-
-ALTER TABLE forum_comments ADD FOREIGN KEY(parent) REFERENCES forum_comments(ID);
 ```
 ---
 

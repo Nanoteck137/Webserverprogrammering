@@ -33,7 +33,8 @@ def log_message(obj):
 sock.listen(5)
 
 def handle_connection(client):
-    data = client.recv(1024)
+    data = client.recv(4096)
+    print(data.decode("utf-8"))
     message = json.loads(data.decode("utf-8"))
     log_message(message)
 

@@ -150,4 +150,13 @@ function is_user_signedin()
     return isset($_SESSION["valid_login"]) && $_SESSION["valid_login"];
 }
 
+function redirect_not_user_signedin(string $where) 
+{
+    if(!is_user_signedin())
+    {
+        header("location: $where");
+        exit();
+    }
+}
+
 ?>

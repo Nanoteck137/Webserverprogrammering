@@ -1,6 +1,7 @@
 .forum-post {
     background-color: var(--primary-background-color-light);
     border-bottom: 2px solid gray;
+    width: 100%;
 }
 
 .forum-title p {

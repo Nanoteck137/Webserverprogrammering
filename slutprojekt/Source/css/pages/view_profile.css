@@ -24,6 +24,7 @@
 #profile {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .forum-sort {
@@ -82,6 +83,10 @@
 
 #profile-posts {
     background-color: var(--primary-background-color);
+}
+
+.forum-author > p {
+    margin-right: 5px;
 }
 
 @media all and (min-width: 960px) {
