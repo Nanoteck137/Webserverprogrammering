@@ -10,6 +10,11 @@
     flex-direction: column;
 }
 
+.error-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .settings-item {
     display: flex;
     justify-content: space-between;

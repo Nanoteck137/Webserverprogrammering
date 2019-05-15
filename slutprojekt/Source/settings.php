@@ -4,6 +4,45 @@
     require_once("private/user.php");
 ?>
 
+<?php
+
+$change_password_confirm_error = false;
+$change_passsword_old_password_match_error = false;
+
+function is_change_password() 
+{
+    return isset($_POST["old_password"]) && isset($_POST["new_password"]) && isset($_POST["confirm_new_password"]);
+}
+
+if(is_change_password())
+{
+    if($_POST["new_password"] !== $_POST["confirm_new_password"]) 
+    {
+        $change_password_confirm_error = true;
+    } 
+    else 
+    {
+        $user_id = get_current_user_id();
+        $old_password = $_POST["old_password"];
+        $new_password = $_POST["new_password"];
+
+        $query = "SELECT * FROM users WHERE ID=$user_id AND password='$old_password'";
+        $result = $database_main->query($query);
+        if($result->num_rows === 1) 
+        {
+            $query = "UPDATE users SET password='$new_password' WHERE ID=$user_id";
+            //TODO(patrik): Check for errors
+            $database_main->query($query);
+        }
+        else 
+        {
+            $change_passsword_old_password_match_error = true;
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,22 +63,23 @@
         <main>
             <p id="settings-title">Settings</p>
 
-            <!--<form id="settings-change-password" action="settings.php" method="get">
-                <div class="form-group">
-                    <p class="form-group-title">Old Password</p>
-                    <input class="form-input" type="password" name="old_password">
-                </div>
+            <?php
+            if($change_password_confirm_error === true)
+            {
+            ?>
+            <p class="error-text">Change Password:  New passwords diden't match</p>
+            <?php
+            }
+            ?>
 
-                <div class="form-group">
-                    <p class="form-group-title">New Password</p>
-                    <input class="form-input" type="password" name="new_password">
-                </div>
-
-                <div class="form-group">
-                    <p class="form-group-title">Confirm Password</p>
-                    <input class="form-input" type="password" name="confirm_new_password">
-                </div>
-            </form>-->
+            <?php
+            if ($change_passsword_old_password_match_error === true) 
+            {
+            ?>
+            <p class="error-text">Change Password: Old password diden't match</p>
+            <?php
+            }
+            ?>
 
             <div id="settings-items">
                 <div class="settings-item">
@@ -47,11 +87,10 @@
                     <button class="settings-item-button">Change</button>
 
                     <div class="settings-item-open">
-                        <form action="settings.php" action="get">
-                            <input class="form-input" type="password" name="old_password" placeholder="Old Password">
-                            <input class="form-input" type="password" name="new_password" placeholder="New Password">
-                            <input class="form-input" type="password" name="confirm_new_password"
-                                placeholder="Confirm New Password">
+                        <form action="settings.php" method="post">
+                            <input class="form-input" type="password" name="old_password" placeholder="Old Password" required>
+                            <input class="form-input" type="password" name="new_password" placeholder="New Password" required>
+                            <input class="form-input" type="password" name="confirm_new_password" placeholder="Confirm New Password" required>
                             <input class="form-input" type="submit" value="Change password">
                         </form>
                     </div>
@@ -62,7 +101,7 @@
                     <button class="settings-item-button">Change</button>
 
                     <div class="settings-item-open">
-                        <form action="settings.php" method="get">
+                        <form action="settings.php" method="post">
                             <input class="form-input" type="text" name="old_email" placeholder="Old Email">
                             <input class="form-input" type="text" name="new_email" placeholder="New Email">
                             <input class="form-input" type="submit" value="Change Email">
@@ -75,7 +114,7 @@
                     <button class="settings-item-button">Change</button>
 
                     <div class="settings-item-open">
-                        <form action="settings.php" method="get">
+                        <form action="settings.php" method="post">
                             <label class="settings-theme-item">
                                 <input type="radio" name="theme" value="light">
                                 <p>Light Theme</p>
