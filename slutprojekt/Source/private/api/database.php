@@ -1,7 +1,9 @@
 <?php
 
-class DatabaseQueryExeception extends Exception {}
+// Excpetion for a malformed database query
+class DatabaseQueryException extends Exception {}
 
+// DatabaseResult: Has all the rows for the query
 class DatabaseResult
 {
     private $rows;
@@ -13,26 +15,37 @@ class DatabaseResult
         $this->numRows = $numRows;
     }
 
+    public function GetNumRows(): int 
+    {
+        return $this->numRows;
+    }
+
     public function GetRow(int $index) 
     {
         return $this->rows[$index];
     }
 }
 
+// Database Object: Wrapper around mysqli with a nicer interface WIP
 class Database
 {
+    // The database connection
     private $connection;
 
-    public function __construct() {
+    // Constructor for this object
+    public function __construct() 
+    {
         $this->connection = new mysqli("localhost", "root", "", "stackunderflow");
     }
 
-    public function Query(string $query) {
+    // Query the database for data
+    public function Query(string $query) 
+    {
         $result = $this->connection->query($query);
         if(!$result)
-            throw new DatabaseQueryExeception("Malformed query '$query'");
+            throw new DatabaseQueryException("Malformed query '$query'");
 
-        return new DatabaseResult($result->fetch_all(), $result->num_rows);
+        return new DatabaseResult($result->fetch_all(MYSQLI_BOTH), $result->num_rows);
     }
 }
 

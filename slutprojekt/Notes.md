@@ -227,6 +227,7 @@ $auth = new Auth($database);
 // Create User -> AuthUser
 $user = $auth->CreateUser(...);
 $auth->GetUserById(1);
+$auth->GetUserByUsername("Testuser");
 
 $auth->Login($user);
 

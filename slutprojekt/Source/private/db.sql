@@ -3,16 +3,16 @@ CREATE DATABASE stackunderflow;
 USE stackunderflow;
 
 CREATE TABLE users(
-    ID int(8) PRIMARY KEY AUTO_INCREMENT,
-    name varchar (32) NOT NULL,
-    username varchar (64) NOT NULL,
-    email varchar (64) NOT NULL,
-    password varchar (64) NOT NULL,
-    birthdate datetime NOT NULL,
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP,
-    user_type ENUM ('member', 'moderator', 'admin') NOT NULL DEFAULT 'member',
-    signature varchar (32),
-    profile_picture varchar(128) NOT NULL DEFAULT 'default_pic.png'
+    uID int(8) PRIMARY KEY AUTO_INCREMENT,
+    uName varchar (32) NOT NULL,
+    uUsername varchar (64) NOT NULL,
+    uEmail varchar (64) NOT NULL,
+    uPassword varchar (64) NOT NULL,
+    uBirthdate datetime NOT NULL,
+    uCreatedDate datetime NOT NULL default CURRENT_TIMESTAMP,
+    uUserType ENUM ('member', 'moderator', 'admin') NOT NULL DEFAULT 'member',
+    uSignature varchar(32) DEFAULT "",
+    uProfilePicture varchar(128) NOT NULL DEFAULT 'default_pic.png'
 );
 
 CREATE TABLE forum_posts (
@@ -20,7 +20,7 @@ CREATE TABLE forum_posts (
     title VARCHAR(64) NOT NULL,
     content mediumtext NOT NULL,
     author int(8),
-    FOREIGN KEY(author) REFERENCES users(ID),
+    FOREIGN KEY(author) REFERENCES users(uID),
     created_date datetime NOT NULL default CURRENT_TIMESTAMP,
     upvotes INT(4) DEFAULT 0,
     downvotes INT(4) DEFAULT 0
@@ -32,13 +32,13 @@ CREATE TABLE forum_comments (
     FOREIGN KEY(forum_id) REFERENCES forum_posts(ID),
     content mediumtext NOT NULL,
     author int(8),
-    FOREIGN KEY(author) REFERENCES users(ID),
+    FOREIGN KEY(author) REFERENCES users(uID),
     created_date datetime NOT NULL default CURRENT_TIMESTAMP,
     upvotes int(4),
     downvotes int(4)
 );
 
-INSERT INTO users (name, username, email, password, birthdate, user_type) VALUES
+INSERT INTO users (uName, uUsername, uEmail, uPassword, uBirthdate, uUserType) VALUES
     ("Patrik Millvik", "Nanoteck137", "patrik.millvik@gmail.com", "testpass", "2001-01-02", "admin"),
     ("Wooh", "Test", "test@gmail.com", "wooh", "2004-04-04", "member");
 
