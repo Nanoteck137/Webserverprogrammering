@@ -1,11 +1,10 @@
 <?php
-    session_start();
-    require_once("./private/database.php");
-    require_once("./private/user.php");
+    require_once("private/common.php");
+    common_start();
 ?>
 
 <?php 
-    signout();
+    $auth->Signout();
     
     header("location: index.php");
     exit();

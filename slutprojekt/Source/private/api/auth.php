@@ -192,6 +192,15 @@ class Auth
     {
         return isset($_SESSION["valid_login"]) && $_SESSION["valid_login"] === true;
     }
+
+    public function RedirectNotLoggedin(string $page = "login.php") 
+    {
+        if(!IsUserLoggedIn())
+        {
+            header("location: $page");
+            exit();
+        }
+    }
 }
 
 ?>

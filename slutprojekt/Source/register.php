@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    require_once("./private/database.php");
-    require_once("./private/user.php");
-?>
+require_once "private/common.php";
+common_start();
+
 
 <?php
 

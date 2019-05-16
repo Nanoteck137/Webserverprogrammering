@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    require_once("./private/database.php");
-    require_once("./private/user.php");
+    require_once("private/common.php");
+    common_start();
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +17,7 @@
     <?php
     $signin_error = false;
 
-    if(is_user_signedin()) 
+    if($auth->IsUserLoggedIn())
     {
         header("location: index.php");
         exit();
@@ -28,11 +27,12 @@
     {
         try 
         {
-            $user = get_user_from_username($database_main, $_POST["username"]);
+            $user = $auth->GetUserByUsername($_POST["username"]);
+            //$user = get_user_from_username($database_main, );
             //TODO(patrik): Hash the passwords
             if ($user->password === $_POST["password"]) 
             {
-                signin($user);
+                $auth->Login($user);
                 
                 header("location: index.php");
                 exit();

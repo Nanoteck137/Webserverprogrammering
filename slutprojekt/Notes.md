@@ -229,6 +229,8 @@ $user = $auth->CreateUser(...);
 $auth->GetUserById(1);
 $auth->GetUserByUsername("Testuser");
 
+$auth->RedirectNotLoggedIn("login.php");
+
 $auth->Login($user);
 
 $forum = new Forum();
