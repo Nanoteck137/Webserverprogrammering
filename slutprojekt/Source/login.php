@@ -28,7 +28,6 @@
         try 
         {
             $user = $auth->GetUserByUsername($_POST["username"]);
-            //$user = get_user_from_username($database_main, );
             //TODO(patrik): Hash the passwords
             if ($user->password === $_POST["password"]) 
             {

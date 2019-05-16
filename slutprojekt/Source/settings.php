@@ -1,7 +1,7 @@
 <?php
-require_once "private/common.php";
-common_start();
-
+    require_once("private/common.php");
+    common_start();
+?>
 
 <?php
 
@@ -21,18 +21,14 @@ if(is_change_password())
     } 
     else 
     {
-        $user_id = get_current_user_id();
-        $old_password = $_POST["old_password"];
-        $new_password = $_POST["new_password"];
-
-        $query = "SELECT * FROM users WHERE ID=$user_id AND password='$old_password'";
-        $result = $database_main->query($query);
-        if($result->num_rows === 1)
+        $user = $auth->GetLoggedInUser();
+        $oldPassword = $_POST["old_password"];
+        $newPassword = $_POST["new_password"];
+        if($user->ChangePassword($oldPassword, $newPassword)) 
         {
-            $query = "UPDATE users SET password='$new_password' WHERE ID=$user_id";
-            //TODO(patrik): Check for errors
-            $database_main->query($query);
-        }
+            header("location: settings.php");
+            exit();
+        } 
         else 
         {
             $change_passsword_old_password_match_error = true;
@@ -53,7 +49,7 @@ if(is_change_password())
 
 <body>
     <?php
-        redirect_not_user_signedin("login.php");
+        $auth->RedirectNotLoggedIn();
     ?>
 
     <div id="container">
@@ -66,7 +62,7 @@ if(is_change_password())
             if($change_password_confirm_error === true)
             {
             ?>
-            <p class="error-text">Change Password:  New passwords diden't match</p>
+            <p class="error-text">Change Password: New passwords diden't match</p>
             <?php
             }
             ?>

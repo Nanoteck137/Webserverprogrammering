@@ -43,6 +43,26 @@ class AuthUser
         $this->profilePicture = $profilePicture;
     }
 
+    public function ChangePassword(string $oldPassword, string $newPassword): bool
+    {
+        $user_id = $this->id;
+
+        $query = "SELECT * FROM users WHERE uID=$user_id AND uPassword='$oldPassword'";
+        $result = $this->database->Query($query);
+        if($result->GetNumRows() === 1)
+        {
+            $query = "UPDATE users SET uPassword='$newPassword' WHERE uID=$user_id";
+            //TODO(patrik): Check for errors
+            $this->database->Query($query);
+
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
     public static function CreateFromRow($database, $row): AuthUser
     {
         return new AuthUser(
@@ -195,7 +215,7 @@ class Auth
 
     public function RedirectNotLoggedin(string $page = "login.php") 
     {
-        if(!IsUserLoggedIn())
+        if(!$this->IsUserLoggedIn())
         {
             header("location: $page");
             exit();

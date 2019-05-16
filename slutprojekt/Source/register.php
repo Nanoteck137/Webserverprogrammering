@@ -1,7 +1,7 @@
 <?php
-require_once "private/common.php";
-common_start();
-
+    require_once("private/common.php");
+    common_start();
+?>
 
 <?php
 

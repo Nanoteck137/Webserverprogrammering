@@ -45,7 +45,16 @@ class Database
         if(!$result)
             throw new DatabaseQueryException("Malformed query '$query'");
 
-        return new DatabaseResult($result->fetch_all(MYSQLI_BOTH), $result->num_rows);
+        if(is_bool($result))
+        {
+            return new DatabaseResult(array(), 0);
+        } 
+        else 
+        {
+            return new DatabaseResult($result->fetch_all(MYSQLI_BOTH), $result->num_rows);
+        }
+
+        return null;
     }
 }
 
