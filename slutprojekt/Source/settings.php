@@ -58,23 +58,23 @@ if(is_change_password())
         <main>
             <p id="settings-title">Settings</p>
 
-            <?php
-            if($change_password_confirm_error === true)
-            {
-            ?>
+        <?php
+        if($change_password_confirm_error === true)
+        {
+        ?>
             <p class="error-text">Change Password: New passwords diden't match</p>
-            <?php
-            }
-            ?>
+        <?php
+        }
+        ?>
 
-            <?php
-            if ($change_passsword_old_password_match_error === true) 
-            {
-            ?>
+        <?php
+        if ($change_passsword_old_password_match_error === true) 
+        {
+        ?>
             <p class="error-text">Change Password: Old password diden't match</p>
-            <?php
-            }
-            ?>
+        <?php
+        }
+        ?>
 
             <div id="settings-items">
                 <div class="settings-item">

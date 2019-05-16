@@ -17,6 +17,7 @@ class AuthUser
     public $type;
     public $signature;
     public $profilePicture;
+    public $theme;
 
     public function __construct(Database $database,
                                 int $id,
@@ -28,7 +29,8 @@ class AuthUser
                                 string $createdDate,
                                 string $type,
                                 string $signature,
-                                string $profilePicture) 
+                                string $profilePicture,
+                                string $theme) 
     {
         $this->database = $database;
         $this->id = $id;
@@ -41,6 +43,7 @@ class AuthUser
         $this->type = $type;
         $this->signature = $signature;
         $this->profilePicture = $profilePicture;
+        $this->theme = $theme;
     }
 
     public function ChangePassword(string $oldPassword, string $newPassword): bool
@@ -76,7 +79,8 @@ class AuthUser
             $row["uCreatedDate"],
             $row["uUserType"],
             $row["uSignature"],
-            $row["uProfilePicture"]
+            $row["uProfilePicture"],
+            $row["uTheme"]
         );
     }
 }

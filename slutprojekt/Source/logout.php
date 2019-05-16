@@ -4,7 +4,7 @@
 ?>
 
 <?php 
-    $auth->Signout();
+    $auth->Logout();
     
     header("location: index.php");
     exit();
