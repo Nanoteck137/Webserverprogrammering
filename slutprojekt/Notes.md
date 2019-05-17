@@ -237,8 +237,11 @@ $forum = new Forum();
 
 $posts = $forum->GetAllPosts();
 $post = $forum->GetPostById(1);
-$forum->GetCommentOnPost($post);
-$forum->GetPostsByUser($user);
+
+$post->GetComments();
+$post->GetCommentsByUser($user);
+
+$forum->GetAllCommentsByUser($user);
 
 ```
 ---

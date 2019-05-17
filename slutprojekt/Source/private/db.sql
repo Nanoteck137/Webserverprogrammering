@@ -17,39 +17,41 @@ CREATE TABLE users(
 );
 
 CREATE TABLE forum_posts (
-    ID int(8) PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(64) NOT NULL,
-    content mediumtext NOT NULL,
-    author int(8),
-    FOREIGN KEY(author) REFERENCES users(uID),
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP,
-    upvotes INT(4) DEFAULT 0,
-    downvotes INT(4) DEFAULT 0
+    pID int(8) PRIMARY KEY AUTO_INCREMENT,
+    pTitle VARCHAR(64) NOT NULL,
+    pContent mediumtext NOT NULL,
+    
+    pAuthor int(8),
+    FOREIGN KEY(pAuthor) REFERENCES users(uID),
+
+    pCreatedDate datetime NOT NULL default CURRENT_TIMESTAMP
 );
 
 CREATE TABLE forum_comments (
     ID int(8) PRIMARY KEY AUTO_INCREMENT,
-    forum_id int(8),
-    FOREIGN KEY(forum_id) REFERENCES forum_posts(ID),
+    
+    post_id int(8),
+    FOREIGN KEY(post_id) REFERENCES forum_posts(pID),
+    
     content mediumtext NOT NULL,
+    
     author int(8),
     FOREIGN KEY(author) REFERENCES users(uID),
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP,
-    upvotes int(4),
-    downvotes int(4)
+
+    created_date datetime NOT NULL default CURRENT_TIMESTAMP
 );
 
 INSERT INTO users (uName, uUsername, uEmail, uPassword, uBirthdate, uUserType) VALUES
     ("Patrik Millvik", "Nanoteck137", "patrik.millvik@gmail.com", "testpass", "2001-01-02", "admin"),
     ("Wooh", "Test", "test@gmail.com", "wooh", "2004-04-04", "member");
 
-INSERT INTO forum_posts(title, content, author) VALUES 
+INSERT INTO forum_posts(pTitle, pContent, pAuthor) VALUES 
     ("Hello World", "This is a test", 1),
     ("Hello", "Test 2", 1),
     ("World", "Test 3", 2),
     ("Testing", "Test 4", 2);
 
-INSERT INTO forum_comments(forum_id, content, author) VALUES 
+INSERT INTO forum_comments(post_id, content, author) VALUES 
     (1, "Test Comment", 2),
     (1, "Test Comment2", 2),
     (1, "Test Comment3", 1),
