@@ -8,6 +8,8 @@
 $change_password_confirm_error = false;
 $change_passsword_old_password_match_error = false;
 
+$changeEmailError = false;
+
 function is_change_password() 
 {
     return isset($_POST["old_password"]) && isset($_POST["new_password"]) && isset($_POST["confirm_new_password"]);
@@ -33,6 +35,28 @@ if(is_change_password())
         {
             $change_passsword_old_password_match_error = true;
         }
+    }
+}
+
+function IsChangeEmail()
+{
+    return isset($_POST["old_email"]) && isset($_POST["new_email"]);
+}
+
+if(IsChangeEmail()) 
+{
+    $oldEmail = $_POST["old_email"];
+    $newEmail = $_POST["new_email"];
+
+    $user = $auth->GetLoggedInUser();
+    if($user->ChangeEmail($oldEmail, $newEmail))
+    {
+        header("location: settings.php");
+        exit();
+    } 
+    else 
+    {
+        $changeEmailError = true;
     }
 }
 
@@ -71,7 +95,16 @@ if(is_change_password())
         if ($change_passsword_old_password_match_error === true) 
         {
         ?>
-            <p class="error-text">Change Password: Old password diden't match</p>
+            <p class="error-text">Change Password: Old password dosen't match</p>
+        <?php
+        }
+        ?>
+
+        <?php
+        if ($changeEmailError === true) 
+        {
+        ?>
+            <p class="error-text">Change Email: Old Email dosen't match</p>
         <?php
         }
         ?>

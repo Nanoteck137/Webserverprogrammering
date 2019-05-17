@@ -52,9 +52,31 @@ class AuthUser
 
         $query = "SELECT * FROM users WHERE uID=$user_id AND uPassword='$oldPassword'";
         $result = $this->database->Query($query);
+
         if($result->GetNumRows() === 1)
         {
             $query = "UPDATE users SET uPassword='$newPassword' WHERE uID=$user_id";
+            //TODO(patrik): Check for errors
+            $this->database->Query($query);
+
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    public function ChangeEmail(string $oldEmail, string $newEmail): bool
+    {
+        $user_id = $this->id;
+
+        $query = "SELECT * FROM users WHERE uID=$user_id AND uEmail='$oldEmail'";
+        $result = $this->database->Query($query);
+
+        if($result->GetNumRows() === 1)
+        {
+            $query = "UPDATE users SET uEmail='$newEmail' WHERE uID=$user_id";
             //TODO(patrik): Check for errors
             $this->database->Query($query);
 
@@ -167,12 +189,12 @@ class Auth
             } 
             else 
             {
-                throw new AuthUserNotFoundException("User not found with id '$id'");
+                throw new AuthUserNotFoundException("User not found with id '$email'");
             }
         } 
         catch(Exception $e) 
         {
-            throw new AuthUserNotFoundException("User not found with id '$id'");
+            throw new AuthUserNotFoundException("User not found with id '$email'");
         }
 
         return null;
