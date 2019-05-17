@@ -83,7 +83,8 @@ class Forum
 
         if($result->GetNumRows() === 1)
         {
-
+            $row = $result->GetRow(0);
+            return Post::CreateFromRow($this->database, $row);
         } 
         else 
         {

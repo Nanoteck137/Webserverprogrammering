@@ -1,7 +1,7 @@
 <?php
-require_once "private/common.php";
-common_start();
-
+    require_once("private/common.php");
+    common_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@ common_start();
 
 <body>
     <?php
-        if(!isset($_GET["p"])) 
+        if(!isset($_GET["p"]))
         {
             header("location: index.php");
             exit();
@@ -24,7 +24,7 @@ common_start();
             $last_post_id = $_GET["p"];
             $content = $_POST["create_comment_content"];
             
-            $user_id = get_current_user_id();
+            $user_id = $auth->GetLoggedInUserId(); //get_current_user_id();
             
             $query = "INSERT INTO forum_comments(forum_id, author, content) VALUES ($last_post_id, $user_id, '$content')";
             $database_main->query($query);
@@ -35,12 +35,8 @@ common_start();
 
         try 
         {
-            $post = get_posts_by_id($database_main, $_GET["p"]);
-            $comments = get_comments_from_post($database_main, $post);
-            ob_start();
-            var_dump($comments);
-            $result = ob_get_clean();
-            my_log($result);
+            $post = $forum->GetPostById($_GET["p"]); //get_posts_by_id($database_main, $_GET["p"]);
+            $comments = array(); //get_comments_from_post($database_main, $post);
         } 
         catch(Exception $e) 
         {
@@ -53,7 +49,7 @@ common_start();
         <main>
             <div id="view-post-author">
                 <a href="view_profile.php"><?php echo $post->author->username; ?></a>
-                <p><?php echo format_time_data($post->created_date); ?> ago</p>
+                <p><?php echo format_time_data($post->createdDate); ?> ago</p>
             </div>
 
             <p id="view-post-title"><?php echo $post->title; ?></p>
@@ -73,7 +69,6 @@ common_start();
             for($i = 0; $i < count($comments); $i++) 
             {
                 $comment = $comments[$i];
-                my_log($comments[$i]->created_date);
             ?>
                 <div class="view-post-comment">
                     <div class="view-post-comment-author">
@@ -91,7 +86,7 @@ common_start();
             </div>
 
             <?php
-            if(is_user_signedin()) 
+            if($auth->IsUserLoggedIn()) 
             {
             ?>
             <div id="view-post-create-comment">
