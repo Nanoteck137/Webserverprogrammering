@@ -172,12 +172,12 @@ class Auth
             } 
             else 
             {
-                throw new AuthUserNotFoundException("User not found with id '$id'");
+                throw new AuthUserNotFoundException("User not found with id '$username'");
             }
         } 
         catch(Exception $e) 
         {
-            throw new AuthUserNotFoundException("User not found with id '$id'");
+            throw new AuthUserNotFoundException("User not found with id '$username'");
         }
 
         return null;

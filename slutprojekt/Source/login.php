@@ -42,7 +42,7 @@
                 $signin_error = true;
             }
         } 
-        catch(UserNotFoundException $e) 
+        catch(AuthUserNotFoundException $e) 
         {
             $signin_error = true;
         }

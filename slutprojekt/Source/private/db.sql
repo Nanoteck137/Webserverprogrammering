@@ -28,17 +28,17 @@ CREATE TABLE forum_posts (
 );
 
 CREATE TABLE forum_comments (
-    ID int(8) PRIMARY KEY AUTO_INCREMENT,
+    cID int(8) PRIMARY KEY AUTO_INCREMENT,
     
-    post_id int(8),
-    FOREIGN KEY(post_id) REFERENCES forum_posts(pID),
+    cPostID int(8),
+    FOREIGN KEY(cPostID) REFERENCES forum_posts(pID),
     
-    content mediumtext NOT NULL,
+    cContent mediumtext NOT NULL,
     
-    author int(8),
-    FOREIGN KEY(author) REFERENCES users(uID),
+    cAuthor int(8),
+    FOREIGN KEY(cAuthor) REFERENCES users(uID),
 
-    created_date datetime NOT NULL default CURRENT_TIMESTAMP
+    cCreatedDate datetime NOT NULL default CURRENT_TIMESTAMP
 );
 
 INSERT INTO users (uName, uUsername, uEmail, uPassword, uBirthdate, uUserType) VALUES
@@ -51,7 +51,7 @@ INSERT INTO forum_posts(pTitle, pContent, pAuthor) VALUES
     ("World", "Test 3", 2),
     ("Testing", "Test 4", 2);
 
-INSERT INTO forum_comments(post_id, content, author) VALUES 
+INSERT INTO forum_comments(cPostID, cContent, cAuthor) VALUES 
     (1, "Test Comment", 2),
     (1, "Test Comment2", 2),
     (1, "Test Comment3", 1),

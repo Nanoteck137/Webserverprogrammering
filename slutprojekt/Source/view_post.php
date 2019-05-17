@@ -21,22 +21,21 @@
 
         if(isset($_POST["create_comment_content"])) 
         {
-            $last_post_id = $_GET["p"];
+            $post = $forum->GetPostById($_GET["p"]);
+            $user = $auth->GetLoggedInUser();
             $content = $_POST["create_comment_content"];
+
+            $post->PostComment($user, $content);
             
-            $user_id = $auth->GetLoggedInUserId(); //get_current_user_id();
-            
-            $query = "INSERT INTO forum_comments(forum_id, author, content) VALUES ($last_post_id, $user_id, '$content')";
-            $database_main->query($query);
-            
-            header("location: view_post.php?p=$last_post_id");
+            $postID = $post->id;
+            header("location: view_post.php?p=$postID");
             exit();
         }
 
         try 
         {
-            $post = $forum->GetPostById($_GET["p"]); //get_posts_by_id($database_main, $_GET["p"]);
-            $comments = array(); //get_comments_from_post($database_main, $post);
+            $post = $forum->GetPostById($_GET["p"]);
+            $comments = $post->GetAllComments();
         } 
         catch(Exception $e) 
         {
@@ -58,8 +57,7 @@
 
             <div id="view-post-info">
                 <a><i class="fas fa-chevron-up"></i> 4 <span class="view-post-info-text">upvotes</span></a>
-                <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span
-                        class="view-post-info-text">Comments</span></p>
+                <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span class="view-post-info-text">Comments</span></p>
                 <p><i class="fas fa-chevron-down"></i> 2 <span class="view-post-info-text">downvotes</span></p>
             </div>
 
@@ -74,7 +72,7 @@
                     <div class="view-post-comment-author">
                         <a
                             href="view_profile.php?p=<?php echo $comment->author->id?>"><?php echo $comment->author->username?></a>
-                        <p><?php echo format_time_data($comment->created_date); ?> ago</p>
+                        <p><?php echo format_time_data($comment->createdDate); ?> ago</p>
                     </div>
 
                     <p class="view-post-commment-content"><?php echo $comment->content; ?></p>

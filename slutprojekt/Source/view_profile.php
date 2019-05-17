@@ -18,10 +18,11 @@
 
         //$comments = get_comments_from_user_id($database_main, $user);
 
-        $posts = $forum->GetAllPosts();
-        $comments = array();
-
         $user = $auth->GetLoggedInUser();
+
+        $posts = $forum->GetAllPosts();
+        $comments = $forum->GetCommentsFromUser($user);
+
     ?>
 
     <div id="container">
