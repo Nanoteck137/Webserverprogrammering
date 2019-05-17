@@ -182,6 +182,25 @@ class Forum
         }
     }
 
+    public function GetPostFromUser(AuthUser $user): array 
+    {
+        $posts = array();
+        
+        $userID = $user->id;
+        $query = "SELECT * FROM forum_posts WHERE forum_posts.pAuthor=$userID";
+        $result = $this->database->Query($query);
+
+        for($i = 0; $i < $result->GetNumRows(); $i++)
+        {
+            $row = $result->GetRow($i);
+            $post = Post::CreateForUser($this->database, $this->auth, $user, $row);
+
+            array_push($posts, $post);
+        }
+
+        return $posts;
+    }
+
     public function GetCommentsFromUser(AuthUser $user): array
     {
         $comments = array();

@@ -14,15 +14,31 @@
 
 <body>
     <?php
-        $auth->RedirectNotLoggedIn();
-
         //$comments = get_comments_from_user_id($database_main, $user);
 
-        $user = $auth->GetLoggedInUser();
+        $user = null;
+        if(isset($_GET["p"])) 
+        {
+            try 
+            {
+                $user = $auth->GetUserById($_GET["p"]);
+            }
+            catch(AuthUserNotFoundException $e)
+            {
+                header("location: index.php");
+                exit();
+            }
+        }
+        else
+        {
+            header("location: index.php");
+            exit();
+        }
 
-        $posts = $forum->GetAllPosts();
+
+
+        $posts = $forum->GetPostFromUser($user);
         $comments = $forum->GetCommentsFromUser($user);
-
     ?>
 
     <div id="container">

@@ -22,10 +22,10 @@
                     <?php
                     if($auth->IsUserLoggedIn()) 
                     {
-                        $user = $auth->GetLoggedInUser();
+                        $currentUser = $auth->GetLoggedInUser();
                     ?>
-                    <p><?php echo $user->username; ?></p>
-                    <a href="view_profile.php">
+                    <p><?php echo $currentUser->username; ?></p>
+                    <a href="view_profile.php?p=<?php echo $currentUser->id; ?>">
                         <i class="fas fa-user fa-1x"></i>
                         <p>Profile</p>
                     </a>

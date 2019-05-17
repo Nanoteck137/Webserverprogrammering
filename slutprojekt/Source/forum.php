@@ -60,7 +60,7 @@
                 ?>
                 <div class="forum-post">
                     <div class="forum-author">
-                        <a href="#"><?php echo $post->author->username ?></a>
+                        <a href="view_profile.php?p=<?php echo $post->author->id; ?>"><?php echo $post->author->username ?></a>
                         <p><?php echo format_time_data($post->createdDate); ?> ago</p>
                     </div>
 
