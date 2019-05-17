@@ -10,6 +10,8 @@ $change_passsword_old_password_match_error = false;
 
 $changeEmailError = false;
 
+$user = $auth->GetLoggedInUser();
+
 function is_change_password() 
 {
     return isset($_POST["old_password"]) && isset($_POST["new_password"]) && isset($_POST["confirm_new_password"]);
@@ -23,7 +25,6 @@ if(is_change_password())
     } 
     else 
     {
-        $user = $auth->GetLoggedInUser();
         $oldPassword = $_POST["old_password"];
         $newPassword = $_POST["new_password"];
         if($user->ChangePassword($oldPassword, $newPassword)) 
@@ -48,7 +49,6 @@ if(IsChangeEmail())
     $oldEmail = $_POST["old_email"];
     $newEmail = $_POST["new_email"];
 
-    $user = $auth->GetLoggedInUser();
     if($user->ChangeEmail($oldEmail, $newEmail))
     {
         header("location: settings.php");
@@ -58,6 +58,20 @@ if(IsChangeEmail())
     {
         $changeEmailError = true;
     }
+}
+
+function IsChangeTheme() 
+{
+    return isset($_POST["theme"]);    
+}
+
+if(IsChangeTheme())
+{
+    $theme = $_POST["theme"];
+    $user->ChangeTheme($theme);
+
+    header("location: settings.php");
+    exit();
 }
 
 ?>
@@ -144,12 +158,13 @@ if(IsChangeEmail())
                     <div class="settings-item-open">
                         <form action="settings.php" method="post">
                             <label class="settings-theme-item">
-                                <input type="radio" name="theme" value="light">
+                                <input type="radio" name="theme" value="light" <?php echo $user->theme === "light" ? "checked" : "" ?>>
                                 <p>Light Theme</p>
                             </label>
 
                             <label class="settings-theme-item">
-                                <input type="radio" name="theme" value="dark">
+                                <input type="radio" name="theme" value="dark" <?php echo $user->theme === "dark" ? "checked" : "" ?>
+>
                                 <p>Dark Theme</p>
                             </label>
 

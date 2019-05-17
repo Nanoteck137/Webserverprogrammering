@@ -88,6 +88,13 @@ class AuthUser
         }
     }
 
+    public function ChangeTheme(string $theme) 
+    {
+        $userID = $this->id;
+        $query = "UPDATE users SET uTheme='$theme' WHERE uID=$userID";
+        $this->database->Query($query);
+    }
+
     public static function CreateFromRow($database, $row): AuthUser
     {
         return new AuthUser(
