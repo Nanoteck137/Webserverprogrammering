@@ -2,9 +2,11 @@
 
 require_once("private/api/database.php");
 require_once("private/api/auth.php");
+require_once("private/api/forum.php");
 
 $database = null;
 $auth = null;
+$forum = null;
 
 function common_start() 
 {
@@ -12,9 +14,11 @@ function common_start()
     
     global $database;
     global $auth;
+    global $forum;
 
     $database = new Database();
     $auth = new Auth($database);
+    $forum = new Forum($database, $auth);
 }
 
 function my_log(string $message) 

@@ -11,10 +11,21 @@
 <script>
 
 <?php
+
+if($auth->IsUserLoggedIn())
+{
     $user = $auth->GetLoggedInUser();
 ?>
-
-let theme = themes["<?php echo $user->theme ?>"];
+let theme = themes["<?php echo $user->theme; ?>"];
+<?php
+    } 
+    else 
+    {
+?>
+let theme = themes["light"];
+<?php
+    }
+?>
 
 if(!theme) 
 {

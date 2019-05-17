@@ -13,8 +13,9 @@
 
 <body>
     <?php 
-        redirect_not_user_signedin("login.php");
+        $auth->RedirectNotLoggedIn();
     ?>
+    
     <div id="container">
         <?php include "template/header.php" ?>
 

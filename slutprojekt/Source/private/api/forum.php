@@ -34,7 +34,6 @@ class Post
 
     public static function CreateFromRow(Database $database, $row): Post
     {
-        //$row["pAuthor"]
         $user = AuthUser::CreateFromRow($database, $row);
 
         return new Post(

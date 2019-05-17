@@ -14,13 +14,11 @@
 
 <body>
     <?php
-        //redirect_not_user_signedin("login.php");
+        $auth->RedirectNotLoggedIn();
 
-        /*$user = current_user($database_main);
-        $posts = get_posts_by_user($database_main, $user);
-        $comments = get_comments_from_user_id($database_main, $user);*/
+        //$comments = get_comments_from_user_id($database_main, $user);
 
-        $posts = array();
+        $posts = $forum->GetAllPosts();
         $comments = array();
 
         $user = $auth->GetLoggedInUser();
@@ -58,7 +56,7 @@
                     <div class="forum-post">
                         <div class="forum-author">
                             <p><?php echo $user->username; ?></p>
-                            <p><?php echo format_time_data($post->created_date); ?> ago</p>
+                            <p><?php echo format_time_data($post->createdDate); ?> ago</p>
                         </div>
 
                         <a class="forum-title" href="view_post.php?p=<?php echo $post->id; ?>">

@@ -45,21 +45,23 @@
                 </div>
             </form>
 
-            <div id="create-new-post" data-href="<?php echo is_user_signedin() ? "new_post.php" : "login.php"; ?>">
+            <div id="create-new-post" data-href="<?php echo $auth->IsUserLoggedIn() ? "new_post.php" : "login.php"; ?>">
                 <img src="img/add.svg" alt="Add">
                 <p>New post</p>
             </div>
 
             <div id="all-forum-posts">
                 <?php
-                $posts = get_all_posts($database_main);
-                for ($i = 0; $i < count($posts); $i++) {
+                //$posts = get_all_posts($database_main);
+                $posts = $forum->GetAllPosts();
+                for ($i = 0; $i < count($posts); $i++) 
+                {
                     $post = $posts[$i];
                 ?>
                 <div class="forum-post">
                     <div class="forum-author">
                         <a href="#"><?php echo $post->author->username ?></a>
-                        <p><?php echo format_time_data($post->created_date); ?> ago</p>
+                        <p><?php echo format_time_data($post->createdDate); ?> ago</p>
                     </div>
 
                     <a class="forum-title" href="view_post.php?p=<?php echo $post->id;?>">
