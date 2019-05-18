@@ -89,6 +89,67 @@ class Post
         $this->database->Query($query);
     }
 
+    private function ChangeRate($userID, $postID, $upvote)
+    {
+        $value = 0;
+        if($upvote === true) 
+        {
+            $value = 1;
+        } 
+        else 
+        {
+            $value = -1;
+        }
+
+        $query = "SELECT * FROM forum_post_rate WHERE upUser=$userID AND upPost=$postID";
+        $result = $this->database->Query($query);
+
+        if($result->GetNumRows() <= 0)
+        {
+            $query = "INSERT INTO forum_post_rate(upUser, upPost, upValue) VALUES ($userID, $postID, $value)";
+            $this->database->Query($query);
+        } 
+        else 
+        {
+            $row = $result->GetRow(0);
+
+            $value = $row["upValue"];
+
+            if($upvote === true)
+            {
+                if($value < 0) 
+                {
+                    $query = "UPDATE forum_post_rate SET upValue=$value * -1 WHERE upUser=$userID AND upPost=$postID";
+                    $this->database->Query($query);
+                }
+            } 
+            else 
+            {
+                if($value > 0) 
+                {
+                    $query = "UPDATE forum_post_rate SET upValue=$value * -1 WHERE upUser=$userID AND upPost=$postID";
+                    $this->database->Query($query);
+                }
+            }
+        }
+    }
+
+    public function Upvote(AuthUser $user)
+    {
+        $userID = $user->id;
+        $postID = $this->id;
+
+        $this->ChangeRate($userID, $postID, true);
+    }
+
+    public function Downvote(AuthUser $user) 
+    {
+        $userID = $user->id;
+        $postID = $this->id;
+
+        $this->ChangeRate($userID, $postID, false);
+    }
+
     public function GetAllComments(): array
     {
         $comments = array();

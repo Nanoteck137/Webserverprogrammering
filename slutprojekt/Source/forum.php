@@ -46,7 +46,7 @@
             </form>
 
             <div id="create-new-post" data-href="<?php echo $auth->IsUserLoggedIn() ? "new_post.php" : "login.php"; ?>">
-                <img src="img/add.svg" alt="Add">
+                <i class="fas fa-plus fa-3x"></i>
                 <p>New post</p>
             </div>
 

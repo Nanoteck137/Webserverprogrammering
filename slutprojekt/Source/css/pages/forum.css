@@ -149,7 +149,7 @@
     border-right: black 1px solid;
 }
 
-#create-new-post img {
+#create-new-post svg {
     position: absolute;
     width: 45px;
     height: 45px;
@@ -157,9 +157,8 @@
     text-align: center;
 
     margin-left: 24px;
-    margin-top: 8px;
+    margin-top: 6px;
     margin-bottom: 5px;
-
 }
 
 /* #endregion */

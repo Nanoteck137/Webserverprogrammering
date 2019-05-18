@@ -18,13 +18,23 @@ CREATE TABLE users(
 
 CREATE TABLE forum_posts (
     pID int(8) PRIMARY KEY AUTO_INCREMENT,
-    pTitle VARCHAR(64) NOT NULL,
+    pTitle varchar(64) NOT NULL,
     pContent mediumtext NOT NULL,
     
     pAuthor int(8),
     FOREIGN KEY(pAuthor) REFERENCES users(uID),
 
-    pCreatedDate datetime NOT NULL default CURRENT_TIMESTAMP
+    pCreatedDate datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE forum_post_rate (
+    upUser int(8),
+    FOREIGN KEY(upUser) REFERENCES users(uID),
+
+    upPost int(8),
+    FOREIGN KEY(upPost) REFERENCES forum_posts(pID),
+
+    upValue int(2)
 );
 
 CREATE TABLE forum_comments (
