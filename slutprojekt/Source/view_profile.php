@@ -35,8 +35,6 @@
             exit();
         }
 
-
-
         $posts = $forum->GetPostFromUser($user);
         $comments = $forum->GetCommentsFromUser($user);
     ?>
@@ -49,7 +47,6 @@
                 <img id="profile-pic" src="img/profile_pic.jpg" alt="Profile Pic" width="250">
                 <p id="profile-info-name"><?php echo $user->username?></p>
                 <p id="profile-info-posts"><?php echo count($posts); ?> post(s)</p>
-                <!-- TODO(patrik): Count the comments s-->
                 <p id="profile-info-comments"><?php echo count($comments); ?> comment(s)</p>
             </div>
 

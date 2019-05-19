@@ -56,14 +56,14 @@
             <p id="view-post-content"><?php echo $post->content; ?></p>
 
             <div id="view-post-info">
-                <a><i class="fas fa-chevron-up"></i> 4 <span class="view-post-info-text">upvotes</span></a>
+                <a href="rate.php?r=upvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-up"></i> <?php echo $post->GetUpvotesCount(); ?> <span class="view-post-info-text">upvotes</span></a>
                 <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span class="view-post-info-text">Comments</span></p>
-                <p><i class="fas fa-chevron-down"></i> 2 <span class="view-post-info-text">downvotes</span></p>
+                <a href="rate.php?r=downvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-down"></i> <?php echo $post->GetDownvotesCount(); ?> <span class="view-post-info-text">downvotes</span></a>
             </div>
 
             <div id="view-post-comments">
 
-                <?php
+            <?php
             for($i = 0; $i < count($comments); $i++) 
             {
                 $comment = $comments[$i];
@@ -77,7 +77,7 @@
 
                     <p class="view-post-commment-content"><?php echo $comment->content; ?></p>
                 </div>
-                <?php
+            <?php
             }
             ?>
 

@@ -16,6 +16,7 @@
         {
             $user = $auth->GetLoggedInUser();
             $post = $forum->GetPostById($postID);
+
             if($request === "upvote") 
             {
                 $post->Upvote($user);
@@ -28,12 +29,19 @@
             {
                 //TODO(patrik): Error
             }
+
+            header("location: view_post.php?p=$postID");
+            exit();
         } 
         catch(ForumPostNotFoundException $e)
         {
             header("location: index.php");
             exit();
         }
+    } 
+    else
+    {
+        //TODO(patrik): Error
     }
 
 ?>

@@ -150,6 +150,22 @@ class Post
         $this->ChangeRate($userID, $postID, false);
     }
 
+    public function GetUpvotesCount(): int 
+    {
+        $query = "SELECT * FROM forum_post_rate WHERE upValue=1";
+        $result = $this->database->Query($query);
+
+        return $result->GetNumRows();
+    }
+
+    public function GetDownvotesCount(): int 
+    {
+        $query = "SELECT * FROM forum_post_rate WHERE upValue=-1";
+        $result = $this->database->Query($query);
+
+        return $result->GetNumRows();
+    }
+
     public function GetAllComments(): array
     {
         $comments = array();
