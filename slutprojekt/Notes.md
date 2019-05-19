@@ -50,13 +50,13 @@ light-placeholder-color
 - [ ] Profile menu when theres one item
 
 - [ ] common/forum.css: Change the error color to a variable
-- [ ] forum.php: Change the create new post icon to an font awesome icon 
+- [x] forum.php: Change the create new post icon to an font awesome icon 
 
 ### Checklist
 
 #### Client Side
 
-- [ ] Mobile View
+- [x] Mobile View
     - [x] Structure
         - [x] Header
         - [x] Footer
@@ -66,9 +66,9 @@ light-placeholder-color
         - [ ] Header
         - [ ] Footer
 
-- [ ] Desktop View
-    - [ ] Structure
-        - [ ] Header
+- [x] Desktop View
+    - [x] Structure
+        - [x] Header
         - [x] Footer
 
 - [ ] Pages
@@ -77,55 +77,55 @@ light-placeholder-color
     -  [x] Login and Register
         - [x] Form for Login
         - [x] Form for Register
-    - [ ] Forum (Posts)
+    - [x] Forum (Posts)
         - [x] Create new post
         - [x] View all posts
         - [x] View a single post
-    - [ ] View Post
+    - [x] View Post
         - [x] View post content
         - [x] View all post comments and child comments
-        - [ ] Create new comments
+        - [x] Create new comments
         - [x] Click on profile name to get a users info
     - [x] View Profile
         - [x] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
-    - [ ] Settings
-        - [ ] Change the theme (Light and Dark)
+    - [x] Settings
+        - [x] Change the theme (Light and Dark)
         - [x] If the user if logged they can change the password
     - [ ] About us
         - [ ] Just info
 
 #### Server Side
-- [ ] Login System
+- [x] Login System
 - [x] View Forum Posts
-- [ ] Create Forum Post
+- [x] Create Forum Post
 
 - [ ] Special features for admin and mod users
 
 - [ ] Pages
     - [ ] Home
         - [ ] View popular forum posts
-    - [ ] Login and Register
-        - [ ] Hook up to the database
+    - [x] Login and Register
+        - [x] Hook up to the database
         - [x] Form for Login
-        - [ ] Form for Register
+        - [x] Form for Register
     - [ ] Forum (Posts)
         - [x] Hook up to the database
-        - [ ] Create new post
+        - [x] Create new post
         - [x] View all posts
         - [x] View a single post
-    - [ ] View Post
-        - [ ] Hook up to the database
+    - [x] View Post
+        - [x] Hook up to the database
         - [x] View post content
-        - [ ] View all post comments and child comments
-        - [ ] Create new comments
-        - [ ] Click on profile name to get a users info
+        - [x] View all post comments and child comments
+        - [x] Create new comments
+        - [x] Click on profile name to get a users info
     - [ ] View Profile
         - [ ] Hook up to the database
         - [ ] View the user info (Username, Creation Date, Number of posts, Number of comments and more...) 
-    - [ ] Settings
-        - [ ] Hook up to the database
-        - [ ] Change the theme (Light and Dark)
-        - [ ] If the user if logged they can change the password
+    - [x] Settings
+        - [x] Hook up to the database
+        - [x] Change the theme (Light and Dark)
+        - [x] If the user if logged they can change the password
     - [ ] About us (No Server side??)
 
 ## Tables
