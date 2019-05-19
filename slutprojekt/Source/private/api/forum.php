@@ -152,7 +152,8 @@ class Post
 
     public function GetUpvotesCount(): int 
     {
-        $query = "SELECT * FROM forum_post_rate WHERE upValue=1";
+        $postID = $this->id;
+        $query = "SELECT * FROM forum_post_rate WHERE upValue=1 AND upPost=$postID";
         $result = $this->database->Query($query);
 
         return $result->GetNumRows();
@@ -160,7 +161,8 @@ class Post
 
     public function GetDownvotesCount(): int 
     {
-        $query = "SELECT * FROM forum_post_rate WHERE upValue=-1";
+        $postID = $this->id;
+        $query = "SELECT * FROM forum_post_rate WHERE upValue=-1 AND upPost=$postID";
         $result = $this->database->Query($query);
 
         return $result->GetNumRows();
@@ -225,11 +227,18 @@ class Forum
         $this->auth = $auth;
     }
 
+    public function CreatePost(AuthUser $user, string $title, string $content)
+    {
+        $userID = $user->id;
+        $query = "INSERT INTO forum_posts(pTitle, pContent, pAuthor) VALUES ('$title', '$content', $userID)";
+        $this->database->Query($query);
+    } 
+
     public function GetAllPosts(): array
     {
         $posts = array();
 
-        $query = "SELECT * FROM forum_posts";
+        $query = "SELECT * FROM forum_posts ORDER BY forum_posts.pCreatedDate DESC";
         $result = $this->database->Query($query);
 
         for($i = 0; $i < $result->GetNumRows(); $i++) 
@@ -245,7 +254,7 @@ class Forum
 
     public function GetPostById(int $id): ?Post
     {
-        $query = "SELECT * FROM forum_posts WHERE pID=$id";
+        $query = "SELECT * FROM forum_posts WHERE pID=$id ORDER BY forum_posts.pCreatedDate DESC";
         $result = $this->database->Query($query);
 
         if($result->GetNumRows() === 1)
@@ -264,7 +273,7 @@ class Forum
         $posts = array();
         
         $userID = $user->id;
-        $query = "SELECT * FROM forum_posts WHERE forum_posts.pAuthor=$userID";
+        $query = "SELECT * FROM forum_posts WHERE forum_posts.pAuthor=$userID ORDER BY forum_posts.pCreatedDate DESC";
         $result = $this->database->Query($query);
 
         for($i = 0; $i < $result->GetNumRows(); $i++)

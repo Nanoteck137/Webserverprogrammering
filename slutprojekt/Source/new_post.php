@@ -3,6 +3,23 @@
     common_start();
 ?>
 
+<?php
+    $auth->RedirectNotLoggedIn();
+
+    if(isset($_POST["title"]) && isset($_POST["content"]))
+    {
+        $user = $auth->GetLoggedInUser();
+
+        $title = $_POST["title"];
+        $content = $_POST["content"];
+
+        $forum->CreatePost($user, $title, $content);
+
+        header("location: forum.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,15 +29,13 @@
 </head>
 
 <body>
-    <?php 
-        $auth->RedirectNotLoggedIn();
-    ?>
+
     
     <div id="container">
         <?php include "template/header.php" ?>
 
         <main>
-            <form action="new_post.php" method="get">
+            <form action="new_post.php" method="post">
                 <input class="form-input" id="title" name="title" type="text" placeholder="Title">
                 <textarea class="form-input" id="content" name="content" cols="30" rows="10"></textarea>
                 <button class="form-input">Preview</button>
