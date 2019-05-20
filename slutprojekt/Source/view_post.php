@@ -19,13 +19,17 @@
             exit();
         }
 
+        
         if(isset($_POST["create_comment_content"])) 
         {
             $post = $forum->GetPostById($_GET["p"]);
-            $user = $auth->GetLoggedInUser();
             $content = $_POST["create_comment_content"];
+            $user = $auth->GetLoggedInUser();
 
-            $post->PostComment($user, $content);
+            if(!empty($content))
+            {
+                $post->PostComment($user, $content);
+            }
             
             $postID = $post->id;
             header("location: view_post.php?p=$postID");
@@ -56,14 +60,16 @@
             <p id="view-post-content"><?php echo $post->content; ?></p>
 
             <div id="view-post-info">
-                <a href="rate.php?r=upvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-up"></i> <?php echo $post->GetUpvotesCount(); ?> <span class="view-post-info-text">upvotes</span></a>
-                <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span class="view-post-info-text">Comments</span></p>
-                <a href="rate.php?r=downvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-down"></i> <?php echo $post->GetDownvotesCount(); ?> <span class="view-post-info-text">downvotes</span></a>
+                <a href="rate.php?r=upvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-up"></i>
+                    <?php echo $post->GetUpvotesCount(); ?> <span class="view-post-info-text">upvotes</span></a>
+                <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span
+                        class="view-post-info-text">Comments</span></p>
+                <a href="rate.php?r=downvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-down"></i>
+                    <?php echo $post->GetDownvotesCount(); ?> <span class="view-post-info-text">downvotes</span></a>
             </div>
 
             <div id="view-post-comments">
-
-            <?php
+                <?php
             for($i = 0; $i < count($comments); $i++) 
             {
                 $comment = $comments[$i];
@@ -71,13 +77,25 @@
                 <div class="view-post-comment">
                     <div class="view-post-comment-author">
                         <a
-                            href="view_profile.php?p=<?php echo $comment->author->id?>"><?php echo $comment->author->username?></a>
+                            href="view_profile.php?p=<?php echo $comment->author->id?>"><?php echo $comment->author->username; ?></a>
                         <p><?php echo format_time_data($comment->createdDate); ?> ago</p>
                     </div>
 
                     <p class="view-post-commment-content"><?php echo $comment->content; ?></p>
+
+                    <?php
+                    if($auth->IsUserLoggedIn() && $auth->GetLoggedInUser()->id == $comment->author->id) 
+                    {
+                    ?>
+                    <div class="view-post-comment-options">
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
-            <?php
+                <?php
             }
             ?>
 

@@ -9,3 +9,32 @@
     integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous">
 </script>
 <link rel="stylesheet" href="css/common/main.css">
+
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/showdown.min.js"></script>
+<script src="js/theme.js"></script>
+
+<script>
+<?php
+
+if($auth->IsUserLoggedIn())
+{
+    $user = $auth->GetLoggedInUser();
+?>
+let theme = themes["<?php echo $user->theme; ?>"];
+<?php
+    } 
+    else 
+    {
+?>
+let theme = themes["light"];
+<?php
+    }
+?>
+
+if (!theme) {
+    theme = themes["light"];
+}
+
+changeTheme(theme);
+</script>

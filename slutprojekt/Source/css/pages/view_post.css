@@ -37,6 +37,7 @@
     padding: 10px 5px;
 
     margin: 10px 0px;
+    margin-bottom: 0px;
 }
 
 #view-post-info p {
@@ -53,7 +54,7 @@
 
 #view-post-comments {
     flex: 1;
-    padding: 10px;
+    padding: 5px;
 }
 
 .view-post-comment {
@@ -64,16 +65,36 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
+    padding-bottom: 0px;
+
+    font-size: 0.8em;
 }
 
 .view-post-comment-author a {
     /* TODO(patrik): Change this to a variable */
     color: lightgray;
     margin-right: 10px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 50%;
 }
 
 .view-post-commment-content {
     padding: 10px;
+}
+
+.view-post-comment-options {
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+    display: flex;
+}
+
+.view-post-comment-options > * {
+    padding-right: 5px;
+    font-size: 0.8em;
 }
 
 @media all and (min-width: 960px) {

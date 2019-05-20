@@ -51,6 +51,7 @@ light-placeholder-color
 
 - [ ] common/forum.css: Change the error color to a variable
 - [x] forum.php: Change the create new post icon to an font awesome icon 
+- [ ] view_post.php: Modal for deleting the post
 
 ### Checklist
 
