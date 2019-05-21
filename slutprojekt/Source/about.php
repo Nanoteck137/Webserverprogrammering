@@ -17,29 +17,51 @@
         <?php include "template/header.php" ?>
 
         <main>
+            <p id="about-us-title">About Us</p>
             <div id="about-us-profiles">
                 <div class="about-us-profile">
                     <img src="img/test3.png" alt="" width="200" style="border-radius: 100px">
-                    <p>Jimmy Berglund</p>
-                    <p>Fontend Developer</p>
+                    <?php
+                        $user = $auth->GetUserByUsername("BigHippo");
+                    ?>
+                    <div>
+                        <a href="view_profile.php?p=<?php echo $user->id; ?>">Jimmy Berglund / BigHippo</a>
+                        <p>Fontend Developer</p>
+                    </div>
                 </div>
 
                 <div class="about-us-profile">
                     <img src="img/test.png" alt="" width="200" style="border-radius: 100px">
-                    <p>Lars Strömberg</p>
-                    <p>Backend Developer</p>
+                    <?php
+                        $user = $auth->GetUserByUsername("kingminecraft");
+                    ?>
+                    <div>
+                        <a href="view_profile.php?p=<?php echo $user->id; ?>">Lars Strömberg / kingminecraft</a>
+                        <p>Backend Developer</p>
+                    </div>
                 </div>
 
                 <div class="about-us-profile">
                     <img src="img/test2.png" alt="" width="200" style="border-radius: 100px">
-                    <p>Theodor Lindström</p>
-                    <p>Designer</p>
+                    <?php
+                        $user = $auth->GetUserByUsername("lateMine");
+                    ?>
+                    
+                    <div>
+                        <a href="view_profile.php?p=<?php echo $user->id; ?>">Theodor Lindström / lateMine</a>
+                        <p>Designer</p>
+                    </div>
                 </div>
 
                 <div class="about-us-profile">
                     <img src="img/test4.png" alt="" width="200" style="border-radius: 100px">
-                    <p>Frank Olsson</p>
-                    <p>Cleaner</p>
+                    <?php
+                        $user = $auth->GetUserByUsername("finnanut");
+                    ?>
+                    <div>
+                        <a href="view_profile.php?p=<?php echo $user->id; ?>">Frank Olsson / finnanut</a>
+                        <p>Cleaner</p>
+                    </div>
                 </div>
             </div>
         </main>

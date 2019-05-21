@@ -1,7 +1,7 @@
 let themes = {
     light: {
-        primaryBackgroundColor: "#fafafa",
-        primaryBackgroundColorLight: "#ffffff",
+        primaryBackgroundColor: "#f0f0f0",
+        primaryBackgroundColorLight: "#fafafa",
         primaryBackgroundColorDark: "#c7c7c7",
         primaryBackgroundColorOn: "#000000",
         primaryBackgroundColorLightOn: "#000000",

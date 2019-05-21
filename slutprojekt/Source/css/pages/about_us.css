@@ -1,17 +1,57 @@
-.about-us-profile {
-    width: 400px;
-    display: inline-block;
-    background-color: gray;
-
+#about-us-title {
+    width: 100%;
+    display: block;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 2.5em;
 
-    margin: 10px 0px;
-    padding: 10px 0px;
+    margin: 20px 0px;
 }
 
 #about-us-profiles {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.about-us-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+
+    width: 40%;
+
+    background-color: var(--primary-background-color-light);
+
+    text-align: center;
+    font-size: 1.2em;
+
+    margin: 5px 0px;
+    padding: 10px 0px;
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.about-us-profile img {
+    display: block;
+    border: 1px solid black;
+}
+
+@media all and (min-width: 960px) {
+    #about-us-profiles {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+    }
+
+    .about-us-profile {
+        width: 40%;
+
+        border: 1px solid black;
+        border-radius: 10px;
+    }
 }
