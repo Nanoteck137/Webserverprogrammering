@@ -55,6 +55,18 @@
                 <p><?php echo format_time_data($post->createdDate); ?> ago</p>
             </div>
 
+            <?php
+            if($auth->IsUserLoggedIn() && $auth->GetLoggedInUser()->id == $post->author->id) 
+            {
+            ?>
+            <div class="view-post-comment-options">
+                <a href="#">Edit</a>
+                <a href="#">Delete</a>
+            </div>
+            <?php
+            }
+            ?>
+
             <p id="view-post-title"><?php echo $post->title; ?></p>
 
             <p id="view-post-content"><?php echo $post->content; ?></p>
