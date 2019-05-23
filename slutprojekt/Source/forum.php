@@ -14,6 +14,28 @@
 </head>
 
 <body>
+    <?php
+        $search = "";
+        if(isset($_GET["q"])) 
+        {
+            $search = $_GET["q"];    
+        }
+
+        $sortOrder = "DESC";
+        if(isset($_GET["sort"]))
+        {
+            $sort = $_GET["sort"];
+            if($sort == "newest") 
+            {
+                $sortOrder = "DESC";
+            } 
+            else if($sort == "oldest") 
+            {
+                $sortOrder = "ASC";    
+            }
+        }
+    ?>
+
     <div id="container">
         <?php include "template/header.php" ?>
 
@@ -25,18 +47,20 @@
 
                     <div class="forum-sort-options">
                         <label class="forum-sort-option-item">
-                            <input type="radio" name="sort" value="newest">
+                            <input class="forum-sort-option-item-radio" type="radio" name="sort" value="newest"
+                                <?php echo isset($_GET["sort"]) && $_GET["sort"] == "newest" ? "checked" : ""?>>
                             <p>Newest</p>
                         </label>
 
                         <label class="forum-sort-option-item">
-                            <input type="radio" name="sort" value="oldest">
+                            <input class="forum-sort-option-item-radio" type="radio" name="sort" value="oldest"
+                                <?php echo isset($_GET["sort"]) && $_GET["sort"] == "oldest" ? "checked" : ""?>>
                             <p>Oldest</p>
                         </label>
                     </div>
                 </div>
 
-                <input id="forum-search" type="text" name="search" placeholder="Search...">
+                <input id="forum-search" type="text" name="q" placeholder="Search...">
                 <div id="forum-search-exit"><i class="fas fa-times"></i></div>
 
 
@@ -53,14 +77,15 @@
             <div id="all-forum-posts">
                 <?php
                 //$posts = get_all_posts($database_main);
-                $posts = $forum->GetAllPosts();
+                $posts = $forum->GetAllPosts("WHERE forum_posts.pTitle LIKE '%$search%'", $sortOrder, "LIMIT 10", "OFFSET 0");
                 for ($i = 0; $i < count($posts); $i++) 
                 {
                     $post = $posts[$i];
                 ?>
                 <div class="forum-post">
                     <div class="forum-author">
-                        <a href="view_profile.php?p=<?php echo $post->author->id; ?>"><?php echo $post->author->username ?></a>
+                        <a
+                            href="view_profile.php?p=<?php echo $post->author->id; ?>"><?php echo $post->author->username ?></a>
                         <p><?php echo format_time_data($post->createdDate); ?> ago</p>
                     </div>
 
@@ -75,6 +100,12 @@
         </main>
 
         <?php include "template/footer.php" ?>
+
+        <script>
+        $(".forum-sort-option-item-radio").change(() => {
+            $(".forum-search-bar").submit();
+        });
+        </script>
     </div>
 </body>
 

@@ -234,11 +234,11 @@ class Forum
         $this->database->Query($query);
     } 
 
-    public function GetAllPosts(): array
+    public function GetAllPosts($where, $sortOrder = "DESC", $limit = "", $offset = ""): array
     {
         $posts = array();
 
-        $query = "SELECT * FROM forum_posts ORDER BY forum_posts.pCreatedDate DESC";
+        $query = "SELECT * FROM forum_posts $where ORDER BY forum_posts.pCreatedDate $sortOrder $limit $offset";
         $result = $this->database->Query($query);
 
         for($i = 0; $i < $result->GetNumRows(); $i++) 
@@ -291,7 +291,9 @@ class Forum
     {
         $comments = array();
 
-        $query = "SELECT * FROM forum_comments WHERE forum_comments.cAuthor=1";
+        $userID = $user->id;
+        
+        $query = "SELECT * FROM forum_comments WHERE forum_comments.cAuthor=$userID";
         $result = $this->database->Query($query);
         
         for($i = 0; $i < $result->GetNumRows(); $i++)
