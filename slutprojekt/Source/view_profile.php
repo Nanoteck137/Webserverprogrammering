@@ -45,6 +45,7 @@
         <main>
             <div id="profile-info">
                 <img id="profile-pic" src="img/profile_pic.jpg" alt="Profile Pic" width="250">
+                <button id="profile-picture-change">Change Profile Picture</button>
                 <p id="profile-info-name"><?php echo $user->username?></p>
                 <p id="profile-info-posts"><?php echo count($posts); ?> post(s)</p>
                 <p id="profile-info-comments"><?php echo count($comments); ?> comment(s)</p>

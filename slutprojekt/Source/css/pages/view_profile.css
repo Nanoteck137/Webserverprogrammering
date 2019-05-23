@@ -1,4 +1,6 @@
 #profile-info {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
 
     margin-bottom: 10px;
@@ -6,6 +8,10 @@
 
 #profile-info p {
     width: 100%;
+    text-align: center;
+}
+
+#profile-picture-change {
     text-align: center;
 }
 

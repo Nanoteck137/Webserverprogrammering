@@ -76,7 +76,6 @@
 
             <div id="all-forum-posts">
                 <?php
-                //$posts = get_all_posts($database_main);
                 $posts = $forum->GetAllPosts("WHERE forum_posts.pTitle LIKE '%$search%'", $sortOrder, "LIMIT 10", "OFFSET 0");
                 for ($i = 0; $i < count($posts); $i++) 
                 {
