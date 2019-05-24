@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <input id="forum-search" type="text" name="q" placeholder="Search...">
+                <input class="form-input" id="forum-search" type="text" name="q" placeholder="Search...">
                 <div id="forum-search-exit"><i class="fas fa-times"></i></div>
 
 

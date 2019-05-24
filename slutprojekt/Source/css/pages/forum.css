@@ -32,10 +32,11 @@
 .forum-sort-options {
     display: none;
     position: absolute;
-    background-color: var(--secondary-background-color);
+    background-color: var(--primary-background-color-dark);
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 24px;
+    padding: 12px 6px;
+    padding-left: 20px;
     z-index: 1;
 
     left: 10px;
@@ -65,9 +66,7 @@
     width: 0;
     overflow: hidden;
 
-    padding: 8px;
-    border: none;
-    background-color: var(--secondary-background-color-light);
+    padding: 5px;
     border-radius: 5px;
     font-size: 1.1em;
 }
@@ -75,18 +74,20 @@
 #forum-search-exit {
     display: none;
 
+    position: relative;
+    top: -3px;
+
     align-self: center;
     margin-left: 5px;
 
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
-    background: red;
 }
 
 #forum-search-exit .fa-times {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 
 @keyframes search-bar-animation {
