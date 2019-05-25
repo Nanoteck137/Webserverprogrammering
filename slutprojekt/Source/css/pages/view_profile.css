@@ -124,6 +124,10 @@
     height: 400px;
 }
 
+.modal-content form {
+    padding-top: 40px;
+}
+
 .modal-open {
     display: block !important;
 }

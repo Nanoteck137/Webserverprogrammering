@@ -3,6 +3,18 @@
     common_start();
 ?>
 
+<?php
+
+if(isset($_POST["submit"]))
+{
+    $targetPath = "private/uploads/";
+    $targetFile = tempnam($targetPath, "img_") . "." . strtolower(pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION));//$targetPath . basename($_FILES["image"]["name"]);
+
+    move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -89,6 +101,11 @@
                     <div class="modal-exit">
                         <i class="fas fa-times fa-2x"></i>
                     </div>
+
+                    <form action="view_profile.php" method="post" enctype="multipart/form-data">
+                        <input class="form-input" type="file" name="image">
+                        <input class="form-input" type="submit" value="Upload Image" name="submit">
+                    </form>
                 </div>
             </div>
         </main>
