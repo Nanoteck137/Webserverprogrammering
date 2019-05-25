@@ -35,8 +35,7 @@ document.addEventListener("keydown", (evt) => {
         isEscape = (evt.keyCode === 27);
     }
 
-    if (isEscape) 
-    {
+    if (isEscape) {
         let modalWindow = document.querySelector("#modal");
         modalWindow.classList.remove("modal-open");
     }

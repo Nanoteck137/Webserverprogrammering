@@ -83,6 +83,14 @@
                     ?>
                 </div>
             </div>
+
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-exit">
+                        <i class="fas fa-times fa-2x"></i>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <?php include "template/footer.php" ?>
