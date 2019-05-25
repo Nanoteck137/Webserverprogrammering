@@ -138,11 +138,9 @@ if (validate_post_request())
                 <input class="form-input" type="text" name="name" placeholder="Name" required value="<?php echo $object->name; ?>">
                 <input class="form-input <?php echo $object->username_taken === true ? "form-error" : "" ?>" type="text" name="username" placeholder="Username" required value="<?php echo $object->username; ?>">
                 <input class="form-input <?php echo $object->email_in_use === true ? "form-error" : "" ?>"" type="email" name="email" placeholder="Email" required value="<?php echo $object->email; ?>">
-                <input class="form-input" type="date" name="birthdate" required value="<?php echo $object->birthday; ?>">
+                <input class="form-input" type="text" name="birthdate" placeholder="Birthday" onfocus="(this.type='date')" required value="<?php echo $object->birthdate; ?>">
                 <input class="form-input" type="password" name="password" placeholder="Password" required>
                 <input class="form-input <?php echo $object->confirm_password_error === true ? "form-error" : "" ?>" type="password" name="confirm_password" placeholder="Confirm Password" required>
-
-                <p id="login-register-account">Register a account <a href="register.php">here</a></p>
 
                 <div id="login-space"></div>
 

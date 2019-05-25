@@ -72,12 +72,52 @@
             <p id="view-post-content"><?php echo $post->content; ?></p>
 
             <div id="view-post-info">
-                <a href="rate.php?r=upvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-up"></i>
-                    <?php echo $post->GetUpvotesCount(); ?> <span class="view-post-info-text">upvotes</span></a>
-                <p><i class="fas fa-comments"></i> <?php echo count($comments); ?> <span
-                        class="view-post-info-text">Comments</span></p>
-                <a href="rate.php?r=downvote&p=<?php echo $post->id; ?>"><i class="fas fa-chevron-down"></i>
-                    <?php echo $post->GetDownvotesCount(); ?> <span class="view-post-info-text">downvotes</span></a>
+                <?php
+                if($auth->IsUserLoggedIn())
+                {
+                ?>
+                <a href="rate.php?r=upvote&p=<?php echo $post->id; ?>">
+                    <i class="fas fa-chevron-up"></i>
+                    <?php echo $post->GetUpvotesCount(); ?> <span class="view-post-info-text">upvotes</span>
+                </a>
+                <?php
+                }
+                else 
+                {
+                ?>
+                <p href="rate.php?r=upvote&p=<?php echo $post->id; ?>">
+                    <i class="fas fa-chevron-up"></i>
+                    <?php echo $post->GetUpvotesCount(); ?> <span class="view-post-info-text">upvotes</span>
+                </p>
+                <?php
+                }
+                ?>
+                
+                <p>
+                    <i class="fas fa-comments"></i> <?php echo count($comments); ?> <span
+                        class="view-post-info-text">Comments</span>
+                </p>
+
+                <?php
+                if($auth->IsUserLoggedIn())
+                {
+                ?>
+                <a href="rate.php?r=downvote&p=<?php echo $post->id; ?>">
+                    <i class="fas fa-chevron-down"></i>
+                    <?php echo $post->GetDownvotesCount(); ?> <span class="view-post-info-text">downvotes</span>
+                </a>
+                <?php
+                }
+                else
+                {
+                ?>
+                <p href="rate.php?r=downvote&p=<?php echo $post->id; ?>">
+                    <i class="fas fa-chevron-down"></i>
+                    <?php echo $post->GetDownvotesCount(); ?> <span class="view-post-info-text">downvotes</span>
+                </p>
+                <?php
+                }
+                ?>
             </div>
 
             <div id="view-post-comments">

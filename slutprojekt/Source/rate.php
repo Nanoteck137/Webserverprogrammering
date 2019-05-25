@@ -33,7 +33,7 @@
             header("location: view_post.php?p=$postID");
             exit();
         } 
-        catch(ForumPostNotFoundException $e)
+        catch(Exception $e)
         {
             header("location: index.php");
             exit();
