@@ -7,10 +7,23 @@
 
 if(isset($_POST["submit"]))
 {
-    $targetPath = "private/uploads/";
-    $targetFile = tempnam($targetPath, "img_") . "." . strtolower(pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION));//$targetPath . basename($_FILES["image"]["name"]);
+    $targetPath = "uploads/";
+    $targetExtention = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+    $targetFile = tempnam($targetPath, "img_") . "." . $targetExtention;
+    $info = pathinfo($targetFile);
 
     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+
+    try 
+    {
+        $user = $auth->GetLoggedInUser();
+        $user->ChangeProfilePicture($info["basename"]);
+    } 
+    catch(Exception $e) 
+    {
+        header("location: index.php");
+        exit();
+    }
 }
 
 ?>
@@ -56,7 +69,14 @@ if(isset($_POST["submit"]))
 
         <main>
             <div id="profile-info">
-                <img id="profile-pic" src="img/profile_pic.jpg" alt="Profile Pic" width="250">
+                <?php
+                $profilePicturePath = "img/profile_pic.jpg";
+                if($user->profilePicture !== "") 
+                {
+                    $profilePicturePath = "uploads/" . $user->profilePicture;
+                }
+                ?>
+                <img id="profile-pic" src="<?php echo $profilePicturePath ?>" alt="Profile Pic" width="250">
                 <button id="profile-picture-change">Change Profile Picture</button>
                 <p id="profile-info-name"><?php echo $user->username?></p>
                 <p id="profile-info-posts"><?php echo count($posts); ?> post(s)</p>

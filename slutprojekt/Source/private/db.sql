@@ -12,7 +12,7 @@ CREATE TABLE users(
     uCreatedDate datetime NOT NULL default CURRENT_TIMESTAMP,
     uUserType ENUM ('member', 'moderator', 'admin') NOT NULL DEFAULT 'member',
     uSignature varchar(32) DEFAULT "",
-    uProfilePicture varchar(128) NOT NULL DEFAULT 'default_pic.png',
+    uProfilePicture varchar(128) NOT NULL DEFAULT '',
     uTheme ENUM('light', 'dark') NOT NULL DEFAULT 'light'
 );
 

@@ -95,6 +95,13 @@ class AuthUser
         $this->database->Query($query);
     }
 
+    public function ChangeProfilePicture(string $fileName) 
+    {
+        $userID = $this->id;
+        $query = "UPDATE users SET uProfilePicture='$fileName' WHERE uID=$userID";
+        $this->database->Query($query);
+    }
+
     public static function CreateFromRow($database, $row): AuthUser
     {
         return new AuthUser(
