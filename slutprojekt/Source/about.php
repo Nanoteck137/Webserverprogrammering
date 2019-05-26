@@ -20,7 +20,7 @@
             <p id="about-us-title">About Us</p>
             <div id="about-us-profiles">
                 <div class="about-us-profile">
-                    <img src="img/test3.png" alt="" width="200" style="border-radius: 100px">
+                    <img src="img/about_us_img_3.png" alt="" width="200" style="border-radius: 100px">
                     <?php
                         $user = $auth->GetUserByUsername("BigHippo");
                     ?>
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="about-us-profile">
-                    <img src="img/test.png" alt="" width="200" style="border-radius: 100px">
+                    <img src="img/about_us_img_1.png" alt="" width="200" style="border-radius: 100px">
                     <?php
                         $user = $auth->GetUserByUsername("kingminecraft");
                     ?>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="about-us-profile">
-                    <img src="img/test2.png" alt="" width="200" style="border-radius: 100px">
+                    <img src="img/about_us_img_2.png" alt="" width="200" style="border-radius: 100px">
                     <?php
                         $user = $auth->GetUserByUsername("lateMine");
                     ?>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="about-us-profile">
-                    <img src="img/test4.png" alt="" width="200" style="border-radius: 100px">
+                    <img src="img/about_us_img_4.png" alt="" width="200" style="border-radius: 100px">
                     <?php
                         $user = $auth->GetUserByUsername("finnanut");
                     ?>
