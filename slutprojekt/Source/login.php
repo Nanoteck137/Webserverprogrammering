@@ -31,7 +31,7 @@
         {
             $user = $auth->GetUserByUsername($_POST["username"]);
             //TODO(patrik): Hash the passwords
-            if ($user->password === $_POST["password"]) 
+            if (password_verify($_POST["password"], $user->password)) 
             {
                 $auth->Login($user);
                 

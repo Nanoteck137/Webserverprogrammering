@@ -35,18 +35,21 @@ function create_empty_object()
     return $result;
 }
 
-function create_object(mysqli $database) 
+function create_object() 
 {
+    $database = $GLOBALS["database"];
+
     $result = create_empty_object();
     $result->name = $_POST["name"];
 
     //NOTE(patrik): Check if the username is taken    
     $username = $_POST["username"];
     
-    $query = "SELECT * FROM users WHERE username='$username'";
+    $query = "SELECT * FROM users WHERE uUsername='$username'";
     //TODO(patrik): Check errors
-    $db_result = $database->query($query);
-    if($db_result->num_rows === 1) 
+
+    $db_result = $database->Query($query);
+    if($db_result->GetNumRows() === 1) 
     {
         $result->username_taken = true;
         $result->can_register = false;
@@ -60,11 +63,11 @@ function create_object(mysqli $database)
     //NOTE(patrik): Check if the email is in use
     $email = $_POST["email"];
 
-    $query = "SELECT * FROM users WHERE email='$email'";
+    $query = "SELECT * FROM users WHERE uEmail='$email'";
     //TODO(patrik): Check errors
-    $db_result = $database->query($query);
+    $db_result = $database->Query($query);
 
-    if ($db_result->num_rows === 1) 
+    if ($db_result->GetNumRows() === 1) 
     {
         $result->email_in_use = true;
         $result->can_register = false;
@@ -93,22 +96,22 @@ $object = create_empty_object();
 
 if (validate_post_request()) 
 {
-    $object = create_object($database_main);
+    $object = create_object();
 
     if($object->can_register) 
     {
         $name = $object->name;
         $username = $object->username;
         $email = $object->email;
-        $password = $object->password;
+        $password = password_hash($object->password, PASSWORD_DEFAULT);
         $birthdate = $object->birthdate;
 
-        $query = "INSERT INTO users(name, username, email, password, birthdate) VALUES ('$name', '$username', '$email', '$password', '$birthdate')";
+        $query = "INSERT INTO users(uName, uUsername, uEmail, uPassword, uBirthdate) VALUES ('$name', '$username', '$email', '$password', '$birthdate')";
         //TODO(patrik): Check if theres was an error
-        $database_main->query($query);
+        $database->Query($query);
 
-        $user = get_user_from_username($database_main, $username);
-        signin($user);
+        $user = $auth->GetUserByUsername($username);
+        $auth->Login($user);
 
         header("location: index.php");
         exit();

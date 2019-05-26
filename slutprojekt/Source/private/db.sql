@@ -7,7 +7,7 @@ CREATE TABLE users(
     uName varchar (32) NOT NULL,
     uUsername varchar (64) NOT NULL,
     uEmail varchar (64) NOT NULL,
-    uPassword varchar (64) NOT NULL,
+    uPassword varchar (128) NOT NULL,
     uBirthdate datetime NOT NULL,
     uCreatedDate datetime NOT NULL default CURRENT_TIMESTAMP,
     uUserType ENUM ('member', 'moderator', 'admin') NOT NULL DEFAULT 'member',
@@ -52,13 +52,13 @@ CREATE TABLE forum_comments (
 );
 
 INSERT INTO users (uName, uUsername, uEmail, uPassword, uBirthdate, uUserType) VALUES
-    ("Patrik Millvik", "Nanoteck137", "patrik.millvik@gmail.com", "testpass", "2001-01-02", "admin"),
+    ("Patrik Millvik", "Nanoteck137", "patrik.millvik@gmail.com", "$2y$12$B1e.b9pRg73vh9cF1du1BeKcxlP7kERmSjyiqlBzkq9.5KpV6clfe", "2001-01-02", "admin"),
     ("Wooh", "Test", "test@gmail.com", "wooh", "2004-04-04", "member"),
 
-    ("Jimmy Berglund", "BigHippo", "hippo@live.com", "testpass", STR_TO_DATE("2005-12-31", "%Y-%m-%d"), "admin"),
-    ("Lars Strömberg", "kingminecraft", "mineking@yahoo.com", "testpass", STR_TO_DATE("1944-09-11", "%Y-%m-%d"), "admin"),
-    ("Theodor Lindström", "lateMine", "latemine@elev.ga.ntig.se", "testpass", STR_TO_DATE("2016-06-08", "%Y-%m-%d"), "admin"),
-    ("Frank Olsson", "finnanut", "nutting@hotmail.nu", "testpass", STR_TO_DATE("2007-04-20", "%Y-%m-%d"), "admin");
+    ("Jimmy Berglund", "BigHippo", "hippo@live.com", "$2y$12$B1e.b9pRg73vh9cF1du1BeKcxlP7kERmSjyiqlBzkq9.5KpV6clfe", STR_TO_DATE("2005-12-31", "%Y-%m-%d"), "admin"),
+    ("Lars Strömberg", "kingminecraft", "mineking@yahoo.com", "$2y$12$B1e.b9pRg73vh9cF1du1BeKcxlP7kERmSjyiqlBzkq9.5KpV6clfe", STR_TO_DATE("1944-09-11", "%Y-%m-%d"), "admin"),
+    ("Theodor Lindström", "lateMine", "latemine@elev.ga.ntig.se", "$2y$12$B1e.b9pRg73vh9cF1du1BeKcxlP7kERmSjyiqlBzkq9.5KpV6clfe", STR_TO_DATE("2016-06-08", "%Y-%m-%d"), "admin"),
+    ("Frank Olsson", "finnanut", "nutting@hotmail.nu", "$2y$12$B1e.b9pRg73vh9cF1du1BeKcxlP7kERmSjyiqlBzkq9.5KpV6clfe", STR_TO_DATE("2007-04-20", "%Y-%m-%d"), "admin");
 
 INSERT INTO forum_posts(pTitle, pContent, pAuthor) VALUES 
     ("Hello World", "This is a test", 1),
