@@ -3,7 +3,9 @@
     common_start();
 ?>
 
-<?php 
+<?php
+    //NOTE(patrik): Sida för att logga ut användaren
+
     $auth->Logout();
     
     header("location: index.php");

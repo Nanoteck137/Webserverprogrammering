@@ -15,6 +15,8 @@
 
 <body>
     <?php
+    //NOTE(patrik): Hantera att använderen försöker att logga in
+
     $signin_error = false;
 
     if($auth->IsUserLoggedIn())

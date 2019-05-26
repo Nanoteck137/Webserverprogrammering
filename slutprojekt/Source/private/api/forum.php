@@ -252,6 +252,24 @@ class Forum
         return $posts;
     }
 
+    public function GetAllPopularPosts(): array
+    {
+        $posts = array();
+
+        $query = "SELECT upPost, SUM(upValue) FROM forum_post_rate GROUP BY upPost";
+        $result = $this->database->Query($query);
+
+        for($i = 0; $i < $result->GetNumRows(); $i++)
+        {
+            $row = $result->GetRow($i);
+            $post = $this->GetPostById($row["upPost"]);
+
+            array_push($posts, $post);
+        }
+
+        return $posts;
+    }
+
     public function GetPostById(int $id): ?Post
     {
         $query = "SELECT * FROM forum_posts WHERE pID=$id ORDER BY forum_posts.pCreatedDate DESC";

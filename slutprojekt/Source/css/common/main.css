@@ -16,6 +16,10 @@
     --secondary-background-color-dark-on: #ffffff;*/
 }
 
+.logo-text {
+    color: #ff00ff;
+}
+
 * {
     margin: 0;
     padding: 0;

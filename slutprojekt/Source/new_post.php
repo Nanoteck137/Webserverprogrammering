@@ -6,6 +6,7 @@
 <?php
     $auth->RedirectNotLoggedIn();
 
+    // NOTE(patrik): Om användaren har skickat i väg ett nytt inlägg så hanteras det här
     if(isset($_POST["title"]) && isset($_POST["content"]))
     {
         $user = $auth->GetLoggedInUser();

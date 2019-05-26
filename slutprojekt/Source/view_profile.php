@@ -5,6 +5,9 @@
 
 <?php
 
+/*
+    NOTE(patrik): Hantera upladdningen av profil bilden
+*/
 if(isset($_POST["submit"]))
 {
     $targetPath = "uploads/";
@@ -39,8 +42,7 @@ if(isset($_POST["submit"]))
 
 <body>
     <?php
-        //$comments = get_comments_from_user_id($database_main, $user);
-
+        // NOTE(patrik): Hämta använderen för denna profilen
         $user = null;
         if(isset($_GET["p"])) 
         {
@@ -60,7 +62,10 @@ if(isset($_POST["submit"]))
             exit();
         }
 
+        // NOTE(patrik): Hämta alla inlägg som användern har gjort
         $posts = $forum->GetPostFromUser($user);
+
+        //NOTE(patrik): Hämta alla kommentarer som användaren har gjort
         $comments = $forum->GetCommentsFromUser($user);
     ?>
 
@@ -70,6 +75,8 @@ if(isset($_POST["submit"]))
         <main>
             <div id="profile-info">
                 <?php
+
+                // NOTE(patrik): Hämta vilken profil bild använder har default eller en egen
                 $profilePicturePath = "img/profile_pic.jpg";
                 if($user->profilePicture !== "") 
                 {
@@ -77,7 +84,16 @@ if(isset($_POST["submit"]))
                 }
                 ?>
                 <img id="profile-pic" src="<?php echo $profilePicturePath ?>" alt="Profile Pic" width="250">
+                
+                <?php
+                if($auth->IsUserLoggedIn() && (isset($_GET["p"]) && $auth->GetLoggedInUser()->id === $_GET["p"])) 
+                {
+                ?>
                 <button id="profile-picture-change">Change Profile Picture</button>
+                <?php
+                }
+                ?>
+
                 <p id="profile-info-name"><?php echo $user->username?></p>
                 <p id="profile-info-posts"><?php echo count($posts); ?> post(s)</p>
                 <p id="profile-info-comments"><?php echo count($comments); ?> comment(s)</p>
@@ -96,6 +112,7 @@ if(isset($_POST["submit"]))
                 <div id="profile-posts">
 
                     <?php
+                    //NOTE(patrik): Rendera all info om alla inlägg användaren har gjort
                     for ($i = 0; $i < count($posts); $i++) 
                     {
                         $post = $posts[$i];

@@ -12,11 +12,13 @@ $changeEmailError = false;
 
 $user = $auth->GetLoggedInUser();
 
+// NOTE(patrik): Om användaren vill byta lösenord så kommer denna functionen returera true
 function is_change_password() 
 {
     return isset($_POST["old_password"]) && isset($_POST["new_password"]) && isset($_POST["confirm_new_password"]);
 }
 
+// NOTE(patrik): Kod som faktist byter lösenordet
 if(is_change_password())
 {
     if($_POST["new_password"] !== $_POST["confirm_new_password"]) 
@@ -39,11 +41,13 @@ if(is_change_password())
     }
 }
 
+// NOTE(patrik): Om användaren vill byta email så kommer denna functionen returera true
 function IsChangeEmail()
 {
     return isset($_POST["old_email"]) && isset($_POST["new_email"]);
 }
 
+// NOTE(patrik): Kod som faktist byter email
 if(IsChangeEmail()) 
 {
     $oldEmail = $_POST["old_email"];
@@ -60,11 +64,13 @@ if(IsChangeEmail())
     }
 }
 
+// NOTE(patrik): Om användaren vill byta tema så kommer denna functionen returera true
 function IsChangeTheme() 
 {
     return isset($_POST["theme"]);    
 }
 
+// NOTE(patrik): Kod som faktist byter tema
 if(IsChangeTheme())
 {
     $theme = $_POST["theme"];

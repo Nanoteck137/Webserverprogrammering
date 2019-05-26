@@ -5,6 +5,8 @@
 
 <?php
 
+//TODO(patrik): Refactor the code here
+
 function validate_post_request(): bool
 {
     return isset($_POST["name"]) && 

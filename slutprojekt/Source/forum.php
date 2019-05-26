@@ -15,6 +15,8 @@
 
 <body>
     <?php
+        //NOTE(patrik): Hantera om användaren vill söka eller sortera inläggen
+
         $search = "";
         if(isset($_GET["q"])) 
         {
@@ -76,6 +78,8 @@
 
             <div id="all-forum-posts">
                 <?php
+                //NOTE(patrik): Rendera alla forum inläggen med hjälp av 
+                //              användarens val av sökning och sortering
                 $posts = $forum->GetAllPosts("WHERE forum_posts.pTitle LIKE '%$search%'", $sortOrder, "LIMIT 10", "OFFSET 0");
                 for ($i = 0; $i < count($posts); $i++) 
                 {
@@ -101,6 +105,8 @@
         <?php include "template/footer.php" ?>
 
         <script>
+        //NOTE(patrik): Om använderen har ändrat någon av sorterings 
+        //              alternativen så submita formen direkt 
         $(".forum-sort-option-item-radio").change(() => {
             $(".forum-search-bar").submit();
         });

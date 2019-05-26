@@ -5,7 +5,10 @@
 
 <?php 
 
-    // Example: rate.php?r=upvote&p=1
+    //NOTE(patrik): Denna sida används för att hantera rating på ett post
+    // Exempel: rate.php?r=upvote&p=1
+    // r - Request(upvote/downvote)
+    // p - Inläggs ID:t i databasen
 
     if(isset($_GET["p"]) && isset($_GET["r"]))
     {

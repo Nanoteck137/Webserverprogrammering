@@ -13,13 +13,14 @@
 
 <body>
     <?php
+        // NOTE(patrik): Om p inte existerar i get variablerna så gå till index.php instället
         if(!isset($_GET["p"]))
         {
             header("location: index.php");
             exit();
         }
 
-        
+        // NOTE(patrik): Om använderan har gjort en kommentar så skapa en column i databasen
         if(isset($_POST["create_comment_content"])) 
         {
             $post = $forum->GetPostById($_GET["p"]);
@@ -36,6 +37,9 @@
             exit();
         }
 
+        // NOTE(patrik): Försöker hämta info om den här 
+        //               specifika inlägget och kommentarerna 
+        //               annars gå till index.php
         try 
         {
             $post = $forum->GetPostById($_GET["p"]);
@@ -56,6 +60,8 @@
             </div>
 
             <?php
+            // NOTE(patrik): Om användaren är inloggad och hen kollar på sin egen profil 
+            //               så visa kontroller för att ta bort eller redigera sitt inlägg 
             if($auth->IsUserLoggedIn() && $auth->GetLoggedInUser()->id == $post->author->id) 
             {
             ?>
@@ -73,6 +79,8 @@
 
             <div id="view-post-info">
                 <?php
+                // NOTE(patrik): Om användaren är inloggad så ska hen 
+                //               få kunna göra en upvote eller en downvote
                 if($auth->IsUserLoggedIn())
                 {
                 ?>
@@ -121,7 +129,8 @@
             </div>
 
             <div id="view-post-comments">
-                <?php
+            <?php
+            //NOTE(patrik): Rendera alla kommentarer på detta inlägget
             for($i = 0; $i < count($comments); $i++) 
             {
                 $comment = $comments[$i];
@@ -154,6 +163,8 @@
             </div>
 
             <?php
+            // NOTE(patrik): Om användaren är inloggad så ska hen kunna göra en
+            //               kommentar och posta det till detta inlägget
             if($auth->IsUserLoggedIn()) 
             {
             ?>
