@@ -77,7 +77,7 @@ if(isset($_POST["submit"]))
                 <?php
 
                 // NOTE(patrik): Hämta vilken profil bild använder har default eller en egen
-                $profilePicturePath = "img/profile_pic.jpg";
+                $profilePicturePath = "img/default_profile_picture.jpg";
                 if($user->profilePicture !== "") 
                 {
                     $profilePicturePath = "uploads/" . $user->profilePicture;
