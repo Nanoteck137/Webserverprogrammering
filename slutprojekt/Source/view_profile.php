@@ -84,11 +84,13 @@ if(isset($_POST["submit"]))
                 }
                 ?>
                 <img id="profile-pic" src="<?php echo $profilePicturePath ?>" alt="Profile Pic" width="250">
-                
+
                 <?php
-                if($auth->IsUserLoggedIn() && (isset($_GET["p"]) && $auth->GetLoggedInUser()->id === $_GET["p"])) 
+                if($auth->IsUserLoggedIn() && $auth->GetLoggedInUser()->id === (int)$_GET["p"])
                 {
+                    
                 ?>
+
                 <button id="profile-picture-change">Change Profile Picture</button>
                 <?php
                 }
